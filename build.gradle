@@ -2,18 +2,17 @@
 // pamhc2trees mod gradle build relay (mc1.15.2)
 buildscript {
     repositories {
-        maven { url = 'https://files.minecraftforge.net/maven' }
-        jcenter()
+        maven { url = 'https://maven.minecraftforge.net' }
         mavenCentral()
     }
     dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '3.+', changing: true
+        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.+', changing: true
     }
 }
 apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
-sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8'
+java.toolchain.languageVersion = JavaLanguageVersion.of(8)
 //-----------------------------------------------------------------------------
 version = "${version_pamhc2trees}"
 group = "com.pam.pamhc2trees"
@@ -31,9 +30,9 @@ minecraft {
     runs {
         client {
             workingDirectory project.file('run')
-            property 'forge.logging.markers', ''
-            property 'forge.logging.console.level', 'debug'
-            property 'forge.logging.noansi', "false"
+            //property 'forge.logging.markers', ''
+            //property 'forge.logging.console.level', 'debug'
+            //property 'forge.logging.noansi', "false"
             mods {
                 pamhc2trees {
                     source sourceSets.main
