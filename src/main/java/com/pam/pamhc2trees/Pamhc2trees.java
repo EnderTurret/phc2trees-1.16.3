@@ -14,6 +14,8 @@ import com.pam.pamhc2trees.init.ItemRegistry;
 import com.pam.pamhc2trees.init.TemperateFruitTreeWorldGenRegistry;
 import com.pam.pamhc2trees.init.WarmFruitTreeWorldGenRegistry;
 import com.pam.pamhc2trees.init.WorldGenRegistry;
+import com.pam.pamhc2trees.proxy.ClientProxy;
+import com.pam.pamhc2trees.proxy.ServerProxy;
 
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
@@ -45,7 +47,7 @@ public class Pamhc2trees {
 	};
 
 	public Pamhc2trees() {
-		DistExecutor.safeRunForDist(() -> SideProxy.Client::new, () -> SideProxy.Server::new);
+		DistExecutor.safeRunForDist(() -> ClientProxy::new, () -> ServerProxy::new);
 
 		ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, Config.CONFIG, "pamhc2trees.toml");
 		Config.loadConfig(Config.CONFIG, FMLPaths.CONFIGDIR.get().resolve("pamhc2trees.toml"));
