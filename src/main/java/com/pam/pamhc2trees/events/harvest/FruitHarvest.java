@@ -64,10 +64,10 @@ public class FruitHarvest {
 
 						for (int i = 0; i < drops.size(); i++) {
 							//if (drops.get(i).getItem() != getCropSeed(block))
-								event.getWorld()
-								.addEntity(new ItemEntity(event.getWorld(), event.getPos().getX(),
-										event.getPos().getY(), event.getPos().getZ(),
-										drops.get(i)));
+							event.getWorld()
+							.addEntity(new ItemEntity(event.getWorld(), event.getPos().getX(),
+									event.getPos().getY(), event.getPos().getZ(),
+									drops.get(i)));
 						}
 					}
 

@@ -30,8 +30,8 @@ public class WarmLogFruitTreeFeature extends Feature<NoFeatureConfig> {
 	public boolean generate(ISeedReader world, ChunkGenerator generator, Random random,
 			BlockPos pos, NoFeatureConfig config) {
 		if (random.nextInt(ChanceConfig.warmfruittree_chance.get()) != 0
-			|| DimensionConfig.blacklist.get().contains(world.getWorld().getDimensionKey().getLocation().toString())
-			|| (!DimensionConfig.whitelist.get().contains(world.getWorld().getDimensionKey().getLocation().toString()) && DimensionConfig.whitelist.get().size()>0))
+				|| DimensionConfig.blacklist.get().contains(world.getWorld().getDimensionKey().getLocation().toString())
+				|| (!DimensionConfig.whitelist.get().contains(world.getWorld().getDimensionKey().getLocation().toString()) && DimensionConfig.whitelist.get().size()>0))
 			return false;
 		if (isValidGround(world.getBlockState(pos.down()), world, pos)
 				&& world.getBlockState(pos).getMaterial().isReplaceable()) {
@@ -119,10 +119,10 @@ public class WarmLogFruitTreeFeature extends Feature<NoFeatureConfig> {
 		switch (verify) {
 		case 1:
 			if (EnableConfig.cinnamon_worldgen != null)
-			return BlockRegistry.pamcinnamon.getDefaultState().with(BlockStateProperties.AGE_0_7, i);
+				return BlockRegistry.pamcinnamon.getDefaultState().with(BlockStateProperties.AGE_0_7, i);
 		case 2:
 			if (EnableConfig.paperbark_worldgen != null)
-			return BlockRegistry.pampaperbark.getDefaultState().with(BlockStateProperties.AGE_0_7, i);
+				return BlockRegistry.pampaperbark.getDefaultState().with(BlockStateProperties.AGE_0_7, i);
 		default:
 			return BlockRegistry.pamalmond.getDefaultState().with(BlockStateProperties.AGE_0_7, i);
 		}

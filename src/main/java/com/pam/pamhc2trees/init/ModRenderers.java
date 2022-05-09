@@ -24,7 +24,7 @@ public class ModRenderers {
 		RenderTypeLookup.setRenderLayer(BlockRegistry.pamhazelnut, RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(BlockRegistry.pampawpaw, RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(BlockRegistry.pamsoursop, RenderType.getCutout());
-			//Warm Fruits
+		//Warm Fruits
 		RenderTypeLookup.setRenderLayer(BlockRegistry.pamalmond, RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(BlockRegistry.pamapricot, RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(BlockRegistry.pambanana, RenderType.getCutout());
@@ -55,11 +55,11 @@ public class ModRenderers {
 		RenderTypeLookup.setRenderLayer(BlockRegistry.pampassionfruit, RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(BlockRegistry.pamrambutan, RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(BlockRegistry.pamtamarind, RenderType.getCutout());
-			//Cold Fruits
+		//Cold Fruits
 		RenderTypeLookup.setRenderLayer(BlockRegistry.pammaple, RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(BlockRegistry.pampinenut, RenderType.getCutout());
 
-			//Temperate Saplings
+		//Temperate Saplings
 		RenderTypeLookup.setRenderLayer(BlockRegistry.apple_sapling, RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(BlockRegistry.avocado_sapling, RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(BlockRegistry.candlenut_sapling, RenderType.getCutout());
@@ -77,7 +77,7 @@ public class ModRenderers {
 		RenderTypeLookup.setRenderLayer(BlockRegistry.hazelnut_sapling, RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(BlockRegistry.pawpaw_sapling, RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(BlockRegistry.soursop_sapling, RenderType.getCutout());
-			//Warm Saplings
+		//Warm Saplings
 		RenderTypeLookup.setRenderLayer(BlockRegistry.almond_sapling, RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(BlockRegistry.apricot_sapling, RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(BlockRegistry.banana_sapling, RenderType.getCutout());
@@ -108,8 +108,8 @@ public class ModRenderers {
 		RenderTypeLookup.setRenderLayer(BlockRegistry.passionfruit_sapling, RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(BlockRegistry.rambutan_sapling, RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(BlockRegistry.tamarind_sapling, RenderType.getCutout());
-			//Cold Saplings
+		//Cold Saplings
 		RenderTypeLookup.setRenderLayer(BlockRegistry.maple_sapling, RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(BlockRegistry.pinenut_sapling, RenderType.getCutout());
-}
+	}
 }

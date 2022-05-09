@@ -21,12 +21,12 @@ public class TemperateFruitTreeWorldGenRegistry {
 		//apple
 		if (WorldGenRegistry.apple_worldgen != null) {
 			if (types.contains(BiomeDictionary.Type.FOREST)) {
-						evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-								TreeConfiguredFeatures.APPLE_WORLDGEN);
+				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
+						TreeConfiguredFeatures.APPLE_WORLDGEN);
 			}
 			if (types.contains(BiomeDictionary.Type.HILLS)) {
-						evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-								TreeConfiguredFeatures.APPLE_WORLDGEN);
+				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
+						TreeConfiguredFeatures.APPLE_WORLDGEN);
 			}
 			if (types.contains(BiomeDictionary.Type.SPOOKY)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
@@ -36,12 +36,12 @@ public class TemperateFruitTreeWorldGenRegistry {
 		//avocado
 		if (WorldGenRegistry.avocado_worldgen != null) {
 			if (types.contains(BiomeDictionary.Type.FOREST)) {
-						evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-								TreeConfiguredFeatures.AVOCADO_WORLDGEN);
+				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
+						TreeConfiguredFeatures.AVOCADO_WORLDGEN);
 			}
 			if (types.contains(BiomeDictionary.Type.HILLS)) {
-						evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-								TreeConfiguredFeatures.AVOCADO_WORLDGEN);
+				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
+						TreeConfiguredFeatures.AVOCADO_WORLDGEN);
 			}
 			if (types.contains(BiomeDictionary.Type.SPOOKY)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
@@ -51,12 +51,12 @@ public class TemperateFruitTreeWorldGenRegistry {
 		//candlenut
 		if (WorldGenRegistry.candlenut_worldgen != null) {
 			if (types.contains(BiomeDictionary.Type.FOREST)) {
-						evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-								TreeConfiguredFeatures.CANDLENUT_WORLDGEN);
+				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
+						TreeConfiguredFeatures.CANDLENUT_WORLDGEN);
 			}
 			if (types.contains(BiomeDictionary.Type.HILLS)) {
-						evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-								TreeConfiguredFeatures.CANDLENUT_WORLDGEN);
+				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
+						TreeConfiguredFeatures.CANDLENUT_WORLDGEN);
 			}
 			if (types.contains(BiomeDictionary.Type.SPOOKY)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
@@ -66,12 +66,12 @@ public class TemperateFruitTreeWorldGenRegistry {
 		//cherry
 		if (WorldGenRegistry.cherry_worldgen != null) {
 			if (types.contains(BiomeDictionary.Type.FOREST)) {
-						evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-								TreeConfiguredFeatures.CHERRY_WORLDGEN);
+				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
+						TreeConfiguredFeatures.CHERRY_WORLDGEN);
 			}
 			if (types.contains(BiomeDictionary.Type.HILLS)) {
-						evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-								TreeConfiguredFeatures.CHERRY_WORLDGEN);
+				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
+						TreeConfiguredFeatures.CHERRY_WORLDGEN);
 			}
 			if (types.contains(BiomeDictionary.Type.SPOOKY)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
@@ -81,12 +81,12 @@ public class TemperateFruitTreeWorldGenRegistry {
 		//chestnut
 		if (WorldGenRegistry.chestnut_worldgen != null) {
 			if (types.contains(BiomeDictionary.Type.FOREST)) {
-						evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-								TreeConfiguredFeatures.CHESTNUT_WORLDGEN);
+				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
+						TreeConfiguredFeatures.CHESTNUT_WORLDGEN);
 			}
 			if (types.contains(BiomeDictionary.Type.HILLS)) {
-						evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-								TreeConfiguredFeatures.CHESTNUT_WORLDGEN);
+				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
+						TreeConfiguredFeatures.CHESTNUT_WORLDGEN);
 			}
 			if (types.contains(BiomeDictionary.Type.SPOOKY)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
@@ -96,12 +96,12 @@ public class TemperateFruitTreeWorldGenRegistry {
 		//gooseberry
 		if (WorldGenRegistry.gooseberry_worldgen != null) {
 			if (types.contains(BiomeDictionary.Type.FOREST)) {
-						evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-								TreeConfiguredFeatures.GOOSEBERRY_WORLDGEN);
+				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
+						TreeConfiguredFeatures.GOOSEBERRY_WORLDGEN);
 			}
 			if (types.contains(BiomeDictionary.Type.HILLS)) {
-						evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-								TreeConfiguredFeatures.GOOSEBERRY_WORLDGEN);
+				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
+						TreeConfiguredFeatures.GOOSEBERRY_WORLDGEN);
 			}
 			if (types.contains(BiomeDictionary.Type.SPOOKY)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
@@ -111,12 +111,12 @@ public class TemperateFruitTreeWorldGenRegistry {
 		//lemon
 		if (WorldGenRegistry.lemon_worldgen != null) {
 			if (types.contains(BiomeDictionary.Type.FOREST)) {
-						evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-								TreeConfiguredFeatures.LEMON_WORLDGEN);
+				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
+						TreeConfiguredFeatures.LEMON_WORLDGEN);
 			}
 			if (types.contains(BiomeDictionary.Type.HILLS)) {
-						evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-								TreeConfiguredFeatures.LEMON_WORLDGEN);
+				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
+						TreeConfiguredFeatures.LEMON_WORLDGEN);
 			}
 			if (types.contains(BiomeDictionary.Type.SPOOKY)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
@@ -126,12 +126,12 @@ public class TemperateFruitTreeWorldGenRegistry {
 		//nutmeg
 		if (WorldGenRegistry.nutmeg_worldgen != null) {
 			if (types.contains(BiomeDictionary.Type.FOREST)) {
-						evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-								TreeConfiguredFeatures.NUTMEG_WORLDGEN);
+				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
+						TreeConfiguredFeatures.NUTMEG_WORLDGEN);
 			}
 			if (types.contains(BiomeDictionary.Type.HILLS)) {
-						evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-								TreeConfiguredFeatures.NUTMEG_WORLDGEN);
+				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
+						TreeConfiguredFeatures.NUTMEG_WORLDGEN);
 			}
 			if (types.contains(BiomeDictionary.Type.SPOOKY)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
@@ -141,12 +141,12 @@ public class TemperateFruitTreeWorldGenRegistry {
 		//orange
 		if (WorldGenRegistry.orange_worldgen != null) {
 			if (types.contains(BiomeDictionary.Type.FOREST)) {
-						evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-								TreeConfiguredFeatures.ORANGE_WORLDGEN);
+				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
+						TreeConfiguredFeatures.ORANGE_WORLDGEN);
 			}
 			if (types.contains(BiomeDictionary.Type.HILLS)) {
-						evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-								TreeConfiguredFeatures.ORANGE_WORLDGEN);
+				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
+						TreeConfiguredFeatures.ORANGE_WORLDGEN);
 			}
 			if (types.contains(BiomeDictionary.Type.SPOOKY)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
@@ -156,12 +156,12 @@ public class TemperateFruitTreeWorldGenRegistry {
 		//peach
 		if (WorldGenRegistry.peach_worldgen != null) {
 			if (types.contains(BiomeDictionary.Type.FOREST)) {
-						evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-								TreeConfiguredFeatures.PEACH_WORLDGEN);
+				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
+						TreeConfiguredFeatures.PEACH_WORLDGEN);
 			}
 			if (types.contains(BiomeDictionary.Type.HILLS)) {
-						evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-								TreeConfiguredFeatures.PEACH_WORLDGEN);
+				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
+						TreeConfiguredFeatures.PEACH_WORLDGEN);
 			}
 			if (types.contains(BiomeDictionary.Type.SPOOKY)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
@@ -171,12 +171,12 @@ public class TemperateFruitTreeWorldGenRegistry {
 		//pear
 		if (WorldGenRegistry.pear_worldgen != null) {
 			if (types.contains(BiomeDictionary.Type.FOREST)) {
-						evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-								TreeConfiguredFeatures.PEAR_WORLDGEN);
+				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
+						TreeConfiguredFeatures.PEAR_WORLDGEN);
 			}
 			if (types.contains(BiomeDictionary.Type.HILLS)) {
-						evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-								TreeConfiguredFeatures.PEAR_WORLDGEN);
+				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
+						TreeConfiguredFeatures.PEAR_WORLDGEN);
 			}
 			if (types.contains(BiomeDictionary.Type.SPOOKY)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
@@ -186,12 +186,12 @@ public class TemperateFruitTreeWorldGenRegistry {
 		//plum
 		if (WorldGenRegistry.plum_worldgen != null) {
 			if (types.contains(BiomeDictionary.Type.FOREST)) {
-						evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-								TreeConfiguredFeatures.PLUM_WORLDGEN);
+				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
+						TreeConfiguredFeatures.PLUM_WORLDGEN);
 			}
 			if (types.contains(BiomeDictionary.Type.HILLS)) {
-						evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-								TreeConfiguredFeatures.PLUM_WORLDGEN);
+				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
+						TreeConfiguredFeatures.PLUM_WORLDGEN);
 			}
 			if (types.contains(BiomeDictionary.Type.SPOOKY)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
@@ -201,12 +201,12 @@ public class TemperateFruitTreeWorldGenRegistry {
 		//walnut
 		if (WorldGenRegistry.walnut_worldgen != null) {
 			if (types.contains(BiomeDictionary.Type.FOREST)) {
-						evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-								TreeConfiguredFeatures.WALNUT_WORLDGEN);
+				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
+						TreeConfiguredFeatures.WALNUT_WORLDGEN);
 			}
 			if (types.contains(BiomeDictionary.Type.HILLS)) {
-						evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-								TreeConfiguredFeatures.WALNUT_WORLDGEN);
+				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
+						TreeConfiguredFeatures.WALNUT_WORLDGEN);
 			}
 			if (types.contains(BiomeDictionary.Type.SPOOKY)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
@@ -216,12 +216,12 @@ public class TemperateFruitTreeWorldGenRegistry {
 		//spiderweb
 		if (WorldGenRegistry.avocado_worldgen != null) {
 			if (types.contains(BiomeDictionary.Type.FOREST)) {
-						evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-								TreeConfiguredFeatures.SPIDERWEB_WORLDGEN);
+				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
+						TreeConfiguredFeatures.SPIDERWEB_WORLDGEN);
 			}
 			if (types.contains(BiomeDictionary.Type.HILLS)) {
-						evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-								TreeConfiguredFeatures.SPIDERWEB_WORLDGEN);
+				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
+						TreeConfiguredFeatures.SPIDERWEB_WORLDGEN);
 			}
 			if (types.contains(BiomeDictionary.Type.SPOOKY)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
@@ -231,12 +231,12 @@ public class TemperateFruitTreeWorldGenRegistry {
 		//hazelnut
 		if (WorldGenRegistry.hazelnut_worldgen != null) {
 			if (types.contains(BiomeDictionary.Type.FOREST)) {
-						evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-								TreeConfiguredFeatures.HAZELNUT_WORLDGEN);
+				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
+						TreeConfiguredFeatures.HAZELNUT_WORLDGEN);
 			}
 			if (types.contains(BiomeDictionary.Type.HILLS)) {
-						evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-								TreeConfiguredFeatures.HAZELNUT_WORLDGEN);
+				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
+						TreeConfiguredFeatures.HAZELNUT_WORLDGEN);
 			}
 			if (types.contains(BiomeDictionary.Type.SPOOKY)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
@@ -246,12 +246,12 @@ public class TemperateFruitTreeWorldGenRegistry {
 		//pawpaw
 		if (WorldGenRegistry.pawpaw_worldgen != null) {
 			if (types.contains(BiomeDictionary.Type.FOREST)) {
-						evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-								TreeConfiguredFeatures.PAWPAW_WORLDGEN);
+				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
+						TreeConfiguredFeatures.PAWPAW_WORLDGEN);
 			}
 			if (types.contains(BiomeDictionary.Type.HILLS)) {
-						evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-								TreeConfiguredFeatures.PAWPAW_WORLDGEN);
+				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
+						TreeConfiguredFeatures.PAWPAW_WORLDGEN);
 			}
 			if (types.contains(BiomeDictionary.Type.SPOOKY)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
@@ -261,12 +261,12 @@ public class TemperateFruitTreeWorldGenRegistry {
 		//soursop
 		if (WorldGenRegistry.soursop_worldgen != null) {
 			if (types.contains(BiomeDictionary.Type.FOREST)) {
-						evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-								TreeConfiguredFeatures.SOURSOP_WORLDGEN);
+				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
+						TreeConfiguredFeatures.SOURSOP_WORLDGEN);
 			}
 			if (types.contains(BiomeDictionary.Type.HILLS)) {
-						evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
-								TreeConfiguredFeatures.SOURSOP_WORLDGEN);
+				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
+						TreeConfiguredFeatures.SOURSOP_WORLDGEN);
 			}
 			if (types.contains(BiomeDictionary.Type.SPOOKY)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,

@@ -215,7 +215,7 @@ public class ColdLogFruitTreeFeatureSapling extends Feature<NoFeatureConfig> {
 	private static BlockState getFruit(int verify, Random random)
 	{
 
-			return BlockRegistry.pammaple.getDefaultState().with(BlockStateProperties.AGE_0_7, Integer.valueOf(0));
+		return BlockRegistry.pammaple.getDefaultState().with(BlockStateProperties.AGE_0_7, Integer.valueOf(0));
 
 
 	}

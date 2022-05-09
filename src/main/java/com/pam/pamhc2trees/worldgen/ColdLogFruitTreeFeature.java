@@ -29,8 +29,8 @@ public class ColdLogFruitTreeFeature extends Feature<NoFeatureConfig> {
 	public boolean generate(ISeedReader world, ChunkGenerator generator, Random random,
 			BlockPos pos, NoFeatureConfig config) {
 		if (random.nextInt(ChanceConfig.coldfruittree_chance.get()) != 0
-			|| DimensionConfig.blacklist.get().contains(world.getWorld().getDimensionKey().getLocation().toString())
-			|| (!DimensionConfig.whitelist.get().contains(world.getWorld().getDimensionKey().getLocation().toString()) && DimensionConfig.whitelist.get().size()>0))
+				|| DimensionConfig.blacklist.get().contains(world.getWorld().getDimensionKey().getLocation().toString())
+				|| (!DimensionConfig.whitelist.get().contains(world.getWorld().getDimensionKey().getLocation().toString()) && DimensionConfig.whitelist.get().size()>0))
 			return false;
 
 		if (isValidGround(world.getBlockState(pos.down()), world, pos)
@@ -215,7 +215,7 @@ public class ColdLogFruitTreeFeature extends Feature<NoFeatureConfig> {
 	private static BlockState getFruit(int verify, Random random)
 	{
 		int i = random.nextInt(2);
-			return BlockRegistry.pammaple.getDefaultState().with(BlockStateProperties.AGE_0_7, i);
+		return BlockRegistry.pammaple.getDefaultState().with(BlockStateProperties.AGE_0_7, i);
 
 
 	}

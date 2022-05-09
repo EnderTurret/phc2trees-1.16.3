@@ -37,53 +37,53 @@ public class BlockPamLogFruit extends Block implements IGrowable {
 	}
 
 	public IntegerProperty getAgeProperty() {
-	      return AGE;
-	   }
+		return AGE;
+	}
 
-	   public int getMaxAge() {
-	      return 7;
-	   }
+	public int getMaxAge() {
+		return 7;
+	}
 
-	   protected int getAge(BlockState state) {
-	      return state.get(this.getAgeProperty());
-	   }
+	protected int getAge(BlockState state) {
+		return state.get(this.getAgeProperty());
+	}
 
-	   public BlockState withAge(int age) {
-		      return this.getDefaultState().with(this.getAgeProperty(), Integer.valueOf(age));
-		   }
+	public BlockState withAge(int age) {
+		return this.getDefaultState().with(this.getAgeProperty(), Integer.valueOf(age));
+	}
 
-	   public boolean isMaxAge(BlockState state) {
-	      return state.get(this.getAgeProperty()) >= this.getMaxAge();
-	   }
+	public boolean isMaxAge(BlockState state) {
+		return state.get(this.getAgeProperty()) >= this.getMaxAge();
+	}
 
-	   @SuppressWarnings("deprecation")
-	   @Override
-       public ActionResultType onBlockActivated(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult hit) {
-           if (isMaxAge(state)) {
-               if (!world.isRemote) {
-                   List<ItemStack> drops = Block.getDrops(state, (ServerWorld) world, pos, world.getTileEntity(pos));
+	@SuppressWarnings("deprecation")
+	@Override
+	public ActionResultType onBlockActivated(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult hit) {
+		if (isMaxAge(state)) {
+			if (!world.isRemote) {
+				List<ItemStack> drops = Block.getDrops(state, (ServerWorld) world, pos, world.getTileEntity(pos));
 
-                   for (ItemStack stack : drops) {
-                       //if (drops.get(i).getItem() != getCropSeed(block))
-                       world.addEntity(new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), stack));
-                   }
-               }
+				for (ItemStack stack : drops) {
+					//if (drops.get(i).getItem() != getCropSeed(block))
+					world.addEntity(new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), stack));
+				}
+			}
 
-               player.addExhaustion(.05F);
-               world.playSound((PlayerEntity) null, pos, SoundEvents.BLOCK_CROP_BREAK,
-                       SoundCategory.BLOCKS, 1.0F, 0.8F + world.rand.nextFloat() * 0.4F);
-               world.setBlockState(pos, getDefaultState(), 2);
-               return ActionResultType.SUCCESS;
-           }
-           return super.onBlockActivated(state, world, pos, player, hand, hit);
-       }
+			player.addExhaustion(.05F);
+			world.playSound((PlayerEntity) null, pos, SoundEvents.BLOCK_CROP_BREAK,
+					SoundCategory.BLOCKS, 1.0F, 0.8F + world.rand.nextFloat() * 0.4F);
+			world.setBlockState(pos, getDefaultState(), 2);
+			return ActionResultType.SUCCESS;
+		}
+		return super.onBlockActivated(state, world, pos, player, hand, hit);
+	}
 
 	@Override
 	@SuppressWarnings("deprecation")
 	public void tick(BlockState state, ServerWorld worldIn, BlockPos pos, Random random) {
 		if (!state.isValidPosition(worldIn, pos)) {
-	         worldIn.destroyBlock(pos, true);
-	      }
+			worldIn.destroyBlock(pos, true);
+		}
 		super.tick(state, worldIn, pos, random);
 		int i = state.get(AGE);
 		//for (int j = 0; j < 3; j++) {
@@ -93,18 +93,18 @@ public class BlockPamLogFruit extends Block implements IGrowable {
 		//}
 		//}
 		for(Direction facing : Direction.Plane.HORIZONTAL){
-			   if (i < 7 && random.nextInt(5) == 0 && worldIn.getLightSubtracted(pos.offset(facing), 0) >= 9) {
-			      worldIn.setBlockState(pos, state.with(AGE, i + 1), 2);
-			      break;
-			   }
+			if (i < 7 && random.nextInt(5) == 0 && worldIn.getLightSubtracted(pos.offset(facing), 0) >= 9) {
+				worldIn.setBlockState(pos, state.with(AGE, i + 1), 2);
+				break;
 			}
+		}
 
 	}
 
-	   @Override
-	   protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
-	      builder.add(AGE);
-	   }
+	@Override
+	protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
+		builder.add(AGE);
+	}
 
 	@Override
 	public boolean canGrow(IBlockReader worldIn, BlockPos pos, BlockState state, boolean isClient) {
@@ -117,17 +117,17 @@ public class BlockPamLogFruit extends Block implements IGrowable {
 	}
 
 	protected int getBonemealAgeIncrease(World worldIn) {
-	      return MathHelper.nextInt(worldIn.rand, 2, 5);
-	   }
+		return MathHelper.nextInt(worldIn.rand, 2, 5);
+	}
 
 	public void growFruit(ServerWorld worldIn, Random rand, BlockPos pos, BlockState state) {
 		int i = this.getAge(state) + this.getBonemealAgeIncrease(worldIn);
-	      int j = this.getMaxAge();
-	      if (i > j) {
-	         i = j;
-	      }
+		int j = this.getMaxAge();
+		if (i > j) {
+			i = j;
+		}
 
-	      worldIn.setBlockState(pos, this.withAge(i), 2);
+		worldIn.setBlockState(pos, this.withAge(i), 2);
 	}
 
 
