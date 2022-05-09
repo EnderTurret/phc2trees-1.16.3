@@ -2,6 +2,8 @@ package com.pam.pamhc2trees.init;
 
 import java.util.Set;
 
+import com.pam.pamhc2trees.config.EnableConfig;
+
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.core.Registry;
 import net.minecraft.world.level.levelgen.GenerationStep;
@@ -13,7 +15,7 @@ public class ColdFruitTreeWorldGenRegistry {
 	public static void addToBiomes(BiomeLoadingEvent evt) {
 		Set<BiomeDictionary.Type> types = BiomeDictionary.getTypes(ResourceKey.create(Registry.BIOME_REGISTRY, evt.getName()));
 		//maple
-		if (WorldGenRegistry.maple_worldgen != null) {
+		if (EnableConfig.maple_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.CONIFEROUS)) {
 				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
 						TreeConfiguredFeatures.MAPLE_WORLDGEN);
@@ -28,7 +30,7 @@ public class ColdFruitTreeWorldGenRegistry {
 			}
 		}
 		//pinenut
-		if (WorldGenRegistry.pinenut_worldgen != null) {
+		if (EnableConfig.pinenut_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.CONIFEROUS)) {
 				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
 						TreeConfiguredFeatures.PINENUT_WORLDGEN);

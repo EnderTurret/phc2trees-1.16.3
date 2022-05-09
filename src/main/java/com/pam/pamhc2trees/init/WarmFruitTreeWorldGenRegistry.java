@@ -2,6 +2,8 @@ package com.pam.pamhc2trees.init;
 
 import java.util.Set;
 
+import com.pam.pamhc2trees.config.EnableConfig;
+
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.core.Registry;
 import net.minecraft.world.level.levelgen.GenerationStep;
@@ -13,7 +15,7 @@ public class WarmFruitTreeWorldGenRegistry {
 	public static void addToBiomes(BiomeLoadingEvent evt) {
 		Set<BiomeDictionary.Type> types = BiomeDictionary.getTypes(ResourceKey.create(Registry.BIOME_REGISTRY, evt.getName()));
 		//almond
-		if (WorldGenRegistry.almond_worldgen != null) {
+		if (EnableConfig.almond_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.JUNGLE)) {
 				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
 						TreeConfiguredFeatures.ALMOND_WORLDGEN);
@@ -28,7 +30,7 @@ public class WarmFruitTreeWorldGenRegistry {
 			}
 		}
 		//apricot
-		if (WorldGenRegistry.apricot_worldgen != null) {
+		if (EnableConfig.apricot_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.JUNGLE)) {
 				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
 						TreeConfiguredFeatures.APRICOT_WORLDGEN);
@@ -44,7 +46,7 @@ public class WarmFruitTreeWorldGenRegistry {
 		}
 
 		//banana
-		if (WorldGenRegistry.banana_worldgen != null) {
+		if (EnableConfig.banana_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.JUNGLE)) {
 				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
 						TreeConfiguredFeatures.BANANA_WORLDGEN);
@@ -59,7 +61,7 @@ public class WarmFruitTreeWorldGenRegistry {
 			}
 		}
 		//cashew
-		if (WorldGenRegistry.cashew_worldgen != null) {
+		if (EnableConfig.cashew_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.JUNGLE)) {
 				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
 						TreeConfiguredFeatures.CASHEW_WORLDGEN);
@@ -74,7 +76,7 @@ public class WarmFruitTreeWorldGenRegistry {
 			}
 		}
 		//cinnamon
-		if (WorldGenRegistry.cinnamon_worldgen != null) {
+		if (EnableConfig.cinnamon_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.JUNGLE)) {
 				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
 						TreeConfiguredFeatures.CINNAMON_WORLDGEN);
@@ -89,7 +91,7 @@ public class WarmFruitTreeWorldGenRegistry {
 			}
 		}
 		//coconut
-		if (WorldGenRegistry.coconut_worldgen != null) {
+		if (EnableConfig.coconut_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.JUNGLE)) {
 				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
 						TreeConfiguredFeatures.COCONUT_WORLDGEN);
@@ -104,7 +106,7 @@ public class WarmFruitTreeWorldGenRegistry {
 			}
 		}
 		//date
-		if (WorldGenRegistry.date_worldgen != null) {
+		if (EnableConfig.date_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.JUNGLE)) {
 				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
 						TreeConfiguredFeatures.DATE_WORLDGEN);
@@ -119,7 +121,7 @@ public class WarmFruitTreeWorldGenRegistry {
 			}
 		}
 		//dragonfruit
-		if (WorldGenRegistry.dragonfruit_worldgen != null) {
+		if (EnableConfig.dragonfruit_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.JUNGLE)) {
 				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
 						TreeConfiguredFeatures.DRAGONFRUIT_WORLDGEN);
@@ -134,7 +136,7 @@ public class WarmFruitTreeWorldGenRegistry {
 			}
 		}
 		//durian
-		if (WorldGenRegistry.durian_worldgen != null) {
+		if (EnableConfig.durian_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.JUNGLE)) {
 				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
 						TreeConfiguredFeatures.DURIAN_WORLDGEN);
@@ -149,7 +151,7 @@ public class WarmFruitTreeWorldGenRegistry {
 			}
 		}
 		//fig
-		if (WorldGenRegistry.fig_worldgen != null) {
+		if (EnableConfig.fig_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.JUNGLE)) {
 				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
 						TreeConfiguredFeatures.FIG_WORLDGEN);
@@ -164,7 +166,7 @@ public class WarmFruitTreeWorldGenRegistry {
 			}
 		}
 		//grapefruit
-		if (WorldGenRegistry.grapefruit_worldgen != null) {
+		if (EnableConfig.grapefruit_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.JUNGLE)) {
 				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
 						TreeConfiguredFeatures.GRAPEFRUIT_WORLDGEN);
@@ -179,7 +181,7 @@ public class WarmFruitTreeWorldGenRegistry {
 			}
 		}
 		//lime
-		if (WorldGenRegistry.lime_worldgen != null) {
+		if (EnableConfig.lime_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.JUNGLE)) {
 				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
 						TreeConfiguredFeatures.LIME_WORLDGEN);
@@ -194,7 +196,7 @@ public class WarmFruitTreeWorldGenRegistry {
 			}
 		}
 		//mango
-		if (WorldGenRegistry.mango_worldgen != null) {
+		if (EnableConfig.mango_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.JUNGLE)) {
 				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
 						TreeConfiguredFeatures.MANGO_WORLDGEN);
@@ -209,7 +211,7 @@ public class WarmFruitTreeWorldGenRegistry {
 			}
 		}
 		//olive
-		if (WorldGenRegistry.olive_worldgen != null) {
+		if (EnableConfig.olive_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.JUNGLE)) {
 				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
 						TreeConfiguredFeatures.OLIVE_WORLDGEN);
@@ -224,7 +226,7 @@ public class WarmFruitTreeWorldGenRegistry {
 			}
 		}
 		//papaya
-		if (WorldGenRegistry.papaya_worldgen != null) {
+		if (EnableConfig.papaya_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.JUNGLE)) {
 				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
 						TreeConfiguredFeatures.PAPAYA_WORLDGEN);
@@ -239,7 +241,7 @@ public class WarmFruitTreeWorldGenRegistry {
 			}
 		}
 		//paperbark
-		if (WorldGenRegistry.paperbark_worldgen != null) {
+		if (EnableConfig.paperbark_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.JUNGLE)) {
 				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
 						TreeConfiguredFeatures.PAPERBARK_WORLDGEN);
@@ -254,7 +256,7 @@ public class WarmFruitTreeWorldGenRegistry {
 			}
 		}
 		//pecan
-		if (WorldGenRegistry.pecan_worldgen != null) {
+		if (EnableConfig.pecan_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.JUNGLE)) {
 				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
 						TreeConfiguredFeatures.PECAN_WORLDGEN);
@@ -269,7 +271,7 @@ public class WarmFruitTreeWorldGenRegistry {
 			}
 		}
 		//peppercorn
-		if (WorldGenRegistry.peppercorn_worldgen != null) {
+		if (EnableConfig.peppercorn_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.JUNGLE)) {
 				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
 						TreeConfiguredFeatures.PEPPERCORN_WORLDGEN);
@@ -284,7 +286,7 @@ public class WarmFruitTreeWorldGenRegistry {
 			}
 		}
 		//persimmon
-		if (WorldGenRegistry.persimmon_worldgen != null) {
+		if (EnableConfig.persimmon_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.JUNGLE)) {
 				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
 						TreeConfiguredFeatures.PERSIMMON_WORLDGEN);
@@ -299,7 +301,7 @@ public class WarmFruitTreeWorldGenRegistry {
 			}
 		}
 		//pistachio
-		if (WorldGenRegistry.pistachio_worldgen != null) {
+		if (EnableConfig.pistachio_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.JUNGLE)) {
 				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
 						TreeConfiguredFeatures.PISTACHIO_WORLDGEN);
@@ -314,7 +316,7 @@ public class WarmFruitTreeWorldGenRegistry {
 			}
 		}
 		//pomegranate
-		if (WorldGenRegistry.pomegranate_worldgen != null) {
+		if (EnableConfig.pomegranate_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.JUNGLE)) {
 				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
 						TreeConfiguredFeatures.POMEGRANATE_WORLDGEN);
@@ -329,7 +331,7 @@ public class WarmFruitTreeWorldGenRegistry {
 			}
 		}
 		//starfruit
-		if (WorldGenRegistry.starfruit_worldgen != null) {
+		if (EnableConfig.starfruit_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.JUNGLE)) {
 				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
 						TreeConfiguredFeatures.STARFRUIT_WORLDGEN);
@@ -344,7 +346,7 @@ public class WarmFruitTreeWorldGenRegistry {
 			}
 		}
 		//vanillabean
-		if (WorldGenRegistry.vanillabean_worldgen != null) {
+		if (EnableConfig.vanillabean_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.JUNGLE)) {
 				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
 						TreeConfiguredFeatures.VANILLABEAN_WORLDGEN);
@@ -359,7 +361,7 @@ public class WarmFruitTreeWorldGenRegistry {
 			}
 		}
 		//breadfruit
-		if (WorldGenRegistry.breadfruit_worldgen != null) {
+		if (EnableConfig.breadfruit_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.JUNGLE)) {
 				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
 						TreeConfiguredFeatures.BREADFRUIT_WORLDGEN);
@@ -374,7 +376,7 @@ public class WarmFruitTreeWorldGenRegistry {
 			}
 		}
 		//guava
-		if (WorldGenRegistry.guava_worldgen != null) {
+		if (EnableConfig.guava_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.JUNGLE)) {
 				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
 						TreeConfiguredFeatures.GUAVA_WORLDGEN);
@@ -389,7 +391,7 @@ public class WarmFruitTreeWorldGenRegistry {
 			}
 		}
 		//jackfruit
-		if (WorldGenRegistry.jackfruit_worldgen != null) {
+		if (EnableConfig.jackfruit_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.JUNGLE)) {
 				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
 						TreeConfiguredFeatures.JACKFRUIT_WORLDGEN);
@@ -404,7 +406,7 @@ public class WarmFruitTreeWorldGenRegistry {
 			}
 		}
 		//lychee
-		if (WorldGenRegistry.lychee_worldgen != null) {
+		if (EnableConfig.lychee_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.JUNGLE)) {
 				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
 						TreeConfiguredFeatures.LYCHEE_WORLDGEN);
@@ -419,7 +421,7 @@ public class WarmFruitTreeWorldGenRegistry {
 			}
 		}
 		//passionfruit
-		if (WorldGenRegistry.passionfruit_worldgen != null) {
+		if (EnableConfig.passionfruit_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.JUNGLE)) {
 				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
 						TreeConfiguredFeatures.PASSIONFRUIT_WORLDGEN);
@@ -434,7 +436,7 @@ public class WarmFruitTreeWorldGenRegistry {
 			}
 		}
 		//rambutan
-		if (WorldGenRegistry.rambutan_worldgen != null) {
+		if (EnableConfig.rambutan_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.JUNGLE)) {
 				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
 						TreeConfiguredFeatures.RAMBUTAN_WORLDGEN);
@@ -449,7 +451,7 @@ public class WarmFruitTreeWorldGenRegistry {
 			}
 		}
 		//tamarind
-		if (WorldGenRegistry.tamarind_worldgen != null) {
+		if (EnableConfig.tamarind_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.JUNGLE)) {
 				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
 						TreeConfiguredFeatures.TAMARIND_WORLDGEN);
@@ -463,7 +465,5 @@ public class WarmFruitTreeWorldGenRegistry {
 						TreeConfiguredFeatures.TAMARIND_WORLDGEN);
 			}
 		}
-
-
 	}
 }

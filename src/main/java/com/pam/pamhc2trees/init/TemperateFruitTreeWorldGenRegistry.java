@@ -2,6 +2,8 @@ package com.pam.pamhc2trees.init;
 
 import java.util.Set;
 
+import com.pam.pamhc2trees.config.EnableConfig;
+
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.core.Registry;
 import net.minecraft.world.level.levelgen.GenerationStep;
@@ -14,7 +16,7 @@ public class TemperateFruitTreeWorldGenRegistry {
 		Set<BiomeDictionary.Type> types = BiomeDictionary.getTypes(ResourceKey.create(Registry.BIOME_REGISTRY, evt.getName()));
 		if ((evt.getClimate().temperature >= 1F || evt.getClimate().temperature < 0.2F) && !types.contains(BiomeDictionary.Type.SPOOKY)) return;
 		//apple
-		if (WorldGenRegistry.apple_worldgen != null) {
+		if (EnableConfig.apple_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.FOREST)) {
 				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
 						TreeConfiguredFeatures.APPLE_WORLDGEN);
@@ -29,7 +31,7 @@ public class TemperateFruitTreeWorldGenRegistry {
 			}
 		}
 		//avocado
-		if (WorldGenRegistry.avocado_worldgen != null) {
+		if (EnableConfig.avocado_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.FOREST)) {
 				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
 						TreeConfiguredFeatures.AVOCADO_WORLDGEN);
@@ -44,7 +46,7 @@ public class TemperateFruitTreeWorldGenRegistry {
 			}
 		}
 		//candlenut
-		if (WorldGenRegistry.candlenut_worldgen != null) {
+		if (EnableConfig.candlenut_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.FOREST)) {
 				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
 						TreeConfiguredFeatures.CANDLENUT_WORLDGEN);
@@ -59,7 +61,7 @@ public class TemperateFruitTreeWorldGenRegistry {
 			}
 		}
 		//cherry
-		if (WorldGenRegistry.cherry_worldgen != null) {
+		if (EnableConfig.cherry_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.FOREST)) {
 				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
 						TreeConfiguredFeatures.CHERRY_WORLDGEN);
@@ -74,7 +76,7 @@ public class TemperateFruitTreeWorldGenRegistry {
 			}
 		}
 		//chestnut
-		if (WorldGenRegistry.chestnut_worldgen != null) {
+		if (EnableConfig.chestnut_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.FOREST)) {
 				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
 						TreeConfiguredFeatures.CHESTNUT_WORLDGEN);
@@ -89,7 +91,7 @@ public class TemperateFruitTreeWorldGenRegistry {
 			}
 		}
 		//gooseberry
-		if (WorldGenRegistry.gooseberry_worldgen != null) {
+		if (EnableConfig.gooseberry_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.FOREST)) {
 				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
 						TreeConfiguredFeatures.GOOSEBERRY_WORLDGEN);
@@ -104,7 +106,7 @@ public class TemperateFruitTreeWorldGenRegistry {
 			}
 		}
 		//lemon
-		if (WorldGenRegistry.lemon_worldgen != null) {
+		if (EnableConfig.lemon_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.FOREST)) {
 				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
 						TreeConfiguredFeatures.LEMON_WORLDGEN);
@@ -119,7 +121,7 @@ public class TemperateFruitTreeWorldGenRegistry {
 			}
 		}
 		//nutmeg
-		if (WorldGenRegistry.nutmeg_worldgen != null) {
+		if (EnableConfig.nutmeg_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.FOREST)) {
 				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
 						TreeConfiguredFeatures.NUTMEG_WORLDGEN);
@@ -134,7 +136,7 @@ public class TemperateFruitTreeWorldGenRegistry {
 			}
 		}
 		//orange
-		if (WorldGenRegistry.orange_worldgen != null) {
+		if (EnableConfig.orange_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.FOREST)) {
 				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
 						TreeConfiguredFeatures.ORANGE_WORLDGEN);
@@ -149,7 +151,7 @@ public class TemperateFruitTreeWorldGenRegistry {
 			}
 		}
 		//peach
-		if (WorldGenRegistry.peach_worldgen != null) {
+		if (EnableConfig.peach_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.FOREST)) {
 				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
 						TreeConfiguredFeatures.PEACH_WORLDGEN);
@@ -164,7 +166,7 @@ public class TemperateFruitTreeWorldGenRegistry {
 			}
 		}
 		//pear
-		if (WorldGenRegistry.pear_worldgen != null) {
+		if (EnableConfig.pear_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.FOREST)) {
 				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
 						TreeConfiguredFeatures.PEAR_WORLDGEN);
@@ -179,7 +181,7 @@ public class TemperateFruitTreeWorldGenRegistry {
 			}
 		}
 		//plum
-		if (WorldGenRegistry.plum_worldgen != null) {
+		if (EnableConfig.plum_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.FOREST)) {
 				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
 						TreeConfiguredFeatures.PLUM_WORLDGEN);
@@ -194,7 +196,7 @@ public class TemperateFruitTreeWorldGenRegistry {
 			}
 		}
 		//walnut
-		if (WorldGenRegistry.walnut_worldgen != null) {
+		if (EnableConfig.walnut_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.FOREST)) {
 				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
 						TreeConfiguredFeatures.WALNUT_WORLDGEN);
@@ -209,7 +211,7 @@ public class TemperateFruitTreeWorldGenRegistry {
 			}
 		}
 		//spiderweb
-		if (WorldGenRegistry.avocado_worldgen != null) {
+		if (EnableConfig.avocado_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.FOREST)) {
 				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
 						TreeConfiguredFeatures.SPIDERWEB_WORLDGEN);
@@ -224,7 +226,7 @@ public class TemperateFruitTreeWorldGenRegistry {
 			}
 		}
 		//hazelnut
-		if (WorldGenRegistry.hazelnut_worldgen != null) {
+		if (EnableConfig.hazelnut_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.FOREST)) {
 				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
 						TreeConfiguredFeatures.HAZELNUT_WORLDGEN);
@@ -239,7 +241,7 @@ public class TemperateFruitTreeWorldGenRegistry {
 			}
 		}
 		//pawpaw
-		if (WorldGenRegistry.pawpaw_worldgen != null) {
+		if (EnableConfig.pawpaw_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.FOREST)) {
 				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
 						TreeConfiguredFeatures.PAWPAW_WORLDGEN);
@@ -254,7 +256,7 @@ public class TemperateFruitTreeWorldGenRegistry {
 			}
 		}
 		//soursop
-		if (WorldGenRegistry.soursop_worldgen != null) {
+		if (EnableConfig.soursop_worldgen.get()) {
 			if (types.contains(BiomeDictionary.Type.FOREST)) {
 				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
 						TreeConfiguredFeatures.SOURSOP_WORLDGEN);
