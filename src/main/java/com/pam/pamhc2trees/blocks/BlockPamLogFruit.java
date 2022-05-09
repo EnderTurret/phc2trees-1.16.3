@@ -25,121 +25,30 @@ import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.Level;
 import net.minecraft.server.level.ServerLevel;
 
-public class BlockPamLogFruit extends Block implements BonemealableBlock {
-
-	public static final IntegerProperty AGE = BlockStateProperties.AGE_7;
+public class BlockPamLogFruit extends AbstractFruitBlock {
 
 	public BlockPamLogFruit(Block.Properties properties) {
 		super(properties);
-		this.registerDefaultState(this.stateDefinition.any().setValue(AGE, 0));
-	}
-
-	public int getMaxAge() {
-		return 7;
-	}
-
-	protected int getAge(BlockState state) {
-		return state.getValue(AGE);
-	}
-
-	public BlockState withAge(int age) {
-		return this.defaultBlockState().setValue(AGE, Integer.valueOf(age));
-	}
-
-	public boolean isMaxAge(BlockState state) {
-		return state.getValue(AGE) >= this.getMaxAge();
-	}
-
-	@SuppressWarnings("deprecation")
-	@Override
-	public InteractionResult use(BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
-		if (isMaxAge(state)) {
-			if (!world.isClientSide) {
-				List<ItemStack> drops = Block.getDrops(state, (ServerLevel) world, pos, world.getBlockEntity(pos));
-
-				for (ItemStack stack : drops) {
-					//if (drops.get(i).getItem() != getCropSeed(block))
-					world.addFreshEntity(new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), stack));
-				}
-			}
-
-			player.causeFoodExhaustion(.05F);
-			world.playSound((Player) null, pos, SoundEvents.CROP_BREAK,
-					SoundSource.BLOCKS, 1.0F, 0.8F + world.random.nextFloat() * 0.4F);
-			world.setBlock(pos, defaultBlockState(), 2);
-			return InteractionResult.SUCCESS;
-		}
-		return super.use(state, world, pos, player, hand, hit);
 	}
 
 	@Override
-	@SuppressWarnings("deprecation")
 	public void tick(BlockState state, ServerLevel worldIn, BlockPos pos, Random random) {
 		if (!state.canSurvive(worldIn, pos)) {
 			worldIn.destroyBlock(pos, true);
+			return;
 		}
-		super.tick(state, worldIn, pos, random);
-		int i = state.getValue(AGE);
-		//for (int j = 0; j < 3; j++) {
-		//if (i < 7 && random.nextInt(5) == 0 && worldIn.getLightSubtracted(pos.offset(net.minecraft.util.Direction.byHorizontalIndex(j), 1), 0) >= 9) {
-		//	worldIn.setBlockState(pos, state.with(AGE, Integer.valueOf(i + 1)), 2);
-		//	break;
-		//}
-		//}
-		for(Direction facing : Direction.Plane.HORIZONTAL){
-			if (i < 7 && random.nextInt(5) == 0 && worldIn.getRawBrightness(pos.relative(facing), 0) >= 9) {
-				worldIn.setBlock(pos, state.setValue(AGE, i + 1), 2);
+
+		int age = state.getValue(AGE);
+		for (Direction facing : Direction.Plane.HORIZONTAL) {
+			if (age < 7 && random.nextInt(5) == 0 && worldIn.getRawBrightness(pos.relative(facing), 0) >= 9) {
+				worldIn.setBlock(pos, state.setValue(AGE, age + 1), 2);
 				break;
 			}
 		}
-
 	}
 
-	@Override
-	protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-		builder.add(AGE);
-	}
-
-	@Override
-	public boolean isValidBonemealTarget(BlockGetter worldIn, BlockPos pos, BlockState state, boolean isClient) {
-		return state.getValue(AGE) < 7;
-	}
-
-	@Override
-	public boolean isBonemealSuccess(Level worldIn, Random rand, BlockPos pos, BlockState state) {
-		return true;
-	}
-
-	protected int getBonemealAgeIncrease(Level worldIn) {
-		return Mth.nextInt(worldIn.random, 2, 5);
-	}
-
-	public void growFruit(ServerLevel worldIn, Random rand, BlockPos pos, BlockState state) {
-		int i = this.getAge(state) + this.getBonemealAgeIncrease(worldIn);
-		int j = this.getMaxAge();
-		if (i > j) {
-			i = j;
-		}
-
-		worldIn.setBlock(pos, this.withAge(i), 2);
-	}
-
-
-
-
-
-
-	@SuppressWarnings("deprecation")
 	@Override
 	public boolean canSurvive(BlockState state, LevelReader world, BlockPos pos) {
-
 		return true;
-
-	}
-
-	@Override
-	public void performBonemeal(ServerLevel p_225535_1_, Random p_225535_2_, BlockPos p_225535_3_, BlockState p_225535_4_) {
-		this.growFruit(p_225535_1_, p_225535_2_, p_225535_3_, p_225535_4_);
-
 	}
 }
