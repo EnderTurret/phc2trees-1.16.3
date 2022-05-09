@@ -8,7 +8,6 @@ import com.pam.pamhc2trees.init.CompostRegistry;
 import com.pam.pamhc2trees.init.ItemRegistry;
 import com.pam.pamhc2trees.init.ModRenderers;
 import com.pam.pamhc2trees.init.TemperateFruitTreeWorldGenRegistry;
-import com.pam.pamhc2trees.init.TreeConfiguredFeatures;
 import com.pam.pamhc2trees.init.WarmFruitTreeWorldGenRegistry;
 import com.pam.pamhc2trees.init.WorldGenRegistry;
 
@@ -34,7 +33,7 @@ public class SideProxy {
 		FMLJavaModLoadingContext.get().getModEventBus().addGenericListener(Block.class, BlockRegistry::registerAll);
 
 		FMLJavaModLoadingContext.get().getModEventBus().addGenericListener(Item.class, ItemRegistry::registerAll);
-		FMLJavaModLoadingContext.get().getModEventBus().addGenericListener(Feature.class, WorldGenRegistry::registerAll);
+		FMLJavaModLoadingContext.get().getModEventBus().addGenericListener(Feature.class, WorldGenRegistry::registerFeatures);
 
 		Config.loadConfig(Config.CONFIG, FMLPaths.CONFIGDIR.get().resolve("pamhc2trees.toml").toString());
 
@@ -42,12 +41,12 @@ public class SideProxy {
 	}
 
 	private static void commonSetup(FMLCommonSetupEvent event) {
-		Pamhc2trees.LOGGER.debug("common setup");
 		EventSetup.setupEvents();
 
 		// Must do in enqueue work as registering to vanilla registries is not threadsafe as many of the maps are not a synchronized map.
 		event.enqueueWork(() -> {
-			TreeConfiguredFeatures.registerConfiguredFeatures();
+			WorldGenRegistry.registerConfiguredFeatures();
+			WorldGenRegistry.registerPlacedFeatures();
 			CompostRegistry.register();
 		});
 	}
