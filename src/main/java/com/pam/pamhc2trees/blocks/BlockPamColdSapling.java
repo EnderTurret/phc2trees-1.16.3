@@ -66,7 +66,7 @@ public class BlockPamColdSapling extends BushBlock implements IGrowable {
 
 	@Override
 	public boolean canUseBonemeal(World worldIn, Random rand, BlockPos pos, BlockState state) {
-		return (double) worldIn.rand.nextFloat() < 0.45D;
+		return worldIn.rand.nextFloat() < 0.45F;
 	}
 
 	public void grow(World worldIn, Random rand, BlockPos pos, BlockState state) {

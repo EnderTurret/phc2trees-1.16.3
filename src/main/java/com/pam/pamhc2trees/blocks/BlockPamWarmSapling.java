@@ -30,6 +30,7 @@ public class BlockPamWarmSapling extends BushBlock implements IGrowable {
 		this.setDefaultState(this.stateContainer.getBaseState().with(STAGE, Integer.valueOf(0)));
 	}
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
 		return SHAPE;
@@ -65,7 +66,7 @@ public class BlockPamWarmSapling extends BushBlock implements IGrowable {
 
 	@Override
 	public boolean canUseBonemeal(World worldIn, Random rand, BlockPos pos, BlockState state) {
-		return (double) worldIn.rand.nextFloat() < 0.45D;
+		return worldIn.rand.nextFloat() < 0.45F;
 	}
 
 	public void grow(World worldIn, Random rand, BlockPos pos, BlockState state) {
