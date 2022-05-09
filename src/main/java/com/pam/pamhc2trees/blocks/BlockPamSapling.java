@@ -16,6 +16,7 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.minecraftforge.event.ForgeEventFactory;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.Level;
@@ -35,44 +36,36 @@ public class BlockPamSapling extends BushBlock implements BonemealableBlock {
 
 	@SuppressWarnings("deprecation")
 	@Override
-	public VoxelShape getShape(BlockState state, BlockGetter worldIn, BlockPos pos, CollisionContext context) {
+	public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
 		return SHAPE;
 	}
 
 	@Override
 	@SuppressWarnings("deprecation")
-	public void tick(BlockState state, ServerLevel worldIn, BlockPos pos, Random random) {
-		super.tick(state, worldIn, pos, random);
-		if (!worldIn.isAreaLoaded(pos, 1))
+	public void tick(BlockState state, ServerLevel level, BlockPos pos, Random random) {
+		if (!level.isAreaLoaded(pos, 1))
 			return;
-		if (worldIn.getMaxLocalRawBrightness(pos.above()) >= 9 && random.nextInt(7) == 0) {
-			this.grow(worldIn, pos, state, random);
-		}
 
+		if (level.getMaxLocalRawBrightness(pos.above()) >= 9 && random.nextInt(7) == 0) {
+			grow(level, pos, state, random);
+		}
 	}
 
-	public void grow(LevelAccessor worldIn, BlockPos pos, BlockState state, Random rand) {
-		if (state.getValue(STAGE) == 0) {
-			worldIn.setBlock(pos, state.cycle(STAGE), 4);
-		} else {
-			if (!net.minecraftforge.event.ForgeEventFactory.saplingGrowTree(worldIn, rand, pos))
-				return;
-			feature.feature().generateTree(worldIn, pos, rand, feature.configuredFeature().config(), false);
-		}
+	public void grow(LevelAccessor level, BlockPos pos, BlockState state, Random rand) {
+		if (state.getValue(STAGE) == 0)
+			level.setBlock(pos, state.cycle(STAGE), 4);
+		else if (ForgeEventFactory.saplingGrowTree(level, rand, pos))
+			feature.feature().generateTree(level, pos, rand, feature.configuredFeature().config(), false);
 	}
 
 	@Override
-	public boolean isValidBonemealTarget(BlockGetter worldIn, BlockPos pos, BlockState state, boolean isClient) {
+	public boolean isValidBonemealTarget(BlockGetter level, BlockPos pos, BlockState state, boolean isClient) {
 		return true;
 	}
 
 	@Override
-	public boolean isBonemealSuccess(Level worldIn, Random rand, BlockPos pos, BlockState state) {
-		return worldIn.random.nextFloat() < 0.45F;
-	}
-
-	public void grow(Level worldIn, Random rand, BlockPos pos, BlockState state) {
-		this.grow(worldIn, pos, state, rand);
+	public boolean isBonemealSuccess(Level level, Random rand, BlockPos pos, BlockState state) {
+		return level.random.nextFloat() < 0.45F;
 	}
 
 	@Override
@@ -81,8 +74,7 @@ public class BlockPamSapling extends BushBlock implements BonemealableBlock {
 	}
 
 	@Override
-	public void performBonemeal(ServerLevel world, Random random, BlockPos pos, BlockState state) {
-		this.grow(world, pos, state, random);
-
+	public void performBonemeal(ServerLevel level, Random random, BlockPos pos, BlockState state) {
+		this.grow(level, pos, state, random);
 	}
 }

@@ -32,23 +32,23 @@ public class BlockPamLogFruit extends AbstractFruitBlock {
 	}
 
 	@Override
-	public void tick(BlockState state, ServerLevel worldIn, BlockPos pos, Random random) {
-		if (!state.canSurvive(worldIn, pos)) {
-			worldIn.destroyBlock(pos, true);
+	public void tick(BlockState state, ServerLevel level, BlockPos pos, Random random) {
+		if (!state.canSurvive(level, pos)) {
+			level.destroyBlock(pos, true);
 			return;
 		}
 
 		int age = state.getValue(AGE);
 		for (Direction facing : Direction.Plane.HORIZONTAL) {
-			if (age < 7 && random.nextInt(5) == 0 && worldIn.getRawBrightness(pos.relative(facing), 0) >= 9) {
-				worldIn.setBlock(pos, state.setValue(AGE, age + 1), 2);
+			if (age < 7 && random.nextInt(5) == 0 && level.getRawBrightness(pos.relative(facing), 0) >= 9) {
+				level.setBlock(pos, state.setValue(AGE, age + 1), 2);
 				break;
 			}
 		}
 	}
 
 	@Override
-	public boolean canSurvive(BlockState state, LevelReader world, BlockPos pos) {
+	public boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
 		return true;
 	}
 }

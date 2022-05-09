@@ -55,28 +55,28 @@ public abstract class AbstractFruitBlock extends Block implements BonemealableBl
 
 	@SuppressWarnings("deprecation")
 	@Override
-	public InteractionResult use(BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
+	public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
 		if (isMaxAge(state)) {
-			if (!world.isClientSide) {
-				List<ItemStack> drops = Block.getDrops(state, (ServerLevel) world, pos, world.getBlockEntity(pos));
+			if (!level.isClientSide) {
+				List<ItemStack> drops = Block.getDrops(state, (ServerLevel) level, pos, level.getBlockEntity(pos));
 
 				for (ItemStack stack : drops) {
-					world.addFreshEntity(new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), stack));
+					level.addFreshEntity(new ItemEntity(level, pos.getX(), pos.getY(), pos.getZ(), stack));
 				}
 			}
 
 			player.causeFoodExhaustion(.05F);
-			world.playSound((Player) null, pos, SoundEvents.CROP_BREAK,
-					SoundSource.BLOCKS, 1.0F, 0.8F + world.random.nextFloat() * 0.4F);
-			world.setBlock(pos, defaultBlockState(), 2);
+			level.playSound((Player) null, pos, SoundEvents.CROP_BREAK,
+					SoundSource.BLOCKS, 1.0F, 0.8F + level.random.nextFloat() * 0.4F);
+			level.setBlock(pos, defaultBlockState(), 2);
 			return InteractionResult.SUCCESS;
 		}
-		return super.use(state, world, pos, player, hand, hit);
+		return super.use(state, level, pos, player, hand, hit);
 	}
 
 	@Override
 	@SuppressWarnings("deprecation")
-	public abstract void tick(BlockState state, ServerLevel worldIn, BlockPos pos, Random random);
+	public abstract void tick(BlockState state, ServerLevel level, BlockPos pos, Random random);
 
 	@Override
 	protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
@@ -84,35 +84,35 @@ public abstract class AbstractFruitBlock extends Block implements BonemealableBl
 	}
 
 	@Override
-	public boolean isValidBonemealTarget(BlockGetter worldIn, BlockPos pos, BlockState state, boolean isClient) {
+	public boolean isValidBonemealTarget(BlockGetter level, BlockPos pos, BlockState state, boolean isClient) {
 		return state.getValue(AGE) < 7;
 	}
 
 	@Override
-	public boolean isBonemealSuccess(Level worldIn, Random rand, BlockPos pos, BlockState state) {
+	public boolean isBonemealSuccess(Level level, Random rand, BlockPos pos, BlockState state) {
 		return true;
 	}
 
-	protected int getBonemealAgeIncrease(Level worldIn) {
-		return Mth.nextInt(worldIn.random, 2, 5);
+	protected int getBonemealAgeIncrease(Level level) {
+		return Mth.nextInt(level.random, 2, 5);
 	}
 
-	public void growFruit(ServerLevel worldIn, Random rand, BlockPos pos, BlockState state) {
-		int i = this.getAge(state) + this.getBonemealAgeIncrease(worldIn);
-		int j = this.getMaxAge();
-		if (i > j) {
-			i = j;
+	public void growFruit(ServerLevel level, Random rand, BlockPos pos, BlockState state) {
+		int newAge = this.getAge(state) + this.getBonemealAgeIncrease(level);
+		int maxAge = this.getMaxAge();
+		if (newAge > maxAge) {
+			newAge = maxAge;
 		}
 
-		worldIn.setBlock(pos, this.withAge(i), 2);
+		level.setBlock(pos, this.withAge(newAge), 2);
 	}
 
 	@SuppressWarnings("deprecation")
 	@Override
-	public abstract boolean canSurvive(BlockState state, LevelReader world, BlockPos pos);
+	public abstract boolean canSurvive(BlockState state, LevelReader level, BlockPos pos);
 
 	@Override
-	public void performBonemeal(ServerLevel p_225535_1_, Random p_225535_2_, BlockPos p_225535_3_, BlockState p_225535_4_) {
-		this.growFruit(p_225535_1_, p_225535_2_, p_225535_3_, p_225535_4_);
+	public void performBonemeal(ServerLevel level, Random random, BlockPos pos, BlockState state) {
+		this.growFruit(level, random, pos, state);
 	}
 }

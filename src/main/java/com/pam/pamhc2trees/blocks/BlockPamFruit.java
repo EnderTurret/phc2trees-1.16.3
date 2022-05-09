@@ -35,30 +35,30 @@ public class BlockPamFruit extends AbstractFruitBlock {
 	}
 
 	@Override
-	public void tick(BlockState state, ServerLevel worldIn, BlockPos pos, Random random) {
-		if (!state.canSurvive(worldIn, pos)) {
-			worldIn.destroyBlock(pos, true);
+	public void tick(BlockState state, ServerLevel level, BlockPos pos, Random random) {
+		if (!state.canSurvive(level, pos)) {
+			level.destroyBlock(pos, true);
 			return;
 		}
 
 		int age = state.getValue(AGE);
-		if (age < 7 && random.nextInt(5) == 0 && worldIn.getRawBrightness(pos.above(), 0) >= 9) {
-			worldIn.setBlock(pos, state.setValue(AGE, age + 1), 2);
+		if (age < 7 && random.nextInt(5) == 0 && level.getRawBrightness(pos.above(), 0) >= 9) {
+			level.setBlock(pos, state.setValue(AGE, age + 1), 2);
 		}
 	}
 
 	@Override
-	public boolean canSurvive(BlockState state, LevelReader world, BlockPos pos) {
-		return world.getBlockState(pos.above()).is(BlockTags.LEAVES);
+	public boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
+		return level.getBlockState(pos.above()).is(BlockTags.LEAVES);
 	}
 
 	@SuppressWarnings("deprecation")
 	@Override
-	public BlockState updateShape(BlockState stateIn, Direction facing, BlockState facingState, LevelAccessor worldIn, BlockPos currentPos, BlockPos facingPos) {
-		if (!canSurvive(stateIn, worldIn, currentPos)) {
-			worldIn.scheduleTick(currentPos, this, 2);
+	public BlockState updateShape(BlockState state, Direction facing, BlockState facingState, LevelAccessor level, BlockPos currentPos, BlockPos facingPos) {
+		if (!canSurvive(state, level, currentPos)) {
+			level.scheduleTick(currentPos, this, 2);
 		}
 
-		return stateIn;
+		return state;
 	}
 }
