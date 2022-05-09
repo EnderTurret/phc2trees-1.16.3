@@ -8,14 +8,15 @@ import javax.annotation.Nullable;
 import com.google.common.base.Predicate;
 
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.Level;
 import net.minecraftforge.common.ForgeConfigSpec;
 
 public class DimensionConfig {
+
 	public static ForgeConfigSpec.ConfigValue<List<? extends String>> whitelist;
 	public static ForgeConfigSpec.ConfigValue<List<? extends String>> blacklist;
 
 	public static void init(ForgeConfigSpec.Builder config) {
-
 		whitelist = config.comment("Enter a dimension id to whitelist feature generation").defineList("white_dim",
 				Arrays.asList("minecraft:overworld"), new Predicate<Object>() {
 					@Override
@@ -31,7 +32,15 @@ public class DimensionConfig {
 						return val instanceof String && ResourceLocation.tryParse((String)val) != null;
 					}
 				});
-
 	}
 
+	public static boolean allows(ResourceLocation dimension) {
+		final String str = dimension.toString();
+		return !blacklist.get().contains(str)
+				&& (whitelist.get().isEmpty() || whitelist.get().contains(str));
+	}
+
+	public static boolean allows(Level level) {
+		return allows(level.dimension().location());
+	}
 }

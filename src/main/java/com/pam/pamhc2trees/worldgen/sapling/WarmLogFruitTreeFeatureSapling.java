@@ -29,8 +29,7 @@ public class WarmLogFruitTreeFeatureSapling extends Feature<NoneFeatureConfigura
 	@Override
 	public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> ctx) {
 		if (ctx.random().nextInt(ChanceConfig.warmfruittree_chance.get()) != 0
-				|| DimensionConfig.blacklist.get().contains(ctx.level().getLevel().dimension().location().toString())
-				|| !DimensionConfig.whitelist.get().contains(ctx.level().getLevel().dimension().location().toString()))
+				|| !DimensionConfig.allows(ctx.level().getLevel()))
 			return false;
 
 		if (isValidGround(ctx.level().getBlockState(ctx.origin().below()), ctx.level(), ctx.origin())

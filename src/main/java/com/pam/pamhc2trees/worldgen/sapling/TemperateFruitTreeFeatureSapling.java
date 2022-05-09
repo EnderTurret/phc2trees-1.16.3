@@ -29,8 +29,7 @@ public class TemperateFruitTreeFeatureSapling extends Feature<NoneFeatureConfigu
 	@Override
 	public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> ctx) {
 		if (ctx.random().nextInt(ChanceConfig.temperatefruittree_chance.get()) != 0
-				|| DimensionConfig.blacklist.get().contains(ctx.level().getLevel().dimension().location().toString())
-				|| !DimensionConfig.whitelist.get().contains(ctx.level().getLevel().dimension().location().toString()))
+				|| !DimensionConfig.allows(ctx.level().getLevel()))
 			return false;
 
 		if (isValidGround(ctx.level().getBlockState(ctx.origin().below()), ctx.level(), ctx.origin())
