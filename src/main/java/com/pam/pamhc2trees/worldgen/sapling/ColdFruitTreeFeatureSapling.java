@@ -47,8 +47,8 @@ public class ColdFruitTreeFeatureSapling extends Feature<NoneFeatureConfiguratio
 	}
 
 	public static void generateTree(LevelAccessor world, BlockPos pos, Random random, int verify) {
-		BlockState trunk = getTrunk(verify);
-		BlockState leaves = getLeaves(verify);
+		BlockState trunk = getTrunk();
+		BlockState leaves = getLeaves();
 		BlockState fruit = getFruit(verify, random);
 
 		world.setBlock(pos.above(0), trunk, 3);
@@ -233,21 +233,15 @@ public class ColdFruitTreeFeatureSapling extends Feature<NoneFeatureConfiguratio
 
 	}
 
-	private static BlockState getLeaves(int verify)
-	{
+	private static BlockState getLeaves() {
 		return Blocks.SPRUCE_LEAVES.defaultBlockState().setValue(BlockStateProperties.DISTANCE, 1);
 	}
 
-	private static BlockState getTrunk(int verify)
-	{
+	private static BlockState getTrunk() {
 		return Blocks.SPRUCE_LOG.defaultBlockState();
 	}
 
-	private static BlockState getFruit(int verify, Random random)
-	{
-
+	private static BlockState getFruit(int verify, Random random) {
 		return BlockRegistry.pampinenut.defaultBlockState().setValue(BlockStateProperties.AGE_7, Integer.valueOf(0));
-
-
 	}
 }

@@ -48,8 +48,8 @@ public class WarmLogFruitTreeFeature extends Feature<NoneFeatureConfiguration> {
 	}
 
 	public static void generateTree(LevelAccessor world, BlockPos pos, Random random, int verify) {
-		BlockState trunk = getTrunk(verify);
-		BlockState leaves = getLeaves(verify);
+		BlockState trunk = getTrunk();
+		BlockState leaves = getLeaves();
 		BlockState fruit = getFruit(verify, random);
 
 		world.setBlock(pos.above(0), fruit, 3);
@@ -102,18 +102,15 @@ public class WarmLogFruitTreeFeature extends Feature<NoneFeatureConfiguration> {
 
 	}
 
-	private static BlockState getLeaves(int verify)
-	{
+	private static BlockState getLeaves() {
 		return Blocks.JUNGLE_LEAVES.defaultBlockState().setValue(BlockStateProperties.DISTANCE, 1);
 	}
 
-	private static BlockState getTrunk(int verify)
-	{
+	private static BlockState getTrunk() {
 		return Blocks.JUNGLE_LOG.defaultBlockState();
 	}
 
-	private static BlockState getFruit(int verify, Random random)
-	{
+	private static BlockState getFruit(int verify, Random random) {
 		int i = random.nextInt(2);
 		switch (verify) {
 		case 1:
