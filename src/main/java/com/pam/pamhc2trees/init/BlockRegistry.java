@@ -74,7 +74,7 @@ public class BlockRegistry {
 	//Cold Fruits
 	public static Block pammaple;
 	public static Block pampinenut;
-	
+
 	//Temperate Saplings
 	public static Block apple_sapling;
 	public static Block avocado_sapling;
@@ -127,7 +127,7 @@ public class BlockRegistry {
 	//Cold Saplings
 	public static Block maple_sapling;
 	public static Block pinenut_sapling;
-	
+
 	public static void registerAll(RegistryEvent.Register<Block> event) {
 		if (!event.getName().equals(ForgeRegistries.BLOCKS.getRegistryName()))
 			return;
@@ -232,7 +232,7 @@ public class BlockRegistry {
 				.tickRandomly().sound(SoundType.CROP), "maple"));
 		pampinenut = register("pampinenut", new BlockPamFruit(Block.Properties.create(Material.PLANTS).hardnessAndResistance(5F)
 				.doesNotBlockMovement().tickRandomly().sound(SoundType.CROP), "pinenut"));
-		
+
 		//Temperate Saplings
 		apple_sapling = register("apple_sapling", new BlockPamTemperateSapling(Block.Properties.create(Material.PLANTS)
 				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), 1));
@@ -330,23 +330,23 @@ public class BlockRegistry {
 				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), 1));
 		paperbark_sapling = register("paperbark_sapling", new BlockPamWarmLogSapling(Block.Properties.create(Material.PLANTS)
 				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), 2));
-		
+
 		//Cold Saplings
 		maple_sapling = register("maple_sapling", new BlockPamColdLogSapling(Block.Properties.create(Material.PLANTS)
 				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), 1));
 		pinenut_sapling = register("pinenut_sapling", new BlockPamColdSapling(Block.Properties.create(Material.PLANTS)
 				.doesNotBlockMovement().tickRandomly().hardnessAndResistance(0f).sound(SoundType.PLANT), 1));
-		
-			
+
+
 	}
-	
-	
+
+
 
 	private static <T extends Block> T register(String name, T block) {
 		BlockItem item = new BlockItem(block, new Item.Properties().group(Pamhc2trees.ITEM_GROUP));
 		return register(name, block, item);
 	}
-	
+
 
 	private static <T extends Block> T register(String name, T block, @Nullable BlockItem item) {
 		ResourceLocation id = Pamhc2trees.getId(name);
@@ -354,6 +354,6 @@ public class BlockRegistry {
 		ForgeRegistries.BLOCKS.register(block);
 		return block;
 	}
-	
+
 
 }

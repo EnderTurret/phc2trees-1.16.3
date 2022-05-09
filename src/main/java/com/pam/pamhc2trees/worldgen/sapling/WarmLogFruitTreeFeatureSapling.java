@@ -42,7 +42,7 @@ public class WarmLogFruitTreeFeatureSapling extends Feature<NoFeatureConfig> {
 		}
 		return false;
 	}
-	
+
 	private boolean isValidGround(BlockState state, IBlockReader worldIn, BlockPos pos) {
 		Block block = state.getBlock();
 		return block == Blocks.GRASS_BLOCK || block == Blocks.DIRT || block == Blocks.COARSE_DIRT
@@ -59,7 +59,7 @@ public class WarmLogFruitTreeFeatureSapling extends Feature<NoFeatureConfig> {
 		world.setBlockState(pos.up(2), fruit, 3);
 		world.setBlockState(pos.up(3), fruit, 3);
 		world.setBlockState(pos.up(4), fruit, 3);
-		
+
 		//Layer 1
 		if (world.getBlockState(pos.up(4).north().north()).getMaterial().isReplaceable())
 			world.setBlockState(pos.up(4).north().north(), leaves, 3);
@@ -69,7 +69,7 @@ public class WarmLogFruitTreeFeatureSapling extends Feature<NoFeatureConfig> {
 			world.setBlockState(pos.up(4).east().east(), leaves, 3);
 		if (world.getBlockState(pos.up(4).west().west()).getMaterial().isReplaceable())
 			world.setBlockState(pos.up(4).west().west(), leaves, 3);
-		
+
 		//Layer 2
 		if (world.getBlockState(pos.up(5)).getMaterial().isReplaceable())
 			world.setBlockState(pos.up(5), trunk, 3);
@@ -101,19 +101,19 @@ public class WarmLogFruitTreeFeatureSapling extends Feature<NoFeatureConfig> {
 		//Layer 3
 		if (world.getBlockState(pos.up(6)).getMaterial().isReplaceable())
 			world.setBlockState(pos.up(6), leaves, 3);
-		
+
 	}
-	
+
 	private static BlockState getLeaves(int verify)
 	{
 		return Blocks.JUNGLE_LEAVES.getDefaultState().with(BlockStateProperties.DISTANCE_1_7, 1);
 	}
-	
+
 	private static BlockState getTrunk(int verify)
 	{
 		return Blocks.JUNGLE_LOG.getDefaultState();
 	}
-		
+
 	private static BlockState getFruit(int verify, Random random)
 	{
 		int i = 0;

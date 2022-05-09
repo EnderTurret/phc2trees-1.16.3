@@ -54,8 +54,8 @@ public class CompostRegistry {
 		//Cold Fruits
 		ComposterBlock.CHANCES.put(ItemRegistry.maplesyrupitem, 0.65F);
 		ComposterBlock.CHANCES.put(ItemRegistry.pinenutitem, 0.65F);
-		
-		
+
+
 		//Temperate Saplings
 		ComposterBlock.CHANCES.put(BlockRegistry.apple_sapling, 0.3F);
 		ComposterBlock.CHANCES.put(BlockRegistry.avocado_sapling, 0.3F);
@@ -108,7 +108,7 @@ public class CompostRegistry {
 		//Cold Saplings
 		ComposterBlock.CHANCES.put(BlockRegistry.maple_sapling, 0.3F);
 		ComposterBlock.CHANCES.put(BlockRegistry.pinenut_sapling, 0.3F);
-		
+
 	}
 
 }

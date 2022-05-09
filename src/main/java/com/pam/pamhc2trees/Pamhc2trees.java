@@ -18,7 +18,7 @@ import net.minecraftforge.fml.common.Mod;
 public class Pamhc2trees {
 	public static final String MOD_ID = "pamhc2trees";
 	public static final Logger LOGGER = LogManager.getLogger();
-	
+
 	public static final ItemGroup ITEM_GROUP = new ItemGroup("pamhc2trees") {
 		@Override
 		public ItemStack createIcon() {

@@ -76,7 +76,7 @@ public class FruitHarvest {
 							SoundCategory.BLOCKS, 1.0F, 0.8F + event.getWorld().rand.nextFloat() * 0.4F);
 					event.getWorld().setBlockState(event.getPos(), block.getDefaultState(), 2);
 				}
-				
+
 				event.getPlayer().swingArm(Hand.MAIN_HAND);
 			}
 		}

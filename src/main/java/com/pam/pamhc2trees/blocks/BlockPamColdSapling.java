@@ -41,7 +41,7 @@ public class BlockPamColdSapling extends BushBlock implements IGrowable {
 	public void tick(BlockState state, ServerWorld worldIn, BlockPos pos, Random random) {
 		super.tick(state, worldIn, pos, random);
 		if (!worldIn.isAreaLoaded(pos, 1))
-			return; 
+			return;
 		if (worldIn.getLight(pos.up()) >= 9 && random.nextInt(7) == 0) {
 			this.grow(worldIn, pos, state, random);
 		}
@@ -77,10 +77,10 @@ public class BlockPamColdSapling extends BushBlock implements IGrowable {
 	protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
 		builder.add(STAGE);
 	}
-	
+
 	@Override
 	public void grow(ServerWorld world, Random random, BlockPos pos, BlockState state) {
 		this.grow(world, pos, state, random);
-		
+
 	}
 }

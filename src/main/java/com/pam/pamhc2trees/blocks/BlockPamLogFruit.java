@@ -33,9 +33,9 @@ public class BlockPamLogFruit extends Block implements IGrowable {
 	public BlockPamLogFruit(Block.Properties p_i49971_1_, String name) {
 		super(p_i49971_1_);
 		this.name = name;
-		this.setDefaultState(this.stateContainer.getBaseState().with(this.getAgeProperty(), Integer.valueOf(0)));	
+		this.setDefaultState(this.stateContainer.getBaseState().with(this.getAgeProperty(), Integer.valueOf(0)));
 	}
-	
+
 	public IntegerProperty getAgeProperty() {
 	      return AGE;
 	   }
@@ -47,7 +47,7 @@ public class BlockPamLogFruit extends Block implements IGrowable {
 	   protected int getAge(BlockState state) {
 	      return state.get(this.getAgeProperty());
 	   }
-	   
+
 	   public BlockState withAge(int age) {
 		      return this.getDefaultState().with(this.getAgeProperty(), Integer.valueOf(age));
 		   }
@@ -55,7 +55,7 @@ public class BlockPamLogFruit extends Block implements IGrowable {
 	   public boolean isMaxAge(BlockState state) {
 	      return state.get(this.getAgeProperty()) >= this.getMaxAge();
 	   }
-	   
+
 	   @SuppressWarnings("deprecation")
 	   @Override
        public ActionResultType onBlockActivated(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult hit) {
@@ -77,7 +77,7 @@ public class BlockPamLogFruit extends Block implements IGrowable {
            }
            return super.onBlockActivated(state, world, pos, player, hand, hit);
        }
-	
+
 	@Override
 	@SuppressWarnings("deprecation")
 	public void tick(BlockState state, ServerWorld worldIn, BlockPos pos, Random random) {
@@ -115,7 +115,7 @@ public class BlockPamLogFruit extends Block implements IGrowable {
 	public boolean canUseBonemeal(World worldIn, Random rand, BlockPos pos, BlockState state) {
 		return true;
 	}
-	
+
 	protected int getBonemealAgeIncrease(World worldIn) {
 	      return MathHelper.nextInt(worldIn.rand, 2, 5);
 	   }
@@ -129,9 +129,9 @@ public class BlockPamLogFruit extends Block implements IGrowable {
 
 	      worldIn.setBlockState(pos, this.withAge(i), 2);
 	}
-	
 
-	
+
+
 
 
 
@@ -140,12 +140,12 @@ public class BlockPamLogFruit extends Block implements IGrowable {
 	public boolean isValidPosition(BlockState state, IWorldReader world, BlockPos pos) {
 
 		return true;
-		
+
 	}
 
 	@Override
 	public void grow(ServerWorld p_225535_1_, Random p_225535_2_, BlockPos p_225535_3_, BlockState p_225535_4_) {
 		this.growFruit(p_225535_1_, p_225535_2_, p_225535_3_, p_225535_4_);
-		
+
 	}
 }

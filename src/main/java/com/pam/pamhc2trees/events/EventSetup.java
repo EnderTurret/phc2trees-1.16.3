@@ -16,6 +16,6 @@ public class EventSetup {
 		//		MinecraftForge.EVENT_BUS.register(new FruitHarvest());
 		//}
 
-	
+
 }
 }

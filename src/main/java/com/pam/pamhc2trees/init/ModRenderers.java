@@ -5,7 +5,7 @@ import net.minecraft.client.renderer.RenderTypeLookup;
 
 public class ModRenderers {
 	public static void registerBlocks() {
-		
+
 		//Temperate Fruits
 		RenderTypeLookup.setRenderLayer(BlockRegistry.pamapple, RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(BlockRegistry.pamavocado, RenderType.getCutout());
@@ -58,7 +58,7 @@ public class ModRenderers {
 			//Cold Fruits
 		RenderTypeLookup.setRenderLayer(BlockRegistry.pammaple, RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(BlockRegistry.pampinenut, RenderType.getCutout());
-			
+
 			//Temperate Saplings
 		RenderTypeLookup.setRenderLayer(BlockRegistry.apple_sapling, RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(BlockRegistry.avocado_sapling, RenderType.getCutout());

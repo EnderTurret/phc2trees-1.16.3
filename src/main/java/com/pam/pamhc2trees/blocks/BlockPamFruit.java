@@ -33,9 +33,9 @@ public class BlockPamFruit extends Block implements IGrowable {
 	public BlockPamFruit(Block.Properties p_i49971_1_, String name) {
 		super(p_i49971_1_);
 		this.name = name;
-		this.setDefaultState(this.stateContainer.getBaseState().with(this.getAgeProperty(), Integer.valueOf(0)));	
+		this.setDefaultState(this.stateContainer.getBaseState().with(this.getAgeProperty(), Integer.valueOf(0)));
 	}
-	
+
 	public IntegerProperty getAgeProperty() {
 	      return AGE;
 	   }
@@ -47,7 +47,7 @@ public class BlockPamFruit extends Block implements IGrowable {
 	   protected int getAge(BlockState state) {
 	      return state.get(this.getAgeProperty());
 	   }
-	   
+
 	   public BlockState withAge(int age) {
 		      return this.getDefaultState().with(this.getAgeProperty(), Integer.valueOf(age));
 		   }
@@ -89,7 +89,7 @@ public class BlockPamFruit extends Block implements IGrowable {
 
 	        return super.onBlockActivated(thisBlockState, world, position, playerEntity, playerHand, raytraceResult);
 	    }*/
-	   
+
 	   @SuppressWarnings("deprecation")
 	   @Override
        public ActionResultType onBlockActivated(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult hit) {
@@ -111,7 +111,7 @@ public class BlockPamFruit extends Block implements IGrowable {
            }
            return super.onBlockActivated(state, world, pos, player, hand, hit);
        }
-	
+
 	@Override
 	@SuppressWarnings("deprecation")
 	public void tick(BlockState state, ServerWorld worldIn, BlockPos pos, Random random) {
@@ -124,7 +124,7 @@ public class BlockPamFruit extends Block implements IGrowable {
 		if (i < 7 && random.nextInt(5) == 0 && worldIn.getLightSubtracted(pos.up(), 0) >= 9) {
 			worldIn.setBlockState(pos, state.with(AGE, Integer.valueOf(i + 1)), 2);
 		}
-		
+
 
 	}
 
@@ -142,7 +142,7 @@ public class BlockPamFruit extends Block implements IGrowable {
 	public boolean canUseBonemeal(World worldIn, Random rand, BlockPos pos, BlockState state) {
 		return true;
 	}
-	
+
 	protected int getBonemealAgeIncrease(World worldIn) {
 	      return MathHelper.nextInt(worldIn.rand, 2, 5);
 	   }
@@ -156,9 +156,9 @@ public class BlockPamFruit extends Block implements IGrowable {
 
 	      worldIn.setBlockState(pos, this.withAge(i), 2);
 	}
-	
 
-	
+
+
 
 
 
@@ -170,13 +170,13 @@ public class BlockPamFruit extends Block implements IGrowable {
 			return true;
 
 		return false;
-		
+
 	}
 
 	@Override
 	public void grow(ServerWorld p_225535_1_, Random p_225535_2_, BlockPos p_225535_3_, BlockState p_225535_4_) {
 		this.growFruit(p_225535_1_, p_225535_2_, p_225535_3_, p_225535_4_);
-		
+
 	}
 	@SuppressWarnings("deprecation")
 	@Override
@@ -187,5 +187,5 @@ public class BlockPamFruit extends Block implements IGrowable {
 
 		return stateIn;
 	}
-	
+
 }

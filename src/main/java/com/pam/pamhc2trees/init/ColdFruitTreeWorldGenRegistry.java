@@ -14,7 +14,7 @@ import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 
 public class ColdFruitTreeWorldGenRegistry {
-	
+
 	public static void addToBiomes(BiomeLoadingEvent evt) {
 		Set<BiomeDictionary.Type> types = BiomeDictionary.getTypes(RegistryKey.getOrCreateKey(Registry.BIOME_KEY, evt.getName()));
 		//maple
@@ -37,7 +37,7 @@ public class ColdFruitTreeWorldGenRegistry {
 			if (types.contains(BiomeDictionary.Type.CONIFEROUS)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
 						TreeConfiguredFeatures.PINENUT_WORLDGEN);
-								
+
 			}
 			if (types.contains(BiomeDictionary.Type.COLD)) {
 				evt.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION,

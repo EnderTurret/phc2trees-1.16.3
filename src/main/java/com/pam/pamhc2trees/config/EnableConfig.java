@@ -56,7 +56,7 @@ public class EnableConfig {
 	public static ForgeConfigSpec.BooleanValue maple_worldgen;
 	public static ForgeConfigSpec.BooleanValue pinenut_worldgen;
 
-	
+
 	public static void init(ForgeConfigSpec.Builder config) {
 		//Temperate Trees
 		apple_worldgen = config.comment("Should apple trees generate in world").define("Generate apple trees", true);
@@ -110,7 +110,7 @@ public class EnableConfig {
 		//Cold Trees
 		maple_worldgen = config.comment("Should maple trees generate in world").define("Generate maple trees", true);
 		pinenut_worldgen = config.comment("Should pinenut trees generate in world").define("Generate pinenut trees", true);
-		
+
 
 	}
 

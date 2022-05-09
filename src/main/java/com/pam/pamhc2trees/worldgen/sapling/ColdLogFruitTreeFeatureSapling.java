@@ -41,7 +41,7 @@ public class ColdLogFruitTreeFeatureSapling extends Feature<NoFeatureConfig> {
 		}
 		return false;
 	}
-	
+
 	private boolean isValidGround(BlockState state, IBlockReader worldIn, BlockPos pos) {
 		Block block = state.getBlock();
 		return block == Blocks.GRASS_BLOCK || block == Blocks.DIRT || block == Blocks.COARSE_DIRT
@@ -56,7 +56,7 @@ public class ColdLogFruitTreeFeatureSapling extends Feature<NoFeatureConfig> {
 		world.setBlockState(pos.up(0), fruit, 3);
 		world.setBlockState(pos.up(1), fruit, 3);
 		world.setBlockState(pos.up(2), fruit, 3);
-		
+
 		//Layer 1
 		if (world.getBlockState(pos.up(3)).getMaterial().isReplaceable())
 			world.setBlockState(pos.up(3), trunk, 3);
@@ -64,8 +64,8 @@ public class ColdLogFruitTreeFeatureSapling extends Feature<NoFeatureConfig> {
 			world.setBlockState(pos.up(3).north(), leaves, 3);
 		if (world.getBlockState(pos.up(3).north().north()).getMaterial().isReplaceable())
 			world.setBlockState(pos.up(3).north().north(), leaves, 3);
-		
-		
+
+
 		if (world.getBlockState(pos.up(3).north().west()).getMaterial().isReplaceable())
 			world.setBlockState(pos.up(3).north().west(), leaves, 3);
 		if (world.getBlockState(pos.up(3).north().north().west()).getMaterial().isReplaceable())
@@ -74,7 +74,7 @@ public class ColdLogFruitTreeFeatureSapling extends Feature<NoFeatureConfig> {
 			world.setBlockState(pos.up(3).north().west().west(), leaves, 3);
 		if (world.getBlockState(pos.up(3).north().north().west().west()).getMaterial().isReplaceable())
 			world.setBlockState(pos.up(3).north().north().west().west(), leaves, 3);
-		
+
 		if (world.getBlockState(pos.up(3).north().east()).getMaterial().isReplaceable())
 			world.setBlockState(pos.up(3).north().east(), leaves, 3);
 		if (world.getBlockState(pos.up(3).north().north().east()).getMaterial().isReplaceable())
@@ -83,12 +83,12 @@ public class ColdLogFruitTreeFeatureSapling extends Feature<NoFeatureConfig> {
 			world.setBlockState(pos.up(3).north().east().east(), leaves, 3);
 		if (world.getBlockState(pos.up(3).north().north().east().east()).getMaterial().isReplaceable())
 			world.setBlockState(pos.up(3).north().north().east().east(), leaves, 3);
-		
+
 		if (world.getBlockState(pos.up(3).south()).getMaterial().isReplaceable())
 			world.setBlockState(pos.up(3).south(), leaves, 3);
 		if (world.getBlockState(pos.up(3).south().south()).getMaterial().isReplaceable())
 			world.setBlockState(pos.up(3).south().south(), leaves, 3);
-		
+
 		if (world.getBlockState(pos.up(3).south().west()).getMaterial().isReplaceable())
 			world.setBlockState(pos.up(3).south().west(), leaves, 3);
 		if (world.getBlockState(pos.up(3).south().south().west()).getMaterial().isReplaceable())
@@ -97,7 +97,7 @@ public class ColdLogFruitTreeFeatureSapling extends Feature<NoFeatureConfig> {
 			world.setBlockState(pos.up(3).south().west().west(), leaves, 3);
 		if (world.getBlockState(pos.up(3).south().south().west().west()).getMaterial().isReplaceable())
 			world.setBlockState(pos.up(3).south().south().west().west(), leaves, 3);
-		
+
 		if (world.getBlockState(pos.up(3).south().east()).getMaterial().isReplaceable())
 			world.setBlockState(pos.up(3).south().east(), leaves, 3);
 		if (world.getBlockState(pos.up(3).south().south().east()).getMaterial().isReplaceable())
@@ -106,17 +106,17 @@ public class ColdLogFruitTreeFeatureSapling extends Feature<NoFeatureConfig> {
 			world.setBlockState(pos.up(3).south().east().east(), leaves, 3);
 		if (world.getBlockState(pos.up(3).south().south().east().east()).getMaterial().isReplaceable())
 			world.setBlockState(pos.up(3).south().south().east().east(), leaves, 3);
-		
+
 		if (world.getBlockState(pos.up(3).east()).getMaterial().isReplaceable())
 			world.setBlockState(pos.up(3).east(), leaves, 3);
 		if (world.getBlockState(pos.up(3).east().east()).getMaterial().isReplaceable())
 			world.setBlockState(pos.up(3).east().east(), leaves, 3);
-		
+
 		if (world.getBlockState(pos.up(3).west()).getMaterial().isReplaceable())
 			world.setBlockState(pos.up(3).west(), leaves, 3);
 		if (world.getBlockState(pos.up(3).west().west()).getMaterial().isReplaceable())
 			world.setBlockState(pos.up(3).west().west(), leaves, 3);
-		
+
 		//Layer 2
 		if (world.getBlockState(pos.up(4)).getMaterial().isReplaceable())
 			world.setBlockState(pos.up(4), trunk, 3);
@@ -124,8 +124,8 @@ public class ColdLogFruitTreeFeatureSapling extends Feature<NoFeatureConfig> {
 			world.setBlockState(pos.up(4).north(), leaves, 3);
 		if (world.getBlockState(pos.up(4).north().north()).getMaterial().isReplaceable())
 			world.setBlockState(pos.up(4).north().north(), leaves, 3);
-		
-		
+
+
 		if (world.getBlockState(pos.up(4).north().west()).getMaterial().isReplaceable())
 			world.setBlockState(pos.up(4).north().west(), leaves, 3);
 		if (world.getBlockState(pos.up(4).north().north().west()).getMaterial().isReplaceable())
@@ -134,7 +134,7 @@ public class ColdLogFruitTreeFeatureSapling extends Feature<NoFeatureConfig> {
 			world.setBlockState(pos.up(4).north().west().west(), leaves, 3);
 		//if (world.getBlockState(pos.up(4).north().north().west().west()).getMaterial().isReplaceable())
 		//	world.setBlockState(pos.up(4).north().north().west().west(), leaves, 3);
-		
+
 		if (world.getBlockState(pos.up(4).north().east()).getMaterial().isReplaceable())
 			world.setBlockState(pos.up(4).north().east(), leaves, 3);
 		if (world.getBlockState(pos.up(4).north().north().east()).getMaterial().isReplaceable())
@@ -143,12 +143,12 @@ public class ColdLogFruitTreeFeatureSapling extends Feature<NoFeatureConfig> {
 			world.setBlockState(pos.up(4).north().east().east(), leaves, 3);
 		//if (world.getBlockState(pos.up(4).north().north().east().east()).getMaterial().isReplaceable())
 		//	world.setBlockState(pos.up(4).north().north().east().east(), leaves, 3);
-		
+
 		if (world.getBlockState(pos.up(4).south()).getMaterial().isReplaceable())
 			world.setBlockState(pos.up(4).south(), leaves, 3);
 		if (world.getBlockState(pos.up(4).south().south()).getMaterial().isReplaceable())
 			world.setBlockState(pos.up(4).south().south(), leaves, 3);
-		
+
 		if (world.getBlockState(pos.up(4).south().west()).getMaterial().isReplaceable())
 			world.setBlockState(pos.up(4).south().west(), leaves, 3);
 		if (world.getBlockState(pos.up(4).south().south().west()).getMaterial().isReplaceable())
@@ -157,7 +157,7 @@ public class ColdLogFruitTreeFeatureSapling extends Feature<NoFeatureConfig> {
 			world.setBlockState(pos.up(4).south().west().west(), leaves, 3);
 		//if (world.getBlockState(pos.up(4).south().south().west().west()).getMaterial().isReplaceable())
 		//	world.setBlockState(pos.up(4).south().south().west().west(), leaves, 3);
-		
+
 		if (world.getBlockState(pos.up(4).south().east()).getMaterial().isReplaceable())
 			world.setBlockState(pos.up(4).south().east(), leaves, 3);
 		if (world.getBlockState(pos.up(4).south().south().east()).getMaterial().isReplaceable())
@@ -166,17 +166,17 @@ public class ColdLogFruitTreeFeatureSapling extends Feature<NoFeatureConfig> {
 			world.setBlockState(pos.up(4).south().east().east(), leaves, 3);
 		//if (world.getBlockState(pos.up(4).south().south().east().east()).getMaterial().isReplaceable())
 		//	world.setBlockState(pos.up(4).south().south().east().east(), leaves, 3);
-		
+
 		if (world.getBlockState(pos.up(4).east()).getMaterial().isReplaceable())
 			world.setBlockState(pos.up(4).east(), leaves, 3);
 		if (world.getBlockState(pos.up(4).east().east()).getMaterial().isReplaceable())
 			world.setBlockState(pos.up(4).east().east(), leaves, 3);
-		
+
 		if (world.getBlockState(pos.up(4).west()).getMaterial().isReplaceable())
 			world.setBlockState(pos.up(4).west(), leaves, 3);
 		if (world.getBlockState(pos.up(4).west().west()).getMaterial().isReplaceable())
 			world.setBlockState(pos.up(4).west().west(), leaves, 3);
-		
+
 		//Layer 3
 		if (world.getBlockState(pos.up(5)).getMaterial().isReplaceable())
 			world.setBlockState(pos.up(5), leaves, 3);
@@ -201,22 +201,22 @@ public class ColdLogFruitTreeFeatureSapling extends Feature<NoFeatureConfig> {
 			world.setBlockState(pos.up(6), leaves, 3);
 
 	}
-	
+
 	private static BlockState getLeaves(int verify)
 	{
 		return Blocks.SPRUCE_LEAVES.getDefaultState().with(BlockStateProperties.DISTANCE_1_7, 1);
 	}
-	
+
 	private static BlockState getTrunk(int verify)
 	{
 		return Blocks.SPRUCE_LOG.getDefaultState();
 	}
-	
+
 	private static BlockState getFruit(int verify, Random random)
 	{
-		
+
 			return BlockRegistry.pammaple.getDefaultState().with(BlockStateProperties.AGE_0_7, Integer.valueOf(0));
 
-		
+
 	}
 }

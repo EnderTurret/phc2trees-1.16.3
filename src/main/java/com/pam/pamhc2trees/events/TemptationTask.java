@@ -21,10 +21,10 @@ public class TemptationTask {
 	private static final Ingredient Pig = Ingredient.fromItems(
 			ItemRegistry.avocadoitem,
 			ItemRegistry.durianitem,
-			ItemRegistry.oliveitem, 
-			ItemRegistry.candlenutitem, 
+			ItemRegistry.oliveitem,
+			ItemRegistry.candlenutitem,
 			ItemRegistry.chestnutitem,
-			ItemRegistry.almonditem, 
+			ItemRegistry.almonditem,
 			ItemRegistry.walnutitem,
 			ItemRegistry.hazelnutitem,
 			ItemRegistry.almonditem,
@@ -67,7 +67,7 @@ ItemRegistry.rambutanitem,
 ItemRegistry.tamarinditem
 
 			);
-	
+
 	@SubscribeEvent
 	public void onEntitySpawn(EntityJoinWorldEvent event) {
 		Entity entity = event.getEntity();

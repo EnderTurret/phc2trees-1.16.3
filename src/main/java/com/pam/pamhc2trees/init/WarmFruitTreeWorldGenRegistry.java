@@ -9,7 +9,7 @@ import net.minecraftforge.event.world.BiomeLoadingEvent;
 import java.util.Set;
 
 public class WarmFruitTreeWorldGenRegistry {
-	
+
 	public static void addToBiomes(BiomeLoadingEvent evt) {
 		Set<BiomeDictionary.Type> types = BiomeDictionary.getTypes(RegistryKey.getOrCreateKey(Registry.BIOME_KEY, evt.getName()));
 		//almond

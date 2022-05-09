@@ -14,7 +14,7 @@ import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 
 public class TemperateFruitTreeWorldGenRegistry {
-	
+
 	public static void addToBiome(BiomeLoadingEvent evt) {
 		Set<BiomeDictionary.Type> types = BiomeDictionary.getTypes(RegistryKey.getOrCreateKey(Registry.BIOME_KEY, evt.getName()));
 		if ((evt.getClimate().temperature >= 1F || evt.getClimate().temperature < 0.2F) && !types.contains(BiomeDictionary.Type.SPOOKY)) return;
@@ -273,8 +273,8 @@ public class TemperateFruitTreeWorldGenRegistry {
 						TreeConfiguredFeatures.SOURSOP_WORLDGEN);
 			}
 		}
-		
-		
+
+
 	}
 
 }

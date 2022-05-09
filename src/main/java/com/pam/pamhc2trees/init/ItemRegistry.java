@@ -63,7 +63,7 @@ public class ItemRegistry {
 	//Cold Fruits
 	public static Item pammaple;
 	public static Item pampinenut;
-	
+
 	//Temperate Saplings
 	public static Item apple_sapling;
 	public static Item avocado_sapling;
@@ -116,7 +116,7 @@ public class ItemRegistry {
 	//Cold Saplings
 	public static Item maple_sapling;
 	public static Item pinenut_sapling;
-	
+
 	//Temperate Fruit Items
 	public static Item avocadoitem;
 	public static Item candlenutitem;
@@ -166,25 +166,25 @@ public class ItemRegistry {
 	//Cold Fruit Items
 	public static Item maplesyrupitem;
 	public static Item pinenutitem;
-	
+
 	//Roasted Nuts
 	public static Item roastedchestnutitem;
 	public static Item roastedhazelnutitem;
 	public static Item roastedwalnutitem;
-	
+
 	public static Item roastedalmonditem;
 	public static Item roastedcashewitem;
 	public static Item roastedpecanitem;
 	public static Item roastedpistachioitem;
-	
+
 	public static Item roastedpinenutitem;
 
-	
+
 
 	public static void registerAll(RegistryEvent.Register<Item> event) {
 		if (!event.getName().equals(ForgeRegistries.ITEMS.getRegistryName()))
 			return;
-		
+
 		//Temperate Fruits
 		pamapple = register("pamapple",new BlockItem(BlockRegistry.pamapple, new Item.Properties().group(Pamhc2trees.ITEM_GROUP)));
 		pamavocado = register("pamavocado",new BlockItem(BlockRegistry.pamavocado, new Item.Properties().group(Pamhc2trees.ITEM_GROUP)));
@@ -237,7 +237,7 @@ public class ItemRegistry {
 		//Cold Fruits
 		pammaple = register("pammaple",new BlockItem(BlockRegistry.pammaple, new Item.Properties().group(Pamhc2trees.ITEM_GROUP)));
 		pampinenut = register("pampinenut",new BlockItem(BlockRegistry.pampinenut, new Item.Properties().group(Pamhc2trees.ITEM_GROUP)));
-		
+
 		//Temperate Saplings
 		apple_sapling = register("apple_sapling", new BlockItem(BlockRegistry.apple_sapling, new Item.Properties().group(Pamhc2trees.ITEM_GROUP)));
 		avocado_sapling = register("avocado_sapling", new BlockItem(BlockRegistry.avocado_sapling, new Item.Properties().group(Pamhc2trees.ITEM_GROUP)));
@@ -290,7 +290,7 @@ public class ItemRegistry {
 		//Cold Saplings
 		maple_sapling = register("maple_sapling", new BlockItem(BlockRegistry.maple_sapling, new Item.Properties().group(Pamhc2trees.ITEM_GROUP)));
 		pinenut_sapling = register("pinenut_sapling", new BlockItem(BlockRegistry.pinenut_sapling, new Item.Properties().group(Pamhc2trees.ITEM_GROUP)));
-		
+
 		//Temperate Fruit Items
 		avocadoitem = register("avocadoitem", new Item((new Item.Properties()).group(Pamhc2trees.ITEM_GROUP).food(FoodBuilderRegistry.AVOCADOITEM)));
 		candlenutitem = register("candlenutitem", new Item((new Item.Properties()).group(Pamhc2trees.ITEM_GROUP).food(FoodBuilderRegistry.CANDLENUTITEM)));
@@ -340,22 +340,22 @@ public class ItemRegistry {
 		//Cold Fruit Items
 		maplesyrupitem = register("maplesyrupitem", new Item((new Item.Properties()).group(Pamhc2trees.ITEM_GROUP).food(FoodBuilderRegistry.MAPLESYRUPITEM)));
 		pinenutitem = register("pinenutitem", new Item((new Item.Properties()).group(Pamhc2trees.ITEM_GROUP).food(FoodBuilderRegistry.PINENUTITEM)));
-		
+
 		//Roasted Nuts
 		roastedchestnutitem = register("roastedchestnutitem", new Item((new Item.Properties()).group(Pamhc2trees.ITEM_GROUP).food(FoodBuilderRegistry.ROASTEDCHESTNUTITEM)));
 		roastedhazelnutitem = register("roastedhazelnutitem", new Item((new Item.Properties()).group(Pamhc2trees.ITEM_GROUP).food(FoodBuilderRegistry.ROASTEDHAZELNUTITEM)));
 		roastedwalnutitem = register("roastedwalnutitem", new Item((new Item.Properties()).group(Pamhc2trees.ITEM_GROUP).food(FoodBuilderRegistry.ROASTEDWALNUTITEM)));
-		
+
 		roastedalmonditem = register("roastedalmonditem", new Item((new Item.Properties()).group(Pamhc2trees.ITEM_GROUP).food(FoodBuilderRegistry.ROASTEDALMONDITEM)));
 		roastedcashewitem = register("roastedcashewitem", new Item((new Item.Properties()).group(Pamhc2trees.ITEM_GROUP).food(FoodBuilderRegistry.ROASTEDCASHEWITEM)));
 		roastedpecanitem = register("roastedpecanitem", new Item((new Item.Properties()).group(Pamhc2trees.ITEM_GROUP).food(FoodBuilderRegistry.ROASTEDPECANITEM)));
 		roastedpistachioitem = register("roastedpistachioitem", new Item((new Item.Properties()).group(Pamhc2trees.ITEM_GROUP).food(FoodBuilderRegistry.ROASTEDPISTACHIOITEM)));
-		
+
 		roastedpinenutitem = register("roastedpinenutitem", new Item((new Item.Properties()).group(Pamhc2trees.ITEM_GROUP).food(FoodBuilderRegistry.ROASTEDPINENUTITEM)));
-		
+
 	}
 
-	
+
 	private static <T extends Item> T register(String name, T item) {
 		ResourceLocation id = Pamhc2trees.getId(name);
 		item.setRegistryName(id);
@@ -363,7 +363,7 @@ public class ItemRegistry {
 		return item;
 	}
 
-	
 
-	
+
+
 }

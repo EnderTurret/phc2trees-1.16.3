@@ -112,7 +112,7 @@ public class WorldGenRegistry {
 			pawpaw_worldgen = register(r, new TemperateFruitTreeFeature(NoFeatureConfig.CODEC), "pawpaw_worldgen");
 		if (EnableConfig.soursop_worldgen.get())
 			soursop_worldgen = register(r, new TemperateFruitTreeFeature(NoFeatureConfig.CODEC), "soursop_worldgen");
-		
+
 		//Warm Fruits
 		if (EnableConfig.almond_worldgen.get())
 			almond_worldgen = register(r, new WarmFruitTreeFeature(NoFeatureConfig.CODEC), "almond_worldgen");
@@ -174,7 +174,7 @@ public class WorldGenRegistry {
 			rambutan_worldgen = register(r, new WarmFruitTreeFeature(NoFeatureConfig.CODEC), "rambutan_worldgen");
 		if (EnableConfig.tamarind_worldgen.get())
 			tamarind_worldgen = register(r, new WarmFruitTreeFeature(NoFeatureConfig.CODEC), "tamarind_worldgen");
-		
+
 		//Cold Fruits
 		if (EnableConfig.maple_worldgen.get())
 			maple_worldgen = register(r, new ColdLogFruitTreeFeature(NoFeatureConfig.CODEC), "maple_worldgen");
