@@ -26,17 +26,12 @@ import net.minecraft.world.level.Level;
 import net.minecraft.server.level.ServerLevel;
 
 public class BlockPamLogFruit extends Block implements BonemealableBlock {
-	private String name;
-	public static final IntegerProperty AGE = BlockStateProperties.AGE_7;
-	public static boolean fruitRemoval = false;
-	public BlockPamLogFruit(Block.Properties p_i49971_1_, String name) {
-		super(p_i49971_1_);
-		this.name = name;
-		this.registerDefaultState(this.stateDefinition.any().setValue(this.getAgeProperty(), Integer.valueOf(0)));
-	}
 
-	public IntegerProperty getAgeProperty() {
-		return AGE;
+	public static final IntegerProperty AGE = BlockStateProperties.AGE_7;
+
+	public BlockPamLogFruit(Block.Properties properties) {
+		super(properties);
+		this.registerDefaultState(this.stateDefinition.any().setValue(AGE, 0));
 	}
 
 	public int getMaxAge() {
@@ -44,15 +39,15 @@ public class BlockPamLogFruit extends Block implements BonemealableBlock {
 	}
 
 	protected int getAge(BlockState state) {
-		return state.getValue(this.getAgeProperty());
+		return state.getValue(AGE);
 	}
 
 	public BlockState withAge(int age) {
-		return this.defaultBlockState().setValue(this.getAgeProperty(), Integer.valueOf(age));
+		return this.defaultBlockState().setValue(AGE, Integer.valueOf(age));
 	}
 
 	public boolean isMaxAge(BlockState state) {
-		return state.getValue(this.getAgeProperty()) >= this.getMaxAge();
+		return state.getValue(AGE) >= this.getMaxAge();
 	}
 
 	@SuppressWarnings("deprecation")

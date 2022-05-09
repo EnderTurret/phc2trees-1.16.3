@@ -1,7 +1,5 @@
 package com.pam.pamhc2trees.init;
 
-import javax.annotation.Nullable;
-
 import com.pam.pamhc2trees.Pamhc2trees;
 import com.pam.pamhc2trees.blocks.BlockPamColdLogSapling;
 import com.pam.pamhc2trees.blocks.BlockPamColdSapling;
@@ -14,346 +12,132 @@ import com.pam.pamhc2trees.blocks.BlockPamWarmSapling;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.material.Material;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.Item;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 
 public class BlockRegistry {
 
+	public static final DeferredRegister<Block> REGISTRY = DeferredRegister.create(ForgeRegistries.BLOCKS, Pamhc2trees.MOD_ID);
+
 	//Temperate Fruits
-	public static Block pamapple;
-	public static Block pamavocado;
-	public static Block pamcandlenut;
-	public static Block pamcherry;
-	public static Block pamchestnut;
-	public static Block pamgooseberry;
-	public static Block pamlemon;
-	public static Block pamnutmeg;
-	public static Block pamorange;
-	public static Block pampeach;
-	public static Block pampear;
-	public static Block pamplum;
-	public static Block pamwalnut;
-	public static Block pamspiderweb;
-	public static Block pamhazelnut;
-	public static Block pampawpaw;
-	public static Block pamsoursop;
+	public static RegistryObject<Block> pamapple = REGISTRY.register("pamapple", () -> new BlockPamFruit(fruit()));
+	public static RegistryObject<Block> pamavocado = REGISTRY.register("pamavocado", () -> new BlockPamFruit(fruit()));
+	public static RegistryObject<Block> pamcandlenut = REGISTRY.register("pamcandlenut", () -> new BlockPamFruit(fruit()));
+	public static RegistryObject<Block> pamcherry = REGISTRY.register("pamcherry", () -> new BlockPamFruit(fruit()));
+	public static RegistryObject<Block> pamchestnut = REGISTRY.register("pamchestnut", () -> new BlockPamFruit(fruit()));
+	public static RegistryObject<Block> pamgooseberry = REGISTRY.register("pamgooseberry", () -> new BlockPamFruit(fruit()));
+	public static RegistryObject<Block> pamlemon = REGISTRY.register("pamlemon", () -> new BlockPamFruit(fruit()));
+	public static RegistryObject<Block> pamnutmeg = REGISTRY.register("pamnutmeg", () -> new BlockPamFruit(fruit()));
+	public static RegistryObject<Block> pamorange = REGISTRY.register("pamorange", () -> new BlockPamFruit(fruit()));
+	public static RegistryObject<Block> pampeach = REGISTRY.register("pampeach", () -> new BlockPamFruit(fruit()));
+	public static RegistryObject<Block> pampear = REGISTRY.register("pampear", () -> new BlockPamFruit(fruit()));
+	public static RegistryObject<Block> pamplum = REGISTRY.register("pamplum", () -> new BlockPamFruit(fruit()));
+	public static RegistryObject<Block> pamwalnut = REGISTRY.register("pamwalnut", () -> new BlockPamFruit(fruit()));
+	public static RegistryObject<Block> pamspiderweb = REGISTRY.register("pamspiderweb", () -> new BlockPamFruit(fruit()));
+	public static RegistryObject<Block> pamhazelnut = REGISTRY.register("pamhazelnut", () -> new BlockPamFruit(fruit()));
+	public static RegistryObject<Block> pampawpaw = REGISTRY.register("pampawpaw", () -> new BlockPamFruit(fruit()));
+	public static RegistryObject<Block> pamsoursop = REGISTRY.register("pamsoursop", () -> new BlockPamFruit(fruit()));
 	//Warm Fruits
-	public static Block pamalmond;
-	public static Block pamapricot;
-	public static Block pambanana;
-	public static Block pamcashew;
-	public static Block pamcinnamon;
-	public static Block pamcoconut;
-	public static Block pamdate;
-	public static Block pamdragonfruit;
-	public static Block pamdurian;
-	public static Block pamfig;
-	public static Block pamgrapefruit;
-	public static Block pamlime;
-	public static Block pammango;
-	public static Block pamolive;
-	public static Block pampapaya;
-	public static Block pampaperbark;
-	public static Block pampecan;
-	public static Block pampeppercorn;
-	public static Block pampersimmon;
-	public static Block pampistachio;
-	public static Block pampomegranate;
-	public static Block pamstarfruit;
-	public static Block pamvanillabean;
-	public static Block pambreadfruit;
-	public static Block pamguava;
-	public static Block pamjackfruit;
-	public static Block pamlychee;
-	public static Block pampassionfruit;
-	public static Block pamrambutan;
-	public static Block pamtamarind;
+	public static RegistryObject<Block> pamalmond = REGISTRY.register("pamalmond", () -> new BlockPamFruit(fruit()));
+	public static RegistryObject<Block> pamapricot = REGISTRY.register("pamapricot", () -> new BlockPamFruit(fruit()));
+	public static RegistryObject<Block> pambanana = REGISTRY.register("pambanana", () -> new BlockPamFruit(fruit()));
+	public static RegistryObject<Block> pamcashew = REGISTRY.register("pamcashew", () -> new BlockPamFruit(fruit()));
+	public static RegistryObject<Block> pamcinnamon = REGISTRY.register("pamcinnamon", () -> new BlockPamLogFruit(logFruit()));
+	public static RegistryObject<Block> pamcoconut = REGISTRY.register("pamcoconut", () -> new BlockPamFruit(fruit()));
+	public static RegistryObject<Block> pamdate = REGISTRY.register("pamdate", () -> new BlockPamFruit(fruit()));
+	public static RegistryObject<Block> pamdragonfruit = REGISTRY.register("pamdragonfruit", () -> new BlockPamFruit(fruit()));
+	public static RegistryObject<Block> pamdurian = REGISTRY.register("pamdurian", () -> new BlockPamFruit(fruit()));
+	public static RegistryObject<Block> pamfig = REGISTRY.register("pamfig", () -> new BlockPamFruit(fruit()));
+	public static RegistryObject<Block> pamgrapefruit = REGISTRY.register("pamgrapefruit", () -> new BlockPamFruit(fruit()));
+	public static RegistryObject<Block> pamlime = REGISTRY.register("pamlime", () -> new BlockPamFruit(fruit()));
+	public static RegistryObject<Block> pammango = REGISTRY.register("pammango", () -> new BlockPamFruit(fruit()));
+	public static RegistryObject<Block> pamolive = REGISTRY.register("pamolive", () -> new BlockPamFruit(fruit()));
+	public static RegistryObject<Block> pampapaya = REGISTRY.register("pampapaya", () -> new BlockPamFruit(fruit()));
+	public static RegistryObject<Block> pampaperbark = REGISTRY.register("pampaperbark", () -> new BlockPamLogFruit(logFruit()));
+	public static RegistryObject<Block> pampecan = REGISTRY.register("pampecan", () -> new BlockPamFruit(fruit()));
+	public static RegistryObject<Block> pampeppercorn = REGISTRY.register("pampeppercorn", () -> new BlockPamFruit(fruit()));
+	public static RegistryObject<Block> pampersimmon = REGISTRY.register("pampersimmon", () -> new BlockPamFruit(fruit()));
+	public static RegistryObject<Block> pampistachio = REGISTRY.register("pampistachio", () -> new BlockPamFruit(fruit()));
+	public static RegistryObject<Block> pampomegranate = REGISTRY.register("pampomegranate", () -> new BlockPamFruit(fruit()));
+	public static RegistryObject<Block> pamstarfruit = REGISTRY.register("pamstarfruit", () -> new BlockPamFruit(fruit()));
+	public static RegistryObject<Block> pamvanillabean = REGISTRY.register("pamvanillabean", () -> new BlockPamFruit(fruit()));
+	public static RegistryObject<Block> pambreadfruit = REGISTRY.register("pambreadfruit", () -> new BlockPamFruit(fruit()));
+	public static RegistryObject<Block> pamguava = REGISTRY.register("pamguava", () -> new BlockPamFruit(fruit()));
+	public static RegistryObject<Block> pamjackfruit = REGISTRY.register("pamjackfruit", () -> new BlockPamFruit(fruit()));
+	public static RegistryObject<Block> pamlychee = REGISTRY.register("pamlychee", () -> new BlockPamFruit(fruit()));
+	public static RegistryObject<Block> pampassionfruit = REGISTRY.register("pampassionfruit", () -> new BlockPamFruit(fruit()));
+	public static RegistryObject<Block> pamrambutan = REGISTRY.register("pamrambutan", () -> new BlockPamFruit(fruit()));
+	public static RegistryObject<Block> pamtamarind = REGISTRY.register("pamtamarind", () -> new BlockPamFruit(fruit()));
 	//Cold Fruits
-	public static Block pammaple;
-	public static Block pampinenut;
+	public static RegistryObject<Block> pammaple = REGISTRY.register("pammaple", () -> new BlockPamLogFruit(logFruit()));
+	public static RegistryObject<Block> pampinenut = REGISTRY.register("pampinenut", () -> new BlockPamFruit(fruit()));
 
 	//Temperate Saplings
-	public static Block apple_sapling;
-	public static Block avocado_sapling;
-	public static Block candlenut_sapling;
-	public static Block cherry_sapling;
-	public static Block chestnut_sapling;
-	public static Block gooseberry_sapling;
-	public static Block lemon_sapling;
-	public static Block nutmeg_sapling;
-	public static Block orange_sapling;
-	public static Block peach_sapling;
-	public static Block pear_sapling;
-	public static Block plum_sapling;
-	public static Block walnut_sapling;
-	public static Block spiderweb_sapling;
-	public static Block hazelnut_sapling;
-	public static Block pawpaw_sapling;
-	public static Block soursop_sapling;
+	public static RegistryObject<Block> apple_sapling = REGISTRY.register("apple_sapling", () -> new BlockPamTemperateSapling(sapling(), 1));
+	public static RegistryObject<Block> avocado_sapling = REGISTRY.register("avocado_sapling", () -> new BlockPamTemperateSapling(sapling(), 2));
+	public static RegistryObject<Block> candlenut_sapling = REGISTRY.register("candlenut_sapling", () -> new BlockPamTemperateSapling(sapling(), 3));
+	public static RegistryObject<Block> cherry_sapling = REGISTRY.register("cherry_sapling", () -> new BlockPamTemperateSapling(sapling(), 4));
+	public static RegistryObject<Block> chestnut_sapling = REGISTRY.register("chestnut_sapling", () -> new BlockPamTemperateSapling(sapling(), 5));
+	public static RegistryObject<Block> gooseberry_sapling = REGISTRY.register("gooseberry_sapling", () -> new BlockPamTemperateSapling(sapling(), 6));
+	public static RegistryObject<Block> lemon_sapling = REGISTRY.register("lemon_sapling", () -> new BlockPamTemperateSapling(sapling(), 7));
+	public static RegistryObject<Block> nutmeg_sapling = REGISTRY.register("nutmeg_sapling", () -> new BlockPamTemperateSapling(sapling(), 8));
+	public static RegistryObject<Block> orange_sapling = REGISTRY.register("orange_sapling", () -> new BlockPamTemperateSapling(sapling(), 9));
+	public static RegistryObject<Block> peach_sapling = REGISTRY.register("peach_sapling", () -> new BlockPamTemperateSapling(sapling(), 10));
+	public static RegistryObject<Block> pear_sapling = REGISTRY.register("pear_sapling", () -> new BlockPamTemperateSapling(sapling(), 11));
+	public static RegistryObject<Block> plum_sapling = REGISTRY.register("plum_sapling", () -> new BlockPamTemperateSapling(sapling(), 12));
+	public static RegistryObject<Block> walnut_sapling = REGISTRY.register("walnut_sapling", () -> new BlockPamTemperateSapling(sapling(), 13));
+	public static RegistryObject<Block> spiderweb_sapling = REGISTRY.register("spiderweb_sapling", () -> new BlockPamTemperateSapling(sapling(), 14));
+	public static RegistryObject<Block> hazelnut_sapling = REGISTRY.register("hazelnut_sapling", () -> new BlockPamTemperateSapling(sapling(), 15));
+	public static RegistryObject<Block> pawpaw_sapling = REGISTRY.register("pawpaw_sapling", () -> new BlockPamTemperateSapling(sapling(), 16));
+	public static RegistryObject<Block> soursop_sapling = REGISTRY.register("soursop_sapling", () -> new BlockPamTemperateSapling(sapling(), 17));
 	//Warm Saplings
-	public static Block almond_sapling;
-	public static Block apricot_sapling;
-	public static Block banana_sapling;
-	public static Block cashew_sapling;
-	public static Block cinnamon_sapling;
-	public static Block coconut_sapling;
-	public static Block date_sapling;
-	public static Block dragonfruit_sapling;
-	public static Block durian_sapling;
-	public static Block fig_sapling;
-	public static Block grapefruit_sapling;
-	public static Block lime_sapling;
-	public static Block mango_sapling;
-	public static Block olive_sapling;
-	public static Block papaya_sapling;
-	public static Block paperbark_sapling;
-	public static Block pecan_sapling;
-	public static Block peppercorn_sapling;
-	public static Block persimmon_sapling;
-	public static Block pistachio_sapling;
-	public static Block pomegranate_sapling;
-	public static Block starfruit_sapling;
-	public static Block vanillabean_sapling;
-	public static Block breadfruit_sapling;
-	public static Block guava_sapling;
-	public static Block jackfruit_sapling;
-	public static Block lychee_sapling;
-	public static Block passionfruit_sapling;
-	public static Block rambutan_sapling;
-	public static Block tamarind_sapling;
+	public static RegistryObject<Block> almond_sapling = REGISTRY.register("almond_sapling", () -> new BlockPamWarmSapling(sapling(), 1));
+	public static RegistryObject<Block> apricot_sapling = REGISTRY.register("apricot_sapling", () -> new BlockPamWarmSapling(sapling(), 2));
+	public static RegistryObject<Block> banana_sapling = REGISTRY.register("banana_sapling", () -> new BlockPamWarmSapling(sapling(), 3));
+	public static RegistryObject<Block> cashew_sapling = REGISTRY.register("cashew_sapling", () -> new BlockPamWarmSapling(sapling(), 4));
+	public static RegistryObject<Block> cinnamon_sapling = REGISTRY.register("cinnamon_sapling", () -> new BlockPamWarmLogSapling(sapling(), 1));
+	public static RegistryObject<Block> coconut_sapling = REGISTRY.register("coconut_sapling", () -> new BlockPamWarmSapling(sapling(), 5));
+	public static RegistryObject<Block> date_sapling = REGISTRY.register("date_sapling", () -> new BlockPamWarmSapling(sapling(), 6));
+	public static RegistryObject<Block> dragonfruit_sapling = REGISTRY.register("dragonfruit_sapling", () -> new BlockPamWarmSapling(sapling(), 7));
+	public static RegistryObject<Block> durian_sapling = REGISTRY.register("durian_sapling", () -> new BlockPamWarmSapling(sapling(), 8));
+	public static RegistryObject<Block> fig_sapling = REGISTRY.register("fig_sapling", () -> new BlockPamWarmSapling(sapling(), 9));
+	public static RegistryObject<Block> grapefruit_sapling = REGISTRY.register("grapefruit_sapling", () -> new BlockPamWarmSapling(sapling(), 10));
+	public static RegistryObject<Block> lime_sapling = REGISTRY.register("lime_sapling", () -> new BlockPamWarmSapling(sapling(), 11));
+	public static RegistryObject<Block> mango_sapling = REGISTRY.register("mango_sapling", () -> new BlockPamWarmSapling(sapling(), 12));
+	public static RegistryObject<Block> olive_sapling = REGISTRY.register("olive_sapling", () -> new BlockPamWarmSapling(sapling(), 13));
+	public static RegistryObject<Block> papaya_sapling = REGISTRY.register("papaya_sapling", () -> new BlockPamWarmSapling(sapling(), 14));
+	public static RegistryObject<Block> paperbark_sapling = REGISTRY.register("paperbark_sapling", () -> new BlockPamWarmLogSapling(sapling(), 2));
+	public static RegistryObject<Block> pecan_sapling = REGISTRY.register("pecan_sapling", () -> new BlockPamWarmSapling(sapling(), 15));
+	public static RegistryObject<Block> peppercorn_sapling = REGISTRY.register("peppercorn_sapling", () -> new BlockPamWarmSapling(sapling(), 16));
+	public static RegistryObject<Block> persimmon_sapling = REGISTRY.register("persimmon_sapling", () -> new BlockPamWarmSapling(sapling(), 17));
+	public static RegistryObject<Block> pistachio_sapling = REGISTRY.register("pistachio_sapling", () -> new BlockPamWarmSapling(sapling(), 18));
+	public static RegistryObject<Block> pomegranate_sapling = REGISTRY.register("pomegranate_sapling", () -> new BlockPamWarmSapling(sapling(), 19));
+	public static RegistryObject<Block> starfruit_sapling = REGISTRY.register("starfruit_sapling", () -> new BlockPamWarmSapling(sapling(), 20));
+	public static RegistryObject<Block> vanillabean_sapling = REGISTRY.register("vanillabean_sapling", () -> new BlockPamWarmSapling(sapling(), 21));
+	public static RegistryObject<Block> breadfruit_sapling = REGISTRY.register("breadfruit_sapling", () -> new BlockPamWarmSapling(sapling(), 22));
+	public static RegistryObject<Block> guava_sapling = REGISTRY.register("guava_sapling", () -> new BlockPamWarmSapling(sapling(), 23));
+	public static RegistryObject<Block> jackfruit_sapling = REGISTRY.register("jackfruit_sapling", () -> new BlockPamWarmSapling(sapling(), 24));
+	public static RegistryObject<Block> lychee_sapling = REGISTRY.register("lychee_sapling", () -> new BlockPamWarmSapling(sapling(), 25));
+	public static RegistryObject<Block> passionfruit_sapling = REGISTRY.register("passionfruit_sapling", () -> new BlockPamWarmSapling(sapling(), 26));
+	public static RegistryObject<Block> rambutan_sapling = REGISTRY.register("rambutan_sapling", () -> new BlockPamWarmSapling(sapling(), 27));
+	public static RegistryObject<Block> tamarind_sapling = REGISTRY.register("tamarind_sapling", () -> new BlockPamWarmSapling(sapling(), 28));
 	//Cold Saplings
-	public static Block maple_sapling;
-	public static Block pinenut_sapling;
+	public static RegistryObject<Block> maple_sapling = REGISTRY.register("maple_sapling", () -> new BlockPamColdLogSapling(sapling(), 1));
+	public static RegistryObject<Block> pinenut_sapling = REGISTRY.register("pinenut_sapling", () -> new BlockPamColdSapling(sapling(), 1));
 
-	public static void registerAll(RegistryEvent.Register<Block> event) {
-		if (!event.getName().equals(ForgeRegistries.BLOCKS.getRegistryName()))
-			return;
-		//Temperate Fruits
-		pamapple = register("pamapple", new BlockPamFruit(Block.Properties.of(Material.PLANT).strength(5F)
-				.noCollission().randomTicks().sound(SoundType.CROP), "apple"));
-		pamavocado = register("pamavocado", new BlockPamFruit(Block.Properties.of(Material.PLANT).strength(5F)
-				.noCollission().randomTicks().sound(SoundType.CROP), "avocado"));
-		pamcandlenut = register("pamcandlenut", new BlockPamFruit(Block.Properties.of(Material.PLANT).strength(5F)
-				.noCollission().randomTicks().sound(SoundType.CROP), "candlenut"));
-		pamcherry = register("pamcherry", new BlockPamFruit(Block.Properties.of(Material.PLANT).strength(5F)
-				.noCollission().randomTicks().sound(SoundType.CROP), "cherry"));
-		pamchestnut = register("pamchestnut", new BlockPamFruit(Block.Properties.of(Material.PLANT).strength(5F)
-				.noCollission().randomTicks().sound(SoundType.CROP), "chestnut"));
-		pamgooseberry = register("pamgooseberry", new BlockPamFruit(Block.Properties.of(Material.PLANT).strength(5F)
-				.noCollission().randomTicks().sound(SoundType.CROP), "gooseberry"));
-		pamlemon = register("pamlemon", new BlockPamFruit(Block.Properties.of(Material.PLANT).strength(5F)
-				.noCollission().randomTicks().sound(SoundType.CROP), "lemon"));
-		pamnutmeg = register("pamnutmeg", new BlockPamFruit(Block.Properties.of(Material.PLANT).strength(5F)
-				.noCollission().randomTicks().sound(SoundType.CROP), "nutmeg"));
-		pamorange = register("pamorange", new BlockPamFruit(Block.Properties.of(Material.PLANT).strength(5F)
-				.noCollission().randomTicks().sound(SoundType.CROP), "orange"));
-		pampeach = register("pampeach", new BlockPamFruit(Block.Properties.of(Material.PLANT).strength(5F)
-				.noCollission().randomTicks().sound(SoundType.CROP), "peach"));
-		pampear = register("pampear", new BlockPamFruit(Block.Properties.of(Material.PLANT).strength(5F)
-				.noCollission().randomTicks().sound(SoundType.CROP), "pear"));
-		pamplum = register("pamplum", new BlockPamFruit(Block.Properties.of(Material.PLANT).strength(5F)
-				.noCollission().randomTicks().sound(SoundType.CROP), "plum"));
-		pamwalnut = register("pamwalnut", new BlockPamFruit(Block.Properties.of(Material.PLANT).strength(5F)
-				.noCollission().randomTicks().sound(SoundType.CROP), "walnut"));
-		pamspiderweb = register("pamspiderweb", new BlockPamFruit(Block.Properties.of(Material.PLANT).strength(5F)
-				.noCollission().randomTicks().sound(SoundType.CROP), "spiderweb"));
-		pamhazelnut = register("pamhazelnut", new BlockPamFruit(Block.Properties.of(Material.PLANT).strength(5F)
-				.noCollission().randomTicks().sound(SoundType.CROP), "hazelnut"));
-		pampawpaw = register("pampawpaw", new BlockPamFruit(Block.Properties.of(Material.PLANT).strength(5F)
-				.noCollission().randomTicks().sound(SoundType.CROP), "pawpaw"));
-		pamsoursop = register("pamsoursop", new BlockPamFruit(Block.Properties.of(Material.PLANT).strength(5F)
-				.noCollission().randomTicks().sound(SoundType.CROP), "soursop"));
-		//Warm Fruits
-		pamalmond = register("pamalmond", new BlockPamFruit(Block.Properties.of(Material.PLANT).strength(5F)
-				.noCollission().randomTicks().sound(SoundType.CROP), "almond"));
-		pamapricot = register("pamapricot", new BlockPamFruit(Block.Properties.of(Material.PLANT).strength(5F)
-				.noCollission().randomTicks().sound(SoundType.CROP), "apricot"));
-		pambanana = register("pambanana", new BlockPamFruit(Block.Properties.of(Material.PLANT).strength(5F)
-				.noCollission().randomTicks().sound(SoundType.CROP), "banana"));
-		pamcashew = register("pamcashew", new BlockPamFruit(Block.Properties.of(Material.PLANT).strength(5F)
-				.noCollission().randomTicks().sound(SoundType.CROP), "cashew"));
-		pamcinnamon = register("pamcinnamon", new BlockPamLogFruit(Block.Properties.of(Material.PLANT).strength(5F)
-				.randomTicks().sound(SoundType.CROP), "cinnamon"));
-		pamcoconut = register("pamcoconut", new BlockPamFruit(Block.Properties.of(Material.PLANT).strength(5F)
-				.noCollission().randomTicks().sound(SoundType.CROP), "coconut"));
-		pamdate = register("pamdate", new BlockPamFruit(Block.Properties.of(Material.PLANT).strength(5F)
-				.noCollission().randomTicks().sound(SoundType.CROP), "date"));
-		pamdragonfruit = register("pamdragonfruit", new BlockPamFruit(Block.Properties.of(Material.PLANT).strength(5F)
-				.noCollission().randomTicks().sound(SoundType.CROP), "dragonfruit"));
-		pamdurian = register("pamdurian", new BlockPamFruit(Block.Properties.of(Material.PLANT).strength(5F)
-				.noCollission().randomTicks().sound(SoundType.CROP), "durian"));
-		pamfig = register("pamfig", new BlockPamFruit(Block.Properties.of(Material.PLANT).strength(5F)
-				.noCollission().randomTicks().sound(SoundType.CROP), "fig"));
-		pamgrapefruit = register("pamgrapefruit", new BlockPamFruit(Block.Properties.of(Material.PLANT).strength(5F)
-				.noCollission().randomTicks().sound(SoundType.CROP), "grapefruit"));
-		pamlime = register("pamlime", new BlockPamFruit(Block.Properties.of(Material.PLANT).strength(5F)
-				.noCollission().randomTicks().sound(SoundType.CROP), "lime"));
-		pammango = register("pammango", new BlockPamFruit(Block.Properties.of(Material.PLANT).strength(5F)
-				.noCollission().randomTicks().sound(SoundType.CROP), "mango"));
-		pamolive = register("pamolive", new BlockPamFruit(Block.Properties.of(Material.PLANT).strength(5F)
-				.noCollission().randomTicks().sound(SoundType.CROP), "olive"));
-		pampapaya = register("pampapaya", new BlockPamFruit(Block.Properties.of(Material.PLANT).strength(5F)
-				.noCollission().randomTicks().sound(SoundType.CROP), "papaya"));
-		pampaperbark = register("pampaperbark", new BlockPamLogFruit(Block.Properties.of(Material.PLANT).strength(5F)
-				.randomTicks().sound(SoundType.CROP), "paperbark"));
-		pampecan = register("pampecan", new BlockPamFruit(Block.Properties.of(Material.PLANT).strength(5F)
-				.noCollission().randomTicks().sound(SoundType.CROP), "pecan"));
-		pampeppercorn = register("pampeppercorn", new BlockPamFruit(Block.Properties.of(Material.PLANT).strength(5F)
-				.noCollission().randomTicks().sound(SoundType.CROP), "peppercorn"));
-		pampersimmon = register("pampersimmon", new BlockPamFruit(Block.Properties.of(Material.PLANT).strength(5F)
-				.noCollission().randomTicks().sound(SoundType.CROP), "persimmon"));
-		pampistachio = register("pampistachio", new BlockPamFruit(Block.Properties.of(Material.PLANT).strength(5F)
-				.noCollission().randomTicks().sound(SoundType.CROP), "pistachio"));
-		pampomegranate = register("pampomegranate", new BlockPamFruit(Block.Properties.of(Material.PLANT).strength(5F)
-				.noCollission().randomTicks().sound(SoundType.CROP), "pomegranate"));
-		pamstarfruit = register("pamstarfruit", new BlockPamFruit(Block.Properties.of(Material.PLANT).strength(5F)
-				.noCollission().randomTicks().sound(SoundType.CROP), "starfruit"));
-		pamvanillabean = register("pamvanillabean", new BlockPamFruit(Block.Properties.of(Material.PLANT).strength(5F)
-				.noCollission().randomTicks().sound(SoundType.CROP), "vanillabean"));
-		pambreadfruit = register("pambreadfruit", new BlockPamFruit(Block.Properties.of(Material.PLANT).strength(5F)
-				.noCollission().randomTicks().sound(SoundType.CROP), "breadfruit"));
-		pamguava = register("pamguava", new BlockPamFruit(Block.Properties.of(Material.PLANT).strength(5F)
-				.noCollission().randomTicks().sound(SoundType.CROP), "guava"));
-		pamjackfruit = register("pamjackfruit", new BlockPamFruit(Block.Properties.of(Material.PLANT).strength(5F)
-				.noCollission().randomTicks().sound(SoundType.CROP), "jackfruit"));
-		pamlychee = register("pamlychee", new BlockPamFruit(Block.Properties.of(Material.PLANT).strength(5F)
-				.noCollission().randomTicks().sound(SoundType.CROP), "lychee"));
-		pampassionfruit = register("pampassionfruit", new BlockPamFruit(Block.Properties.of(Material.PLANT).strength(5F)
-				.noCollission().randomTicks().sound(SoundType.CROP), "passionfruit"));
-		pamrambutan = register("pamrambutan", new BlockPamFruit(Block.Properties.of(Material.PLANT).strength(5F)
-				.noCollission().randomTicks().sound(SoundType.CROP), "rambutan"));
-		pamtamarind = register("pamtamarind", new BlockPamFruit(Block.Properties.of(Material.PLANT).strength(5F)
-				.noCollission().randomTicks().sound(SoundType.CROP), "tamarind"));
-		//Cold Fruits
-		pammaple = register("pammaple", new BlockPamLogFruit(Block.Properties.of(Material.PLANT).strength(5F)
-				.randomTicks().sound(SoundType.CROP), "maple"));
-		pampinenut = register("pampinenut", new BlockPamFruit(Block.Properties.of(Material.PLANT).strength(5F)
-				.noCollission().randomTicks().sound(SoundType.CROP), "pinenut"));
-
-		//Temperate Saplings
-		apple_sapling = register("apple_sapling", new BlockPamTemperateSapling(Block.Properties.of(Material.PLANT)
-				.noCollission().randomTicks().strength(0f).sound(SoundType.GRASS), 1));
-		avocado_sapling = register("avocado_sapling", new BlockPamTemperateSapling(Block.Properties.of(Material.PLANT)
-				.noCollission().randomTicks().strength(0f).sound(SoundType.GRASS), 2));
-		candlenut_sapling = register("candlenut_sapling", new BlockPamTemperateSapling(Block.Properties.of(Material.PLANT)
-				.noCollission().randomTicks().strength(0f).sound(SoundType.GRASS), 3));
-		cherry_sapling = register("cherry_sapling", new BlockPamTemperateSapling(Block.Properties.of(Material.PLANT)
-				.noCollission().randomTicks().strength(0f).sound(SoundType.GRASS), 4));
-		chestnut_sapling = register("chestnut_sapling", new BlockPamTemperateSapling(Block.Properties.of(Material.PLANT)
-				.noCollission().randomTicks().strength(0f).sound(SoundType.GRASS), 5));
-		gooseberry_sapling = register("gooseberry_sapling", new BlockPamTemperateSapling(Block.Properties.of(Material.PLANT)
-				.noCollission().randomTicks().strength(0f).sound(SoundType.GRASS), 6));
-		lemon_sapling = register("lemon_sapling", new BlockPamTemperateSapling(Block.Properties.of(Material.PLANT)
-				.noCollission().randomTicks().strength(0f).sound(SoundType.GRASS), 7));
-		nutmeg_sapling = register("nutmeg_sapling", new BlockPamTemperateSapling(Block.Properties.of(Material.PLANT)
-				.noCollission().randomTicks().strength(0f).sound(SoundType.GRASS), 8));
-		orange_sapling = register("orange_sapling", new BlockPamTemperateSapling(Block.Properties.of(Material.PLANT)
-				.noCollission().randomTicks().strength(0f).sound(SoundType.GRASS), 9));
-		peach_sapling = register("peach_sapling", new BlockPamTemperateSapling(Block.Properties.of(Material.PLANT)
-				.noCollission().randomTicks().strength(0f).sound(SoundType.GRASS), 10));
-		pear_sapling = register("pear_sapling", new BlockPamTemperateSapling(Block.Properties.of(Material.PLANT)
-				.noCollission().randomTicks().strength(0f).sound(SoundType.GRASS), 11));
-		plum_sapling = register("plum_sapling", new BlockPamTemperateSapling(Block.Properties.of(Material.PLANT)
-				.noCollission().randomTicks().strength(0f).sound(SoundType.GRASS), 12));
-		walnut_sapling = register("walnut_sapling", new BlockPamTemperateSapling(Block.Properties.of(Material.PLANT)
-				.noCollission().randomTicks().strength(0f).sound(SoundType.GRASS), 13));
-		spiderweb_sapling = register("spiderweb_sapling", new BlockPamTemperateSapling(Block.Properties.of(Material.PLANT)
-				.noCollission().randomTicks().strength(0f).sound(SoundType.GRASS), 14));
-		hazelnut_sapling = register("hazelnut_sapling", new BlockPamTemperateSapling(Block.Properties.of(Material.PLANT)
-				.noCollission().randomTicks().strength(0f).sound(SoundType.GRASS), 15));
-		pawpaw_sapling = register("pawpaw_sapling", new BlockPamTemperateSapling(Block.Properties.of(Material.PLANT)
-				.noCollission().randomTicks().strength(0f).sound(SoundType.GRASS), 16));
-		soursop_sapling = register("soursop_sapling", new BlockPamTemperateSapling(Block.Properties.of(Material.PLANT)
-				.noCollission().randomTicks().strength(0f).sound(SoundType.GRASS), 17));
-		//Warm Saplings
-		almond_sapling = register("almond_sapling", new BlockPamWarmSapling(Block.Properties.of(Material.PLANT)
-				.noCollission().randomTicks().strength(0f).sound(SoundType.GRASS), 1));
-		apricot_sapling = register("apricot_sapling", new BlockPamWarmSapling(Block.Properties.of(Material.PLANT)
-				.noCollission().randomTicks().strength(0f).sound(SoundType.GRASS), 2));
-		banana_sapling = register("banana_sapling", new BlockPamWarmSapling(Block.Properties.of(Material.PLANT)
-				.noCollission().randomTicks().strength(0f).sound(SoundType.GRASS), 3));
-		cashew_sapling = register("cashew_sapling", new BlockPamWarmSapling(Block.Properties.of(Material.PLANT)
-				.noCollission().randomTicks().strength(0f).sound(SoundType.GRASS), 4));
-		coconut_sapling = register("coconut_sapling", new BlockPamWarmSapling(Block.Properties.of(Material.PLANT)
-				.noCollission().randomTicks().strength(0f).sound(SoundType.GRASS), 5));
-		date_sapling = register("date_sapling", new BlockPamWarmSapling(Block.Properties.of(Material.PLANT)
-				.noCollission().randomTicks().strength(0f).sound(SoundType.GRASS), 6));
-		dragonfruit_sapling = register("dragonfruit_sapling", new BlockPamWarmSapling(Block.Properties.of(Material.PLANT)
-				.noCollission().randomTicks().strength(0f).sound(SoundType.GRASS), 7));
-		durian_sapling = register("durian_sapling", new BlockPamWarmSapling(Block.Properties.of(Material.PLANT)
-				.noCollission().randomTicks().strength(0f).sound(SoundType.GRASS), 8));
-		fig_sapling = register("fig_sapling", new BlockPamWarmSapling(Block.Properties.of(Material.PLANT)
-				.noCollission().randomTicks().strength(0f).sound(SoundType.GRASS), 9));
-		grapefruit_sapling = register("grapefruit_sapling", new BlockPamWarmSapling(Block.Properties.of(Material.PLANT)
-				.noCollission().randomTicks().strength(0f).sound(SoundType.GRASS), 10));
-		lime_sapling = register("lime_sapling", new BlockPamWarmSapling(Block.Properties.of(Material.PLANT)
-				.noCollission().randomTicks().strength(0f).sound(SoundType.GRASS), 11));
-		mango_sapling = register("mango_sapling", new BlockPamWarmSapling(Block.Properties.of(Material.PLANT)
-				.noCollission().randomTicks().strength(0f).sound(SoundType.GRASS), 12));
-		olive_sapling = register("olive_sapling", new BlockPamWarmSapling(Block.Properties.of(Material.PLANT)
-				.noCollission().randomTicks().strength(0f).sound(SoundType.GRASS), 13));
-		papaya_sapling = register("papaya_sapling", new BlockPamWarmSapling(Block.Properties.of(Material.PLANT)
-				.noCollission().randomTicks().strength(0f).sound(SoundType.GRASS), 14));
-		pecan_sapling = register("pecan_sapling", new BlockPamWarmSapling(Block.Properties.of(Material.PLANT)
-				.noCollission().randomTicks().strength(0f).sound(SoundType.GRASS), 15));
-		peppercorn_sapling = register("peppercorn_sapling", new BlockPamWarmSapling(Block.Properties.of(Material.PLANT)
-				.noCollission().randomTicks().strength(0f).sound(SoundType.GRASS), 16));
-		persimmon_sapling = register("persimmon_sapling", new BlockPamWarmSapling(Block.Properties.of(Material.PLANT)
-				.noCollission().randomTicks().strength(0f).sound(SoundType.GRASS), 17));
-		pistachio_sapling = register("pistachio_sapling", new BlockPamWarmSapling(Block.Properties.of(Material.PLANT)
-				.noCollission().randomTicks().strength(0f).sound(SoundType.GRASS), 18));
-		pomegranate_sapling = register("pomegranate_sapling", new BlockPamWarmSapling(Block.Properties.of(Material.PLANT)
-				.noCollission().randomTicks().strength(0f).sound(SoundType.GRASS), 19));
-		starfruit_sapling = register("starfruit_sapling", new BlockPamWarmSapling(Block.Properties.of(Material.PLANT)
-				.noCollission().randomTicks().strength(0f).sound(SoundType.GRASS), 20));
-		vanillabean_sapling = register("vanillabean_sapling", new BlockPamWarmSapling(Block.Properties.of(Material.PLANT)
-				.noCollission().randomTicks().strength(0f).sound(SoundType.GRASS), 21));
-		breadfruit_sapling = register("breadfruit_sapling", new BlockPamWarmSapling(Block.Properties.of(Material.PLANT)
-				.noCollission().randomTicks().strength(0f).sound(SoundType.GRASS), 22));
-		guava_sapling = register("guava_sapling", new BlockPamWarmSapling(Block.Properties.of(Material.PLANT)
-				.noCollission().randomTicks().strength(0f).sound(SoundType.GRASS), 23));
-		jackfruit_sapling = register("jackfruit_sapling", new BlockPamWarmSapling(Block.Properties.of(Material.PLANT)
-				.noCollission().randomTicks().strength(0f).sound(SoundType.GRASS), 24));
-		lychee_sapling = register("lychee_sapling", new BlockPamWarmSapling(Block.Properties.of(Material.PLANT)
-				.noCollission().randomTicks().strength(0f).sound(SoundType.GRASS), 25));
-		passionfruit_sapling = register("passionfruit_sapling", new BlockPamWarmSapling(Block.Properties.of(Material.PLANT)
-				.noCollission().randomTicks().strength(0f).sound(SoundType.GRASS), 26));
-		rambutan_sapling = register("rambutan_sapling", new BlockPamWarmSapling(Block.Properties.of(Material.PLANT)
-				.noCollission().randomTicks().strength(0f).sound(SoundType.GRASS), 27));
-		tamarind_sapling = register("tamarind_sapling", new BlockPamWarmSapling(Block.Properties.of(Material.PLANT)
-				.noCollission().randomTicks().strength(0f).sound(SoundType.GRASS), 28));
-		//Warm Log Saplings
-		cinnamon_sapling = register("cinnamon_sapling", new BlockPamWarmLogSapling(Block.Properties.of(Material.PLANT)
-				.noCollission().randomTicks().strength(0f).sound(SoundType.GRASS), 1));
-		paperbark_sapling = register("paperbark_sapling", new BlockPamWarmLogSapling(Block.Properties.of(Material.PLANT)
-				.noCollission().randomTicks().strength(0f).sound(SoundType.GRASS), 2));
-
-		//Cold Saplings
-		maple_sapling = register("maple_sapling", new BlockPamColdLogSapling(Block.Properties.of(Material.PLANT)
-				.noCollission().randomTicks().strength(0f).sound(SoundType.GRASS), 1));
-		pinenut_sapling = register("pinenut_sapling", new BlockPamColdSapling(Block.Properties.of(Material.PLANT)
-				.noCollission().randomTicks().strength(0f).sound(SoundType.GRASS), 1));
-
-
+	private static Block.Properties fruit() {
+		return Block.Properties.of(Material.PLANT).strength(5F)
+				.noCollission().randomTicks().sound(SoundType.CROP);
 	}
 
-
-
-	private static <T extends Block> T register(String name, T block) {
-		BlockItem item = new BlockItem(block, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP));
-		return register(name, block, item);
+	private static Block.Properties logFruit() {
+		return Block.Properties.of(Material.PLANT).strength(5F)
+				.randomTicks().sound(SoundType.CROP);
 	}
 
-
-	private static <T extends Block> T register(String name, T block, @Nullable BlockItem item) {
-		ResourceLocation id = Pamhc2trees.getId(name);
-		block.setRegistryName(id);
-		ForgeRegistries.BLOCKS.register(block);
-		return block;
+	private static Block.Properties sapling() {
+		return Block.Properties.of(Material.PLANT)
+				.noCollission().randomTicks().strength(0F).sound(SoundType.GRASS);
 	}
-
-
 }

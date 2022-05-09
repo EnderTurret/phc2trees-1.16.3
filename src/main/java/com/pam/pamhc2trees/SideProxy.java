@@ -16,6 +16,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
+import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -29,11 +30,14 @@ import net.minecraftforge.fml.loading.FMLPaths;
 public class SideProxy {
 	SideProxy() {
 		ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, Config.CONFIG, "pamhc2trees.toml");
-		FMLJavaModLoadingContext.get().getModEventBus().addListener(SideProxy::commonSetup);
-		FMLJavaModLoadingContext.get().getModEventBus().addGenericListener(Block.class, BlockRegistry::registerAll);
 
-		FMLJavaModLoadingContext.get().getModEventBus().addGenericListener(Item.class, ItemRegistry::registerAll);
-		FMLJavaModLoadingContext.get().getModEventBus().addGenericListener(Feature.class, WorldGenRegistry::registerFeatures);
+		final IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();
+
+		modBus.addListener(SideProxy::commonSetup);
+		BlockRegistry.REGISTRY.register(modBus);
+
+		modBus.addGenericListener(Item.class, ItemRegistry::registerAll);
+		modBus.addGenericListener(Feature.class, WorldGenRegistry::registerFeatures);
 
 		Config.loadConfig(Config.CONFIG, FMLPaths.CONFIGDIR.get().resolve("pamhc2trees.toml").toString());
 

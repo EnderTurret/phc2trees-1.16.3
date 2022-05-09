@@ -15,15 +15,15 @@ import net.minecraftforge.fml.common.Mod;
 
 @Mod("pamhc2trees")
 public class Pamhc2trees {
+
 	public static final String MOD_ID = "pamhc2trees";
 	public static final Logger LOGGER = LogManager.getLogger();
 
 	public static final CreativeModeTab ITEM_GROUP = new CreativeModeTab("pamhc2trees") {
 		@Override
 		public ItemStack makeIcon() {
-			return new ItemStack(BlockRegistry.apple_sapling);
+			return new ItemStack(BlockRegistry.apple_sapling.get());
 		}
-
 	};
 
 	public Pamhc2trees() {
@@ -34,5 +34,4 @@ public class Pamhc2trees {
 	public static ResourceLocation getId(String path) {
 		return new ResourceLocation(MOD_ID, path);
 	}
-
 }
