@@ -1,5 +1,5 @@
 // @file build.gradle
-// pamhc2trees mod gradle build relay (mc1.15.2)
+// pamhc2trees mod gradle build relay (mc1.18.2)
 buildscript {
     repositories {
         maven { url = 'https://maven.minecraftforge.net' }
@@ -22,21 +22,15 @@ version = "${version_pamhc2trees}"
 group = "com.pam.pamhc2trees"
 archivesBaseName = "pamhc2trees-${version_minecraft}"
 
-
-repositories {
-    maven { name = "Progwml6 maven"; url = "https://dvs1.progwml6.com/files/maven/" } // JEI files
-    maven { name = "ModMaven"; url = "modmaven.k-4u.nl" } // JEI files, fallback
-}
-
 minecraft {
     mappings channel: 'parchment', version: '2022.03.13-1.18.2'
+
     // accessTransformer = file('build/resources/main/META-INF/accesstransformer.cfg')
+
     runs {
         client {
             workingDirectory project.file('run')
-            //property 'forge.logging.markers', ''
-            //property 'forge.logging.console.level', 'debug'
-            //property 'forge.logging.noansi', "false"
+
             mods {
                 pamhc2trees {
                     source sourceSets.main
@@ -45,8 +39,7 @@ minecraft {
         }
         server {
             workingDirectory project.file('run')
-            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
-            property 'forge.logging.console.level', 'debug'
+
             mods {
                 pamhc2trees {
                     source sourceSets.main
@@ -55,9 +48,9 @@ minecraft {
         }
         data {
             workingDirectory project.file('run')
-            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
-            property 'forge.logging.console.level', 'debug'
+
             args '--mod', 'pamhc2trees', '--all', '--output', file('src/generated/resources/')
+
             mods {
                 pamhc2trees {
                     source sourceSets.main
@@ -74,16 +67,6 @@ dependencies {
 processResources {
     outputs.upToDateWhen { false } // thx to @tterrag for this hint
     doLast { file("${sourceSets.main.output.resourcesDir}/.gitversion").text = 'git log "-1" "--format=%h"'.execute().in.text.trim() }
-
-    from(sourceSets.main.resources.srcDirs) {
-        include 'META-INF/mods.toml'
-
-        expand 'version': project.version
-    }
-
-    from(sourceSets.main.resources.srcDirs) {
-        exclude 'META-INF/mods.toml'
-    }
 }
 
 jar {
