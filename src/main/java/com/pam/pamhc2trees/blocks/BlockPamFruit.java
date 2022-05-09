@@ -90,6 +90,7 @@ public class BlockPamFruit extends Block implements IGrowable {
 	        return super.onBlockActivated(thisBlockState, world, position, playerEntity, playerHand, raytraceResult);
 	    }*/
 	   
+	   @SuppressWarnings("deprecation")
 	   @Override
        public ActionResultType onBlockActivated(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult hit) {
            if (isMaxAge(state)) {
@@ -111,6 +112,7 @@ public class BlockPamFruit extends Block implements IGrowable {
            return super.onBlockActivated(state, world, pos, player, hand, hit);
        }
 	
+	@Override
 	@SuppressWarnings("deprecation")
 	public void tick(BlockState state, ServerWorld worldIn, BlockPos pos, Random random) {
 		if (!state.isValidPosition(worldIn, pos)) {
@@ -126,6 +128,7 @@ public class BlockPamFruit extends Block implements IGrowable {
 
 	}
 
+	   @Override
 	   protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
 	      builder.add(AGE);
 	   }
@@ -159,6 +162,7 @@ public class BlockPamFruit extends Block implements IGrowable {
 
 
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public boolean isValidPosition(BlockState state, IWorldReader world, BlockPos pos) {
 
@@ -174,6 +178,7 @@ public class BlockPamFruit extends Block implements IGrowable {
 		this.growFruit(p_225535_1_, p_225535_2_, p_225535_3_, p_225535_4_);
 		
 	}
+	@SuppressWarnings("deprecation")
 	@Override
 	public BlockState updatePostPlacement(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
 		if (!isValidPosition(stateIn,worldIn,currentPos)) {

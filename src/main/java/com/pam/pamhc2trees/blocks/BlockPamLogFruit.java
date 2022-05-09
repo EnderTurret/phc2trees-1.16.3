@@ -56,6 +56,7 @@ public class BlockPamLogFruit extends Block implements IGrowable {
 	      return state.get(this.getAgeProperty()) >= this.getMaxAge();
 	   }
 	   
+	   @SuppressWarnings("deprecation")
 	   @Override
        public ActionResultType onBlockActivated(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult hit) {
            if (isMaxAge(state)) {
@@ -77,6 +78,7 @@ public class BlockPamLogFruit extends Block implements IGrowable {
            return super.onBlockActivated(state, world, pos, player, hand, hit);
        }
 	
+	@Override
 	@SuppressWarnings("deprecation")
 	public void tick(BlockState state, ServerWorld worldIn, BlockPos pos, Random random) {
 		if (!state.isValidPosition(worldIn, pos)) {
@@ -99,6 +101,7 @@ public class BlockPamLogFruit extends Block implements IGrowable {
 
 	}
 
+	   @Override
 	   protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
 	      builder.add(AGE);
 	   }
@@ -132,6 +135,7 @@ public class BlockPamLogFruit extends Block implements IGrowable {
 
 
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public boolean isValidPosition(BlockState state, IWorldReader world, BlockPos pos) {
 

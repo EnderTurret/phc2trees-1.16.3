@@ -30,10 +30,13 @@ public class BlockPamTemperateSapling extends BushBlock implements IGrowable {
 		this.setDefaultState(this.stateContainer.getBaseState().with(STAGE, Integer.valueOf(0)));
 	}
 
+	@SuppressWarnings("deprecation")
+	@Override
 	public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
 		return SHAPE;
 	}
 
+	@Override
 	@SuppressWarnings("deprecation")
 	public void tick(BlockState state, ServerWorld worldIn, BlockPos pos, Random random) {
 		super.tick(state, worldIn, pos, random);
@@ -56,10 +59,12 @@ public class BlockPamTemperateSapling extends BushBlock implements IGrowable {
 
 	}
 
+	@Override
 	public boolean canGrow(IBlockReader worldIn, BlockPos pos, BlockState state, boolean isClient) {
 		return true;
 	}
 
+	@Override
 	public boolean canUseBonemeal(World worldIn, Random rand, BlockPos pos, BlockState state) {
 		return (double) worldIn.rand.nextFloat() < 0.45D;
 	}
@@ -68,6 +73,7 @@ public class BlockPamTemperateSapling extends BushBlock implements IGrowable {
 		this.grow(worldIn, pos, state, rand);
 	}
 
+	@Override
 	protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
 		builder.add(STAGE);
 	}
