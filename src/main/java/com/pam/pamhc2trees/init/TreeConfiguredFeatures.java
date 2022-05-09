@@ -75,9 +75,9 @@ public class TreeConfiguredFeatures {
 	 * We can easily adjust rate in future for all trees here if needed.
 	 */
 	private static ConfiguredFeature<?, ?> configureTree(Feature<NoFeatureConfig> tree){
-		return tree.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-				.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-				.withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT);
+		return tree.configured(IFeatureConfig.NONE)
+				.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(100, 0F, 0)))
+				.decorated(Features.Placements.HEIGHTMAP_SQUARE);
 	}
 
 	public static void registerConfiguredFeatures() {

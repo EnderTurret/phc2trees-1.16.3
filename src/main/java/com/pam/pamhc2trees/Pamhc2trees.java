@@ -20,7 +20,7 @@ public class Pamhc2trees {
 
 	public static final ItemGroup ITEM_GROUP = new ItemGroup("pamhc2trees") {
 		@Override
-		public ItemStack createIcon() {
+		public ItemStack makeIcon() {
 			return new ItemStack(BlockRegistry.apple_sapling);
 		}
 

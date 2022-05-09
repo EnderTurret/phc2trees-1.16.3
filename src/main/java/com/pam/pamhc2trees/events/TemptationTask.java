@@ -15,7 +15,7 @@ public class TemptationTask {
 
 
 
-	private static final Ingredient Pig = Ingredient.fromItems(
+	private static final Ingredient Pig = Ingredient.of(
 			ItemRegistry.avocadoitem,
 			ItemRegistry.durianitem,
 			ItemRegistry.oliveitem,
@@ -31,7 +31,7 @@ public class TemptationTask {
 			ItemRegistry.pistachioitem
 			);
 
-	private static final Ingredient Rabbit = Ingredient.fromItems(
+	private static final Ingredient Rabbit = Ingredient.of(
 			Items.APPLE,
 			ItemRegistry.cherryitem,
 			ItemRegistry.gooseberryitem,

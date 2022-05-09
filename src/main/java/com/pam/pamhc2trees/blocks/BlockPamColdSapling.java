@@ -20,14 +20,14 @@ import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 
 public class BlockPamColdSapling extends BushBlock implements IGrowable {
-	public static final IntegerProperty STAGE = BlockStateProperties.STAGE_0_1;
-	protected static final VoxelShape SHAPE = Block.makeCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 12.0D, 14.0D);
+	public static final IntegerProperty STAGE = BlockStateProperties.STAGE;
+	protected static final VoxelShape SHAPE = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 12.0D, 14.0D);
 	private int verify;
 
 	public BlockPamColdSapling(Block.Properties properties, int verify) {
 		super(properties);
 		this.verify = verify;
-		this.setDefaultState(this.stateContainer.getBaseState().with(STAGE, Integer.valueOf(0)));
+		this.registerDefaultState(this.stateDefinition.any().setValue(STAGE, Integer.valueOf(0)));
 	}
 
 	@SuppressWarnings("deprecation")
@@ -42,15 +42,15 @@ public class BlockPamColdSapling extends BushBlock implements IGrowable {
 		super.tick(state, worldIn, pos, random);
 		if (!worldIn.isAreaLoaded(pos, 1))
 			return;
-		if (worldIn.getLight(pos.up()) >= 9 && random.nextInt(7) == 0) {
+		if (worldIn.getMaxLocalRawBrightness(pos.above()) >= 9 && random.nextInt(7) == 0) {
 			this.grow(worldIn, pos, state, random);
 		}
 
 	}
 
 	public void grow(IWorld worldIn, BlockPos pos, BlockState state, Random rand) {
-		if (state.get(STAGE) == 0) {
-			worldIn.setBlockState(pos, state.cycleValue(STAGE), 4);
+		if (state.getValue(STAGE) == 0) {
+			worldIn.setBlock(pos, state.cycle(STAGE), 4);
 		} else {
 			if (!net.minecraftforge.event.ForgeEventFactory.saplingGrowTree(worldIn, rand, pos))
 				return;
@@ -60,13 +60,13 @@ public class BlockPamColdSapling extends BushBlock implements IGrowable {
 	}
 
 	@Override
-	public boolean canGrow(IBlockReader worldIn, BlockPos pos, BlockState state, boolean isClient) {
+	public boolean isValidBonemealTarget(IBlockReader worldIn, BlockPos pos, BlockState state, boolean isClient) {
 		return true;
 	}
 
 	@Override
-	public boolean canUseBonemeal(World worldIn, Random rand, BlockPos pos, BlockState state) {
-		return worldIn.rand.nextFloat() < 0.45F;
+	public boolean isBonemealSuccess(World worldIn, Random rand, BlockPos pos, BlockState state) {
+		return worldIn.random.nextFloat() < 0.45F;
 	}
 
 	public void grow(World worldIn, Random rand, BlockPos pos, BlockState state) {
@@ -74,12 +74,12 @@ public class BlockPamColdSapling extends BushBlock implements IGrowable {
 	}
 
 	@Override
-	protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
+	protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> builder) {
 		builder.add(STAGE);
 	}
 
 	@Override
-	public void grow(ServerWorld world, Random random, BlockPos pos, BlockState state) {
+	public void performBonemeal(ServerWorld world, Random random, BlockPos pos, BlockState state) {
 		this.grow(world, pos, state, random);
 
 	}

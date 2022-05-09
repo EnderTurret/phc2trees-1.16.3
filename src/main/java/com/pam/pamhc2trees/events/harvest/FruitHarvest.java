@@ -23,7 +23,7 @@ public class FruitHarvest {
 	/*private static final Method seedDrops;
 
 	static {
-		seedDrops = ObfuscationReflectionHelper.findMethod(CropsBlock.class, "func_199772_f");
+		seedDrops = ObfuscationReflectionHelper.findMethod(CropsBlock.class, "getBaseSeedId");
 	}
 
 	private Item getCropSeed(Block block) {
@@ -40,38 +40,38 @@ public class FruitHarvest {
 
 	@SubscribeEvent
 	public void onCropHarvest(RightClickBlock event) {
-		if (event.getPlayer().getHeldItemMainhand().getItem() != Items.BONE_MEAL) {
+		if (event.getPlayer().getMainHandItem().getItem() != Items.BONE_MEAL) {
 
 			BlockState state = event.getWorld().getBlockState(event.getPos());
 			Block block = state.getBlock();
 
 			if (block instanceof BlockPamFruit || block instanceof BlockPamLogFruit) {
-				if (!event.getPlayer().getHeldItemMainhand().isEmpty())
+				if (!event.getPlayer().getMainHandItem().isEmpty())
 					event.setCanceled(true);
 
 				// Really need to move isMaxAge to an interface or something.
 				if ((block instanceof BlockPamFruit && ((BlockPamFruit) block).isMaxAge(state)) || (block instanceof BlockPamLogFruit && ((BlockPamLogFruit) block).isMaxAge(state))) {
-					if (!event.getWorld().isRemote) {
+					if (!event.getWorld().isClientSide) {
 						List<ItemStack> drops = Block.getDrops(event.getWorld().getBlockState(event.getPos()),
 								(ServerWorld) event.getWorld(), event.getPos(),
-								event.getWorld().getTileEntity(event.getPos()));
+								event.getWorld().getBlockEntity(event.getPos()));
 
 						for (int i = 0; i < drops.size(); i++) {
 							//if (drops.get(i).getItem() != getCropSeed(block))
 							event.getWorld()
-							.addEntity(new ItemEntity(event.getWorld(), event.getPos().getX(),
+							.addFreshEntity(new ItemEntity(event.getWorld(), event.getPos().getX(),
 									event.getPos().getY(), event.getPos().getZ(),
 									drops.get(i)));
 						}
 					}
 
-					event.getPlayer().addExhaustion(.05F);
-					event.getWorld().playSound((PlayerEntity) null, event.getPos(), SoundEvents.BLOCK_CROP_BREAK,
-							SoundCategory.BLOCKS, 1.0F, 0.8F + event.getWorld().rand.nextFloat() * 0.4F);
-					event.getWorld().setBlockState(event.getPos(), block.getDefaultState(), 2);
+					event.getPlayer().causeFoodExhaustion(.05F);
+					event.getWorld().playSound((PlayerEntity) null, event.getPos(), SoundEvents.CROP_BREAK,
+							SoundCategory.BLOCKS, 1.0F, 0.8F + event.getWorld().random.nextFloat() * 0.4F);
+					event.getWorld().setBlock(event.getPos(), block.defaultBlockState(), 2);
 				}
 
-				event.getPlayer().swingArm(Hand.MAIN_HAND);
+				event.getPlayer().swing(Hand.MAIN_HAND);
 			}
 		}
 	}
