@@ -47,7 +47,7 @@ public class SideProxy {
 	private static void commonSetup(FMLCommonSetupEvent event) {
 		EventSetup.setupEvents();
 
-		// Must do in enqueue work as registering to vanilla registries is not threadsafe as many of the maps are not a synchronized map.
+		// Must do in enqueue work as registering to vanilla registries is not thread safe as many of the maps are not a synchronized map.
 		event.enqueueWork(() -> {
 			WorldGenRegistry.registerConfiguredFeatures();
 			WorldGenRegistry.registerPlacedFeatures();

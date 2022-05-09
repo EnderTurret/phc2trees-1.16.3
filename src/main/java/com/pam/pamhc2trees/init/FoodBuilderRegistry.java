@@ -5,7 +5,6 @@ import net.minecraft.world.food.FoodProperties;
 public class FoodBuilderRegistry {
 
 	//Fruits
-	//public static final Food BREADFRUITITEM = (new Food.Builder()).hunger(4).saturation(0.3F).build();
 	public static final FoodProperties AVOCADOITEM = (new FoodProperties.Builder()).nutrition(4).saturationMod(0.3F).build();
 	public static final FoodProperties CHERRYITEM = (new FoodProperties.Builder()).nutrition(4).saturationMod(0.3F).build();
 	public static final FoodProperties ORANGEITEM = (new FoodProperties.Builder()).nutrition(4).saturationMod(0.3F).build();
@@ -14,7 +13,6 @@ public class FoodBuilderRegistry {
 	public static final FoodProperties PLUMITEM = (new FoodProperties.Builder()).nutrition(4).saturationMod(0.3F).build();
 	public static final FoodProperties PAWPAWITEM = (new FoodProperties.Builder()).nutrition(4).saturationMod(0.3F).build();
 	public static final FoodProperties SOURSOPITEM = (new FoodProperties.Builder()).nutrition(4).saturationMod(0.3F).build();
-
 
 	public static final FoodProperties APRICOTITEM = (new FoodProperties.Builder()).nutrition(4).saturationMod(0.3F).build();
 	public static final FoodProperties BANANAITEM = (new FoodProperties.Builder()).nutrition(4).saturationMod(0.3F).build();
@@ -70,5 +68,4 @@ public class FoodBuilderRegistry {
 	public static final FoodProperties MAPLESYRUPITEM  = (new FoodProperties.Builder()).nutrition(1).saturationMod(0.1F).build();
 	public static final FoodProperties LEMONITEM  = (new FoodProperties.Builder()).nutrition(1).saturationMod(0.1F).build();
 	public static final FoodProperties LIMEITEM  = (new FoodProperties.Builder()).nutrition(1).saturationMod(0.1F).build();
-
 }

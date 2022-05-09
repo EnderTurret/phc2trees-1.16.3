@@ -16,34 +16,21 @@ public class ColdFruitTreeWorldGenRegistry {
 		Set<BiomeDictionary.Type> types = BiomeDictionary.getTypes(ResourceKey.create(Registry.BIOME_REGISTRY, evt.getName()));
 		//maple
 		if (EnableConfig.maple_worldgen.get()) {
-			if (types.contains(BiomeDictionary.Type.CONIFEROUS)) {
-				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.MAPLE.placedFeatureHolder());
-			}
-			if (types.contains(BiomeDictionary.Type.COLD)) {
-				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.MAPLE.placedFeatureHolder());
-			}
-			if (types.contains(BiomeDictionary.Type.HILLS) && types.contains(BiomeDictionary.Type.COLD)) {
-				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.MAPLE.placedFeatureHolder());
-			}
+			if (types.contains(BiomeDictionary.Type.CONIFEROUS))
+				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, WorldGenRegistry.MAPLE.placedFeatureHolder());
+			if (types.contains(BiomeDictionary.Type.COLD))
+				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, WorldGenRegistry.MAPLE.placedFeatureHolder());
+			if (types.contains(BiomeDictionary.Type.HILLS) && types.contains(BiomeDictionary.Type.COLD))
+				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, WorldGenRegistry.MAPLE.placedFeatureHolder());
 		}
 		//pinenut
 		if (EnableConfig.pinenut_worldgen.get()) {
-			if (types.contains(BiomeDictionary.Type.CONIFEROUS)) {
-				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.PINENUT.placedFeatureHolder());
-
-			}
-			if (types.contains(BiomeDictionary.Type.COLD)) {
-				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.PINENUT.placedFeatureHolder());
-			}
-			if (types.contains(BiomeDictionary.Type.HILLS) && types.contains(BiomeDictionary.Type.COLD)) {
-				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
-						WorldGenRegistry.PINENUT.placedFeatureHolder());
-			}
+			if (types.contains(BiomeDictionary.Type.CONIFEROUS))
+				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, WorldGenRegistry.PINENUT.placedFeatureHolder());
+			if (types.contains(BiomeDictionary.Type.COLD))
+				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, WorldGenRegistry.PINENUT.placedFeatureHolder());
+			if (types.contains(BiomeDictionary.Type.HILLS) && types.contains(BiomeDictionary.Type.COLD))
+				evt.getGeneration().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, WorldGenRegistry.PINENUT.placedFeatureHolder());
 		}
 	}
 }

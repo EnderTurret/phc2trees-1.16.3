@@ -150,9 +150,7 @@ public class ItemRegistry {
 		roastedpistachioitem = register("roastedpistachioitem", new Item((new Item.Properties()).tab(Pamhc2trees.ITEM_GROUP).food(FoodBuilderRegistry.ROASTEDPISTACHIOITEM)));
 
 		roastedpinenutitem = register("roastedpinenutitem", new Item((new Item.Properties()).tab(Pamhc2trees.ITEM_GROUP).food(FoodBuilderRegistry.ROASTEDPINENUTITEM)));
-
 	}
-
 
 	private static <T extends Item> T register(String name, T item) {
 		ResourceLocation id = Pamhc2trees.getId(name);
@@ -160,8 +158,4 @@ public class ItemRegistry {
 		ForgeRegistries.ITEMS.register(item);
 		return item;
 	}
-
-
-
-
 }

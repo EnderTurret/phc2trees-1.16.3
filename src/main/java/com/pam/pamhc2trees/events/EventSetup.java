@@ -11,7 +11,5 @@ public class EventSetup {
 		//	if (RightClickConfig.crop_right_click.get())
 		//		MinecraftForge.EVENT_BUS.register(new FruitHarvest());
 		//}
-
-
 	}
 }

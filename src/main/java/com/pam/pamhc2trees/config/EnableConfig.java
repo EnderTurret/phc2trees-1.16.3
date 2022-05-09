@@ -110,8 +110,5 @@ public class EnableConfig {
 		//Cold Trees
 		maple_worldgen = config.comment("Should maple trees generate in world").define("Generate maple trees", true);
 		pinenut_worldgen = config.comment("Should pinenut trees generate in world").define("Generate pinenut trees", true);
-
-
 	}
-
 }
