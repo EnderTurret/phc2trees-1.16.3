@@ -39,7 +39,7 @@ public class SideProxy {
 		modBus.addGenericListener(Item.class, ItemRegistry::registerAll);
 		modBus.addGenericListener(Feature.class, WorldGenRegistry::registerFeatures);
 
-		Config.loadConfig(Config.CONFIG, FMLPaths.CONFIGDIR.get().resolve("pamhc2trees.toml").toString());
+		Config.loadConfig(Config.CONFIG, FMLPaths.CONFIGDIR.get().resolve("pamhc2trees.toml"));
 
 		MinecraftForge.EVENT_BUS.addListener(SideProxy::onBiomeLoad);
 	}
