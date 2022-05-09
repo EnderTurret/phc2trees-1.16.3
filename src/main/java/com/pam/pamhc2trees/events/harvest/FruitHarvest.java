@@ -1,28 +1,22 @@
 package com.pam.pamhc2trees.events.harvest;
 
-import java.lang.reflect.Method;
 import java.util.List;
 
-import com.pam.pamhc2trees.Pamhc2trees;
 import com.pam.pamhc2trees.blocks.BlockPamFruit;
 import com.pam.pamhc2trees.blocks.BlockPamLogFruit;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.CropsBlock;
 import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.util.Hand;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
-import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent.RightClickBlock;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 
 public class FruitHarvest {
 

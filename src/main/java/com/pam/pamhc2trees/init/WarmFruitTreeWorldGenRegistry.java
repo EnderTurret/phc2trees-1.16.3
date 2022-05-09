@@ -1,12 +1,12 @@
 package com.pam.pamhc2trees.init;
 
+import java.util.Set;
+
 import net.minecraft.util.RegistryKey;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
-
-import java.util.Set;
 
 public class WarmFruitTreeWorldGenRegistry {
 

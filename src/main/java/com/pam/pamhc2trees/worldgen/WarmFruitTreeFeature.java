@@ -1,7 +1,6 @@
 package com.pam.pamhc2trees.worldgen;
 
 import java.util.Random;
-import java.util.function.Function;
 
 import com.mojang.serialization.Codec;
 import com.pam.pamhc2trees.config.ChanceConfig;

@@ -2,8 +2,15 @@ package com.pam.pamhc2trees;
 
 import com.pam.pamhc2trees.config.Config;
 import com.pam.pamhc2trees.events.EventSetup;
-import com.pam.pamhc2trees.init.*;
+import com.pam.pamhc2trees.init.BlockRegistry;
+import com.pam.pamhc2trees.init.ColdFruitTreeWorldGenRegistry;
+import com.pam.pamhc2trees.init.CompostRegistry;
+import com.pam.pamhc2trees.init.ItemRegistry;
+import com.pam.pamhc2trees.init.ModRenderers;
 import com.pam.pamhc2trees.init.TemperateFruitTreeWorldGenRegistry;
+import com.pam.pamhc2trees.init.TreeConfiguredFeatures;
+import com.pam.pamhc2trees.init.WarmFruitTreeWorldGenRegistry;
+import com.pam.pamhc2trees.init.WorldGenRegistry;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;

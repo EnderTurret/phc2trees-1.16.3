@@ -8,7 +8,6 @@ import javax.annotation.Nullable;
 import com.google.common.base.Predicate;
 
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.registry.Registry;
 import net.minecraftforge.common.ForgeConfigSpec;
 
 public class DimensionConfig {

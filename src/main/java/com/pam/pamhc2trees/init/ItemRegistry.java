@@ -3,7 +3,6 @@ package com.pam.pamhc2trees.init;
 import com.pam.pamhc2trees.Pamhc2trees;
 
 import net.minecraft.item.BlockItem;
-import net.minecraft.item.Food;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;

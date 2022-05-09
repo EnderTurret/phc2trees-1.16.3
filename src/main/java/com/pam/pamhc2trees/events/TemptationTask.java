@@ -4,11 +4,8 @@ import com.pam.pamhc2trees.entities.ai.MoreTemptation;
 import com.pam.pamhc2trees.init.ItemRegistry;
 
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.passive.ChickenEntity;
-import net.minecraft.entity.passive.CowEntity;
 import net.minecraft.entity.passive.PigEntity;
 import net.minecraft.entity.passive.RabbitEntity;
-import net.minecraft.entity.passive.SheepEntity;
 import net.minecraft.item.Items;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
