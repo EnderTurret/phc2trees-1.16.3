@@ -12,9 +12,9 @@ import com.pam.pamhc2trees.init.TreeConfiguredFeatures;
 import com.pam.pamhc2trees.init.WarmFruitTreeWorldGenRegistry;
 import com.pam.pamhc2trees.init.WorldGenRegistry;
 
-import net.minecraft.block.Block;
-import net.minecraft.item.Item;
-import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.fml.ModLoadingContext;

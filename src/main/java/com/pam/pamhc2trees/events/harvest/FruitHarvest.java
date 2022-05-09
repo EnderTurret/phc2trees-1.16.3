@@ -5,16 +5,16 @@ import java.util.List;
 import com.pam.pamhc2trees.blocks.BlockPamFruit;
 import com.pam.pamhc2trees.blocks.BlockPamLogFruit;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.entity.item.ItemEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.util.Hand;
-import net.minecraft.util.SoundCategory;
-import net.minecraft.util.SoundEvents;
-import net.minecraft.world.server.ServerWorld;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent.RightClickBlock;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
@@ -53,7 +53,7 @@ public class FruitHarvest {
 				if ((block instanceof BlockPamFruit && ((BlockPamFruit) block).isMaxAge(state)) || (block instanceof BlockPamLogFruit && ((BlockPamLogFruit) block).isMaxAge(state))) {
 					if (!event.getWorld().isClientSide) {
 						List<ItemStack> drops = Block.getDrops(event.getWorld().getBlockState(event.getPos()),
-								(ServerWorld) event.getWorld(), event.getPos(),
+								(ServerLevel) event.getWorld(), event.getPos(),
 								event.getWorld().getBlockEntity(event.getPos()));
 
 						for (int i = 0; i < drops.size(); i++) {
@@ -66,12 +66,12 @@ public class FruitHarvest {
 					}
 
 					event.getPlayer().causeFoodExhaustion(.05F);
-					event.getWorld().playSound((PlayerEntity) null, event.getPos(), SoundEvents.CROP_BREAK,
-							SoundCategory.BLOCKS, 1.0F, 0.8F + event.getWorld().random.nextFloat() * 0.4F);
+					event.getWorld().playSound((Player) null, event.getPos(), SoundEvents.CROP_BREAK,
+							SoundSource.BLOCKS, 1.0F, 0.8F + event.getWorld().random.nextFloat() * 0.4F);
 					event.getWorld().setBlock(event.getPos(), block.defaultBlockState(), 2);
 				}
 
-				event.getPlayer().swing(Hand.MAIN_HAND);
+				event.getPlayer().swing(InteractionHand.MAIN_HAND);
 			}
 		}
 	}

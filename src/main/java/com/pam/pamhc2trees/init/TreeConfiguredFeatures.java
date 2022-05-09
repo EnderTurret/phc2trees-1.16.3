@@ -2,16 +2,16 @@ package com.pam.pamhc2trees.init;
 
 import com.pam.pamhc2trees.Pamhc2trees;
 
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.util.registry.WorldGenRegistries;
-import net.minecraft.world.gen.feature.ConfiguredFeature;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.Features;
-import net.minecraft.world.gen.feature.IFeatureConfig;
-import net.minecraft.world.gen.feature.NoFeatureConfig;
-import net.minecraft.world.gen.placement.AtSurfaceWithExtraConfig;
-import net.minecraft.world.gen.placement.Placement;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.core.Registry;
+import net.minecraft.data.BuiltinRegistries;
+import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.data.worldgen.Features;
+import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+import net.minecraft.world.level.levelgen.placement.FrequencyWithExtraChanceDecoratorConfiguration;
+import net.minecraft.world.level.levelgen.placement.FeatureDecorator;
 
 public class TreeConfiguredFeatures {
 
@@ -74,14 +74,14 @@ public class TreeConfiguredFeatures {
 	 * The default placements set for all trees as none had anything different.
 	 * We can easily adjust rate in future for all trees here if needed.
 	 */
-	private static ConfiguredFeature<?, ?> configureTree(Feature<NoFeatureConfig> tree){
-		return tree.configured(IFeatureConfig.NONE)
-				.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(100, 0F, 0)))
-				.decorated(Features.Placements.HEIGHTMAP_SQUARE);
+	private static ConfiguredFeature<?, ?> configureTree(Feature<NoneFeatureConfiguration> tree){
+		return tree.configured(FeatureConfiguration.NONE)
+				.decorated(FeatureDecorator.COUNT_EXTRA.configured(new FrequencyWithExtraChanceDecoratorConfiguration(100, 0F, 0)))
+				.decorated(Features.Decorators.HEIGHTMAP_SQUARE);
 	}
 
 	public static void registerConfiguredFeatures() {
-		Registry<ConfiguredFeature<?, ?>> registry = WorldGenRegistries.CONFIGURED_FEATURE;
+		Registry<ConfiguredFeature<?, ?>> registry = BuiltinRegistries.CONFIGURED_FEATURE;
 
 		//cold
 		Registry.register(registry, new ResourceLocation(Pamhc2trees.MOD_ID, "maple_worldgen"), MAPLE_WORLDGEN);

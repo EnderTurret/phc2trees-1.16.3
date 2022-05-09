@@ -8,26 +8,26 @@ import com.pam.pamhc2trees.config.DimensionConfig;
 import com.pam.pamhc2trees.config.EnableConfig;
 import com.pam.pamhc2trees.init.BlockRegistry;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.state.properties.BlockStateProperties;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IBlockReader;
-import net.minecraft.world.ISeedReader;
-import net.minecraft.world.IWorld;
-import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.NoFeatureConfig;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 
-public class TemperateFruitTreeFeature extends Feature<NoFeatureConfig> {
-	public TemperateFruitTreeFeature(Codec<NoFeatureConfig> configFactory) {
+public class TemperateFruitTreeFeature extends Feature<NoneFeatureConfiguration> {
+	public TemperateFruitTreeFeature(Codec<NoneFeatureConfiguration> configFactory) {
 		super(configFactory);
 	}
 
 	@Override
-	public boolean place(ISeedReader world, ChunkGenerator generator, Random random,
-			BlockPos pos, NoFeatureConfig config) {
+	public boolean place(WorldGenLevel world, ChunkGenerator generator, Random random,
+			BlockPos pos, NoneFeatureConfiguration config) {
 		if (random.nextInt(ChanceConfig.temperatefruittree_chance.get()) != 0
 				|| DimensionConfig.blacklist.get().contains(world.getLevel().dimension().location().toString())
 				|| (!DimensionConfig.whitelist.get().contains(world.getLevel().dimension().location().toString()) && DimensionConfig.whitelist.get().size()>0))
@@ -42,13 +42,13 @@ public class TemperateFruitTreeFeature extends Feature<NoFeatureConfig> {
 		return false;
 	}
 
-	private boolean isValidGround(BlockState state, IBlockReader worldIn, BlockPos pos) {
+	private boolean isValidGround(BlockState state, BlockGetter worldIn, BlockPos pos) {
 		Block block = state.getBlock();
 		return block == Blocks.GRASS_BLOCK || block == Blocks.DIRT || block == Blocks.COARSE_DIRT
 				|| block == Blocks.PODZOL;
 	}
 
-	public static void generateTree(IWorld world, BlockPos pos, Random random, int verify) {
+	public static void generateTree(LevelAccessor world, BlockPos pos, Random random, int verify) {
 		BlockState trunk = getTrunk();
 		BlockState leaves = getLeaves();
 		BlockState fruit = getFruit(verify, random);
