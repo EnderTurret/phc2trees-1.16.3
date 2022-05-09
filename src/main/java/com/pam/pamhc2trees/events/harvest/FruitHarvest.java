@@ -28,26 +28,23 @@ public class FruitHarvest {
 			BlockState state = event.getWorld().getBlockState(event.getPos());
 			Block block = state.getBlock();
 
-			if (block instanceof FruitBlock || block instanceof LogFruitBlock) {
+			if (block instanceof AbstractFruitBlock fruit) {
 				if (!event.getPlayer().getMainHandItem().isEmpty())
 					event.setCanceled(true);
 
-				if (block instanceof AbstractFruitBlock fruit && fruit.isMaxAge(state)) {
+				if (fruit.isMaxAge(state)) {
 					if (!event.getWorld().isClientSide) {
 						List<ItemStack> drops = Block.getDrops(event.getWorld().getBlockState(event.getPos()),
 								(ServerLevel) event.getWorld(), event.getPos(),
 								event.getWorld().getBlockEntity(event.getPos()));
 
-						for (int i = 0; i < drops.size(); i++) {
-							event.getWorld()
-							.addFreshEntity(new ItemEntity(event.getWorld(), event.getPos().getX(),
-									event.getPos().getY(), event.getPos().getZ(),
-									drops.get(i)));
-						}
+						for (ItemStack drop : drops)
+							event.getWorld().addFreshEntity(new ItemEntity(event.getWorld(), event.getPos().getX(),
+									event.getPos().getY(), event.getPos().getZ(), drop));
 					}
 
 					event.getPlayer().causeFoodExhaustion(.05F);
-					event.getWorld().playSound((Player) null, event.getPos(), SoundEvents.CROP_BREAK,
+					event.getWorld().playSound(null, event.getPos(), SoundEvents.CROP_BREAK,
 							SoundSource.BLOCKS, 1.0F, 0.8F + event.getWorld().random.nextFloat() * 0.4F);
 					event.getWorld().setBlock(event.getPos(), block.defaultBlockState(), 2);
 				}

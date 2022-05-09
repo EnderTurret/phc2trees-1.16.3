@@ -13,8 +13,6 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 public class TemptationTask {
 
-
-
 	private static final Ingredient Pig = Ingredient.of(
 			ItemRegistry.avocadoitem,
 			ItemRegistry.durianitem,
@@ -62,21 +60,16 @@ public class TemptationTask {
 			ItemRegistry.passionfruititem,
 			ItemRegistry.rambutanitem,
 			ItemRegistry.tamarinditem
-
 			);
 
 	@SubscribeEvent
 	public void onEntitySpawn(EntityJoinWorldEvent event) {
 		Entity entity = event.getEntity();
 
-		if (entity instanceof Pig) {
-			Pig pig = (Pig) entity;
+		if (entity instanceof Pig pig)
 			pig.goalSelector.addGoal(4, new MoreTemptation(pig, 1.2D, false, Pig));
-		}
 
-		if (entity instanceof Rabbit) {
-			Rabbit rabbit = (Rabbit) entity;
+		if (entity instanceof Rabbit rabbit)
 			rabbit.goalSelector.addGoal(4, new MoreTemptation(rabbit, 1.2D, false, Rabbit));
-		}
 	}
 }
