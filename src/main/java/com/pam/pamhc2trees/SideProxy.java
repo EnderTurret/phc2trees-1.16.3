@@ -28,38 +28,6 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLPaths;
 
 public class SideProxy {
-	SideProxy() {
-		ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, Config.CONFIG, "pamhc2trees.toml");
-
-		final IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();
-
-		modBus.addListener(SideProxy::commonSetup);
-		BlockRegistry.REGISTRY.register(modBus);
-
-		modBus.addGenericListener(Item.class, ItemRegistry::registerAll);
-		modBus.addGenericListener(Feature.class, WorldGenRegistry::registerFeatures);
-
-		Config.loadConfig(Config.CONFIG, FMLPaths.CONFIGDIR.get().resolve("pamhc2trees.toml"));
-
-		MinecraftForge.EVENT_BUS.addListener(SideProxy::onBiomeLoad);
-	}
-
-	private static void commonSetup(FMLCommonSetupEvent event) {
-		EventSetup.setupEvents();
-
-		// Must do in enqueue work as registering to vanilla registries is not thread safe as many of the maps are not a synchronized map.
-		event.enqueueWork(() -> {
-			WorldGenRegistry.registerConfiguredFeatures();
-			WorldGenRegistry.registerPlacedFeatures();
-			CompostRegistry.register();
-		});
-	}
-
-	private static void onBiomeLoad(BiomeLoadingEvent event) {
-		TemperateFruitTreeWorldGenRegistry.addToBiome(event);
-		WarmFruitTreeWorldGenRegistry.addToBiomes(event);
-		ColdFruitTreeWorldGenRegistry.addToBiomes(event);
-	}
 
 	static class Client extends SideProxy {
 		Client() {
