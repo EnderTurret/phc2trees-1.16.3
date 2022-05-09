@@ -3,7 +3,7 @@ package com.pam.pamhc2trees.blocks;
 import java.util.Random;
 
 import com.pam.pamhc2trees.util.FeatureHolder;
-import com.pam.pamhc2trees.worldgen.WarmLogFruitTreeFeature;
+import com.pam.pamhc2trees.worldgen.TreeFeature;
 import com.pam.pamhc2trees.worldgen.config.TreeConfig;
 
 import net.minecraft.world.level.block.Block;
@@ -21,16 +21,16 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.Level;
 import net.minecraft.server.level.ServerLevel;
 
-public class BlockPamWarmLogSapling extends BushBlock implements BonemealableBlock {
+public class BlockPamSapling extends BushBlock implements BonemealableBlock {
 
 	public static final IntegerProperty STAGE = BlockStateProperties.STAGE;
 	protected static final VoxelShape SHAPE = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 12.0D, 14.0D);
-	private final FeatureHolder<WarmLogFruitTreeFeature, TreeConfig> feature;
+	private final FeatureHolder<? extends TreeFeature, TreeConfig> feature;
 
-	public BlockPamWarmLogSapling(Block.Properties properties, FeatureHolder<WarmLogFruitTreeFeature, TreeConfig> feature) {
+	public BlockPamSapling(Block.Properties properties, FeatureHolder<? extends TreeFeature, TreeConfig> feature) {
 		super(properties);
 		this.feature = feature;
-		this.registerDefaultState(this.stateDefinition.any().setValue(STAGE, Integer.valueOf(0)));
+		this.registerDefaultState(this.stateDefinition.any().setValue(STAGE, 0));
 	}
 
 	@SuppressWarnings("deprecation")
