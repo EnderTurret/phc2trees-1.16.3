@@ -17,6 +17,7 @@ import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 
 public class ColdFruitTreeFeature extends Feature<NoneFeatureConfiguration> {
@@ -25,17 +26,16 @@ public class ColdFruitTreeFeature extends Feature<NoneFeatureConfiguration> {
 	}
 
 	@Override
-	public boolean place(WorldGenLevel world, ChunkGenerator generator, Random random,
-			BlockPos pos, NoneFeatureConfiguration config) {
-		if (random.nextInt(ChanceConfig.coldfruittree_chance.get()) != 0
-				|| DimensionConfig.blacklist.get().contains(world.getLevel().dimension().location().toString())
-				|| (!DimensionConfig.whitelist.get().contains(world.getLevel().dimension().location().toString()) && DimensionConfig.whitelist.get().size()>0))
+	public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> ctx) {
+		if (ctx.random().nextInt(ChanceConfig.coldfruittree_chance.get()) != 0
+				|| DimensionConfig.blacklist.get().contains(ctx.level().getLevel().dimension().location().toString())
+				|| (!DimensionConfig.whitelist.get().contains(ctx.level().getLevel().dimension().location().toString()) && DimensionConfig.whitelist.get().size()>0))
 			return false;
 
-		if (isValidGround(world.getBlockState(pos.below()), world, pos)
-				&& world.getBlockState(pos).getMaterial().isReplaceable()) {
+		if (isValidGround(ctx.level().getBlockState(ctx.origin().below()), ctx.level(), ctx.origin())
+				&& ctx.level().getBlockState(ctx.origin()).getMaterial().isReplaceable()) {
 			int type = 1;
-			generateTree(world, pos, random, type);
+			generateTree(ctx.level(), ctx.origin(), ctx.random(), type);
 			return true;
 		}
 		return false;

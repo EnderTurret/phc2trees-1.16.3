@@ -20,6 +20,7 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.ticks.ScheduledTick;
 import net.minecraft.util.Mth;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelAccessor;
@@ -28,9 +29,11 @@ import net.minecraft.world.level.Level;
 import net.minecraft.server.level.ServerLevel;
 
 public class BlockPamFruit extends Block implements BonemealableBlock {
+
 	private String name;
 	public static final IntegerProperty AGE = BlockStateProperties.AGE_7;
 	public static boolean fruitRemoval = false;
+
 	public BlockPamFruit(Block.Properties p_i49971_1_, String name) {
 		super(p_i49971_1_);
 		this.name = name;
@@ -57,40 +60,6 @@ public class BlockPamFruit extends Block implements BonemealableBlock {
 		return state.getValue(this.getAgeProperty()) >= this.getMaxAge();
 	}
 
-	/*@Override
-	    @SuppressWarnings("deprecation")
-	    public ActionResultType onBlockActivated(BlockState thisBlockState, World world, BlockPos position, PlayerEntity playerEntity, Hand playerHand, BlockRayTraceResult raytraceResult) {
-	        ItemStack itemstack = playerEntity.getHeldItem(playerHand);
-	        if (!playerEntity.getHeldItemMainhand().isEmpty() && itemstack.getItem() != Items.BONE_MEAL) {
-
-					// Really need to move isMaxAge to an interface or something.
-					if ((isMaxAge(thisBlockState))) {
-						if (!world.isRemote) {
-							List<ItemStack> drops = Block.getDrops(world.getBlockState(position),
-									(ServerWorld) world, position,
-									world.getTileEntity(position));
-
-							for (int i = 0; i < drops.size(); i++) {
-								//if (drops.get(i).getItem() != getCropSeed(block))
-								world.addEntity(new ItemEntity(world, position.getX(),
-										position.getY(), position.getZ(),
-											drops.get(i)));
-							}
-						}
-
-						playerEntity.addExhaustion(.05F);
-						world.playSound((PlayerEntity) null, position, SoundEvents.BLOCK_CROP_BREAK,
-								SoundCategory.BLOCKS, 1.0F, 0.8F + world.rand.nextFloat() * 0.4F);
-						world.setBlockState(position, thisBlockState, 2);
-
-	           			return ActionResultType.FAIL;
-					}
-
-	        }
-
-	        return super.onBlockActivated(thisBlockState, world, position, playerEntity, playerHand, raytraceResult);
-	    }*/
-
 	@SuppressWarnings("deprecation")
 	@Override
 	public InteractionResult use(BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
@@ -99,7 +68,6 @@ public class BlockPamFruit extends Block implements BonemealableBlock {
 				List<ItemStack> drops = Block.getDrops(state, (ServerLevel) world, pos, world.getBlockEntity(pos));
 
 				for (ItemStack stack : drops) {
-					//if (drops.get(i).getItem() != getCropSeed(block))
 					world.addFreshEntity(new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), stack));
 				}
 			}
@@ -125,8 +93,6 @@ public class BlockPamFruit extends Block implements BonemealableBlock {
 		if (i < 7 && random.nextInt(5) == 0 && worldIn.getRawBrightness(pos.above(), 0) >= 9) {
 			worldIn.setBlock(pos, state.setValue(AGE, Integer.valueOf(i + 1)), 2);
 		}
-
-
 	}
 
 	@Override
@@ -158,35 +124,27 @@ public class BlockPamFruit extends Block implements BonemealableBlock {
 		worldIn.setBlock(pos, this.withAge(i), 2);
 	}
 
-
-
-
-
-
 	@SuppressWarnings("deprecation")
 	@Override
 	public boolean canSurvive(BlockState state, LevelReader world, BlockPos pos) {
-
 		if (world.getBlockState(pos.above()).getBlock().is(BlockTags.LEAVES))
 			return true;
 
 		return false;
-
 	}
 
 	@Override
 	public void performBonemeal(ServerLevel p_225535_1_, Random p_225535_2_, BlockPos p_225535_3_, BlockState p_225535_4_) {
 		this.growFruit(p_225535_1_, p_225535_2_, p_225535_3_, p_225535_4_);
-
 	}
+
 	@SuppressWarnings("deprecation")
 	@Override
 	public BlockState updateShape(BlockState stateIn, Direction facing, BlockState facingState, LevelAccessor worldIn, BlockPos currentPos, BlockPos facingPos) {
 		if (!canSurvive(stateIn,worldIn,currentPos)) {
-			worldIn.getBlockTicks().scheduleTick(currentPos, this, 2);
+			worldIn.scheduleTick(currentPos, this, 2);
 		}
 
 		return stateIn;
 	}
-
 }

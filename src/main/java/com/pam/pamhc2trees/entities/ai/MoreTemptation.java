@@ -5,8 +5,8 @@ import net.minecraft.world.entity.ai.goal.TemptGoal;
 import net.minecraft.world.item.crafting.Ingredient;
 
 public class MoreTemptation extends TemptGoal {
-	public MoreTemptation(PathfinderMob creatureIn, double speedIn, boolean p_i47823_4_, Ingredient temptItemsIn) {
-		super(creatureIn, speedIn, p_i47823_4_, temptItemsIn);
-	}
 
+	public MoreTemptation(PathfinderMob creatureIn, double speedIn, boolean canScare, Ingredient temptItemsIn) {
+		super(creatureIn, speedIn, temptItemsIn, canScare);
+	}
 }
