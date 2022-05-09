@@ -28,7 +28,7 @@ public class Pamhc2trees {
 	};
 
 	public Pamhc2trees() {
-		DistExecutor.runForDist(() -> () -> new SideProxy.Client(), () -> () -> new SideProxy.Server());
+		DistExecutor.safeRunForDist(() -> SideProxy.Client::new, () -> SideProxy.Server::new);
 	}
 
 	@Nonnull
