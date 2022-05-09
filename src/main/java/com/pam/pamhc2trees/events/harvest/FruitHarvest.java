@@ -2,8 +2,8 @@ package com.pam.pamhc2trees.events.harvest;
 
 import java.util.List;
 
-import com.pam.pamhc2trees.blocks.BlockPamFruit;
-import com.pam.pamhc2trees.blocks.BlockPamLogFruit;
+import com.pam.pamhc2trees.blocks.FruitBlock;
+import com.pam.pamhc2trees.blocks.LogFruitBlock;
 
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
@@ -45,12 +45,12 @@ public class FruitHarvest {
 			BlockState state = event.getWorld().getBlockState(event.getPos());
 			Block block = state.getBlock();
 
-			if (block instanceof BlockPamFruit || block instanceof BlockPamLogFruit) {
+			if (block instanceof FruitBlock || block instanceof LogFruitBlock) {
 				if (!event.getPlayer().getMainHandItem().isEmpty())
 					event.setCanceled(true);
 
 				// Really need to move isMaxAge to an interface or something.
-				if ((block instanceof BlockPamFruit && ((BlockPamFruit) block).isMaxAge(state)) || (block instanceof BlockPamLogFruit && ((BlockPamLogFruit) block).isMaxAge(state))) {
+				if ((block instanceof FruitBlock && ((FruitBlock) block).isMaxAge(state)) || (block instanceof LogFruitBlock && ((LogFruitBlock) block).isMaxAge(state))) {
 					if (!event.getWorld().isClientSide) {
 						List<ItemStack> drops = Block.getDrops(event.getWorld().getBlockState(event.getPos()),
 								(ServerLevel) event.getWorld(), event.getPos(),
