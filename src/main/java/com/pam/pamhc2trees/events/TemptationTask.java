@@ -8,68 +8,69 @@ import net.minecraft.world.entity.animal.Pig;
 import net.minecraft.world.entity.animal.Rabbit;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraftforge.common.util.Lazy;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 public class TemptationTask {
 
-	private static final Ingredient Pig = Ingredient.of(
-			ItemRegistry.avocadoitem,
-			ItemRegistry.durianitem,
-			ItemRegistry.oliveitem,
-			ItemRegistry.candlenutitem,
-			ItemRegistry.chestnutitem,
-			ItemRegistry.almonditem,
-			ItemRegistry.walnutitem,
-			ItemRegistry.hazelnutitem,
-			ItemRegistry.almonditem,
-			ItemRegistry.cashewitem,
-			ItemRegistry.coconutitem,
-			ItemRegistry.pecanitem,
-			ItemRegistry.pistachioitem
-			);
+	private static final Lazy<Ingredient> PIG = Lazy.of(() -> Ingredient.of(
+			ItemRegistry.avocadoitem.get(),
+			ItemRegistry.durianitem.get(),
+			ItemRegistry.oliveitem.get(),
+			ItemRegistry.candlenutitem.get(),
+			ItemRegistry.chestnutitem.get(),
+			ItemRegistry.almonditem.get(),
+			ItemRegistry.walnutitem.get(),
+			ItemRegistry.hazelnutitem.get(),
+			ItemRegistry.almonditem.get(),
+			ItemRegistry.cashewitem.get(),
+			ItemRegistry.coconutitem.get(),
+			ItemRegistry.pecanitem.get(),
+			ItemRegistry.pistachioitem.get()
+			));
 
-	private static final Ingredient Rabbit = Ingredient.of(
+	private static final Lazy<Ingredient> RABBIT = Lazy.of(() -> Ingredient.of(
 			Items.APPLE,
-			ItemRegistry.cherryitem,
-			ItemRegistry.gooseberryitem,
-			ItemRegistry.lemonitem,
-			ItemRegistry.orangeitem,
-			ItemRegistry.peachitem,
-			ItemRegistry.pearitem,
-			ItemRegistry.plumitem,
-			ItemRegistry.pawpawitem,
-			ItemRegistry.soursopitem,
-			ItemRegistry.apricotitem,
-			ItemRegistry.bananaitem,
-			ItemRegistry.dateitem,
-			ItemRegistry.dragonfruititem,
-			ItemRegistry.durianitem,
-			ItemRegistry.figitem,
-			ItemRegistry.grapefruititem,
-			ItemRegistry.limeitem,
-			ItemRegistry.mangoitem,
-			ItemRegistry.papayaitem,
-			ItemRegistry.persimmonitem,
-			ItemRegistry.pomegranateitem,
-			ItemRegistry.starfruititem,
-			ItemRegistry.breadfruititem,
-			ItemRegistry.guavaitem,
-			ItemRegistry.jackfruititem,
-			ItemRegistry.lycheeitem,
-			ItemRegistry.passionfruititem,
-			ItemRegistry.rambutanitem,
-			ItemRegistry.tamarinditem
-			);
+			ItemRegistry.cherryitem.get(),
+			ItemRegistry.gooseberryitem.get(),
+			ItemRegistry.lemonitem.get(),
+			ItemRegistry.orangeitem.get(),
+			ItemRegistry.peachitem.get(),
+			ItemRegistry.pearitem.get(),
+			ItemRegistry.plumitem.get(),
+			ItemRegistry.pawpawitem.get(),
+			ItemRegistry.soursopitem.get(),
+			ItemRegistry.apricotitem.get(),
+			ItemRegistry.bananaitem.get(),
+			ItemRegistry.dateitem.get(),
+			ItemRegistry.dragonfruititem.get(),
+			ItemRegistry.durianitem.get(),
+			ItemRegistry.figitem.get(),
+			ItemRegistry.grapefruititem.get(),
+			ItemRegistry.limeitem.get(),
+			ItemRegistry.mangoitem.get(),
+			ItemRegistry.papayaitem.get(),
+			ItemRegistry.persimmonitem.get(),
+			ItemRegistry.pomegranateitem.get(),
+			ItemRegistry.starfruititem.get(),
+			ItemRegistry.breadfruititem.get(),
+			ItemRegistry.guavaitem.get(),
+			ItemRegistry.jackfruititem.get(),
+			ItemRegistry.lycheeitem.get(),
+			ItemRegistry.passionfruititem.get(),
+			ItemRegistry.rambutanitem.get(),
+			ItemRegistry.tamarinditem.get()
+			));
 
 	@SubscribeEvent
 	public void onEntitySpawn(EntityJoinWorldEvent event) {
 		Entity entity = event.getEntity();
 
 		if (entity instanceof Pig pig)
-			pig.goalSelector.addGoal(4, new MoreTemptation(pig, 1.2D, false, Pig));
+			pig.goalSelector.addGoal(4, new MoreTemptation(pig, 1.2D, false, PIG.get()));
 
 		if (entity instanceof Rabbit rabbit)
-			rabbit.goalSelector.addGoal(4, new MoreTemptation(rabbit, 1.2D, false, Rabbit));
+			rabbit.goalSelector.addGoal(4, new MoreTemptation(rabbit, 1.2D, false, RABBIT.get()));
 	}
 }

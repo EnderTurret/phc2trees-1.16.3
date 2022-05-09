@@ -1,161 +1,97 @@
 package com.pam.pamhc2trees.init;
 
+import java.util.stream.Stream;
+
 import com.pam.pamhc2trees.Pamhc2trees;
+import com.pam.pamhc2trees.items.FruitItem;
 
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 public class ItemRegistry {
 
+	public static final DeferredRegister<Item> REGISTRY = DeferredRegister.create(ForgeRegistries.ITEMS, Pamhc2trees.MOD_ID);
+
 	//Temperate Fruit Items
-	public static Item avocadoitem;
-	public static Item candlenutitem;
-	public static Item cherryitem;
-	public static Item chestnutitem;
-	public static Item gooseberryitem;
-	public static Item lemonitem;
-	public static Item nutmegitem;
-	public static Item orangeitem;
-	public static Item peachitem;
-	public static Item pearitem;
-	public static Item plumitem;
-	public static Item walnutitem;
-	public static Item hazelnutitem;
-	public static Item pawpawitem;
-	public static Item soursopitem;
+	public static RegistryObject<Item> avocadoitem = REGISTRY.register("avocadoitem", () -> new FruitItem(properties().food(FoodBuilderRegistry.AVOCADOITEM)));
+	public static RegistryObject<Item> candlenutitem = REGISTRY.register("candlenutitem", () -> new FruitItem(properties().food(FoodBuilderRegistry.CANDLENUTITEM)));
+	public static RegistryObject<Item> cherryitem = REGISTRY.register("cherryitem", () -> new FruitItem(properties().food(FoodBuilderRegistry.CHERRYITEM)));
+	public static RegistryObject<Item> chestnutitem = REGISTRY.register("chestnutitem", () -> new FruitItem(properties().food(FoodBuilderRegistry.CHESTNUTITEM)));
+	public static RegistryObject<Item> gooseberryitem = REGISTRY.register("gooseberryitem", () -> new FruitItem(properties().food(FoodBuilderRegistry.GOOSEBERRYITEM)));
+	public static RegistryObject<Item> lemonitem = REGISTRY.register("lemonitem", () -> new FruitItem(properties().food(FoodBuilderRegistry.LEMONITEM)));
+	public static RegistryObject<Item> nutmegitem = REGISTRY.register("nutmegitem", () -> new FruitItem(properties()));
+	public static RegistryObject<Item> orangeitem = REGISTRY.register("orangeitem", () -> new FruitItem(properties().food(FoodBuilderRegistry.ORANGEITEM)));
+	public static RegistryObject<Item> peachitem = REGISTRY.register("peachitem", () -> new FruitItem(properties().food(FoodBuilderRegistry.PEACHITEM)));
+	public static RegistryObject<Item> pearitem = REGISTRY.register("pearitem", () -> new FruitItem(properties().food(FoodBuilderRegistry.PEARITEM)));
+	public static RegistryObject<Item> plumitem = REGISTRY.register("plumitem", () -> new FruitItem(properties().food(FoodBuilderRegistry.PLUMITEM)));
+	public static RegistryObject<Item> walnutitem = REGISTRY.register("walnutitem", () -> new FruitItem(properties().food(FoodBuilderRegistry.WALNUTITEM)));
+	public static RegistryObject<Item> hazelnutitem = REGISTRY.register("hazelnutitem", () -> new FruitItem(properties().food(FoodBuilderRegistry.HAZELNUTITEM)));
+	public static RegistryObject<Item> pawpawitem = REGISTRY.register("pawpawitem", () -> new FruitItem(properties().food(FoodBuilderRegistry.PAWPAWITEM)));
+	public static RegistryObject<Item> soursopitem = REGISTRY.register("soursopitem", () -> new FruitItem(properties().food(FoodBuilderRegistry.SOURSOPITEM)));
 	//Warm Fruit Items
-	public static Item almonditem;
-	public static Item apricotitem;
-	public static Item bananaitem;
-	public static Item cashewitem;
-	public static Item cinnamonitem;
-	public static Item coconutitem;
-	public static Item dateitem;
-	public static Item dragonfruititem;
-	public static Item durianitem;
-	public static Item figitem;
-	public static Item grapefruititem;
-	public static Item limeitem;
-	public static Item mangoitem;
-	public static Item oliveitem;
-	public static Item papayaitem;
-	public static Item pecanitem;
-	public static Item peppercornitem;
-	public static Item persimmonitem;
-	public static Item pistachioitem;
-	public static Item pomegranateitem;
-	public static Item starfruititem;
-	public static Item vanillabeanitem;
-	public static Item breadfruititem;
-	public static Item guavaitem;
-	public static Item jackfruititem;
-	public static Item lycheeitem;
-	public static Item passionfruititem;
-	public static Item rambutanitem;
-	public static Item tamarinditem;
+	public static RegistryObject<Item> almonditem = REGISTRY.register("almonditem", () -> new FruitItem(properties().food(FoodBuilderRegistry.ALMONDITEM)));
+	public static RegistryObject<Item> apricotitem = REGISTRY.register("apricotitem", () -> new FruitItem(properties().food(FoodBuilderRegistry.APRICOTITEM)));
+	public static RegistryObject<Item> bananaitem = REGISTRY.register("bananaitem", () -> new FruitItem(properties().food(FoodBuilderRegistry.BANANAITEM)));
+	public static RegistryObject<Item> cashewitem = REGISTRY.register("cashewitem", () -> new FruitItem(properties().food(FoodBuilderRegistry.CASHEWITEM)));
+	public static RegistryObject<Item> cinnamonitem = REGISTRY.register("cinnamonitem", () -> new FruitItem(properties()));
+	public static RegistryObject<Item> coconutitem = REGISTRY.register("coconutitem", () -> new FruitItem(properties().food(FoodBuilderRegistry.COCONUTITEM)));
+	public static RegistryObject<Item> dateitem = REGISTRY.register("dateitem", () -> new FruitItem(properties().food(FoodBuilderRegistry.DATEITEM)));
+	public static RegistryObject<Item> dragonfruititem = REGISTRY.register("dragonfruititem", () -> new FruitItem(properties().food(FoodBuilderRegistry.DRAGONFRUITITEM)));
+	public static RegistryObject<Item> durianitem = REGISTRY.register("durianitem", () -> new FruitItem(properties().food(FoodBuilderRegistry.DURIANITEM)));
+	public static RegistryObject<Item> figitem = REGISTRY.register("figitem", () -> new FruitItem(properties().food(FoodBuilderRegistry.FIGITEM)));
+	public static RegistryObject<Item> grapefruititem = REGISTRY.register("grapefruititem", () -> new FruitItem(properties().food(FoodBuilderRegistry.GRAPEFRUITITEM)));
+	public static RegistryObject<Item> limeitem = REGISTRY.register("limeitem", () -> new FruitItem(properties().food(FoodBuilderRegistry.LIMEITEM)));
+	public static RegistryObject<Item> mangoitem = REGISTRY.register("mangoitem", () -> new FruitItem(properties().food(FoodBuilderRegistry.MANGOITEM)));
+	public static RegistryObject<Item> oliveitem = REGISTRY.register("oliveitem", () -> new FruitItem(properties().food(FoodBuilderRegistry.OLIVEITEM)));
+	public static RegistryObject<Item> papayaitem = REGISTRY.register("papayaitem", () -> new FruitItem(properties().food(FoodBuilderRegistry.PAPAYAITEM)));
+	public static RegistryObject<Item> pecanitem = REGISTRY.register("pecanitem", () -> new FruitItem(properties().food(FoodBuilderRegistry.PECANITEM)));
+	public static RegistryObject<Item> peppercornitem = REGISTRY.register("peppercornitem", () -> new FruitItem(properties()));
+	public static RegistryObject<Item> persimmonitem = REGISTRY.register("persimmonitem", () -> new FruitItem(properties().food(FoodBuilderRegistry.PERSIMMONITEM)));
+	public static RegistryObject<Item> pistachioitem = REGISTRY.register("pistachioitem", () -> new FruitItem(properties().food(FoodBuilderRegistry.PISTACHIOITEM)));
+	public static RegistryObject<Item> pomegranateitem = REGISTRY.register("pomegranateitem", () -> new FruitItem(properties().food(FoodBuilderRegistry.POMEGRANATEITEM)));
+	public static RegistryObject<Item> starfruititem = REGISTRY.register("starfruititem", () -> new FruitItem(properties().food(FoodBuilderRegistry.STARFRUITITEM)));
+	public static RegistryObject<Item> vanillabeanitem = REGISTRY.register("vanillabeanitem", () -> new FruitItem(properties()));
+	public static RegistryObject<Item> breadfruititem = REGISTRY.register("breadfruititem", () -> new FruitItem(properties().food(FoodBuilderRegistry.BREADFRUITITEM)));
+	public static RegistryObject<Item> guavaitem = REGISTRY.register("guavaitem", () -> new FruitItem(properties().food(FoodBuilderRegistry.GUAVAITEM)));
+	public static RegistryObject<Item> jackfruititem = REGISTRY.register("jackfruititem", () -> new FruitItem(properties().food(FoodBuilderRegistry.JACKFRUITITEM)));
+	public static RegistryObject<Item> lycheeitem = REGISTRY.register("lycheeitem", () -> new FruitItem(properties().food(FoodBuilderRegistry.LYCHEEITEM)));
+	public static RegistryObject<Item> passionfruititem = REGISTRY.register("passionfruititem", () -> new FruitItem(properties().food(FoodBuilderRegistry.PASSIONFRUITITEM)));
+	public static RegistryObject<Item> rambutanitem = REGISTRY.register("rambutanitem", () -> new FruitItem(properties().food(FoodBuilderRegistry.RAMBUTANITEM)));
+	public static RegistryObject<Item> tamarinditem = REGISTRY.register("tamarinditem", () -> new FruitItem(properties().food(FoodBuilderRegistry.TAMARINDITEM)));
 	//Cold Fruit Items
-	public static Item maplesyrupitem;
-	public static Item pinenutitem;
+	public static RegistryObject<Item> maplesyrupitem = REGISTRY.register("maplesyrupitem", () -> new FruitItem(properties().food(FoodBuilderRegistry.MAPLESYRUPITEM)));
+	public static RegistryObject<Item> pinenutitem = REGISTRY.register("pinenutitem", () -> new FruitItem(properties().food(FoodBuilderRegistry.PINENUTITEM)));
 
 	//Roasted Nuts
-	public static Item roastedchestnutitem;
-	public static Item roastedhazelnutitem;
-	public static Item roastedwalnutitem;
+	public static RegistryObject<Item> roastedchestnutitem = REGISTRY.register("roastedchestnutitem", () -> new Item(properties().food(FoodBuilderRegistry.ROASTEDCHESTNUTITEM)));
+	public static RegistryObject<Item> roastedhazelnutitem = REGISTRY.register("roastedhazelnutitem", () -> new Item(properties().food(FoodBuilderRegistry.ROASTEDHAZELNUTITEM)));
+	public static RegistryObject<Item> roastedwalnutitem = REGISTRY.register("roastedwalnutitem", () -> new Item(properties().food(FoodBuilderRegistry.ROASTEDWALNUTITEM)));
 
-	public static Item roastedalmonditem;
-	public static Item roastedcashewitem;
-	public static Item roastedpecanitem;
-	public static Item roastedpistachioitem;
+	public static RegistryObject<Item> roastedalmonditem = REGISTRY.register("roastedalmonditem", () -> new Item(properties().food(FoodBuilderRegistry.ROASTEDALMONDITEM)));
+	public static RegistryObject<Item> roastedcashewitem = REGISTRY.register("roastedcashewitem", () -> new Item(properties().food(FoodBuilderRegistry.ROASTEDCASHEWITEM)));
+	public static RegistryObject<Item> roastedpecanitem = REGISTRY.register("roastedpecanitem", () -> new Item(properties().food(FoodBuilderRegistry.ROASTEDPECANITEM)));
+	public static RegistryObject<Item> roastedpistachioitem = REGISTRY.register("roastedpistachioitem", () -> new Item(properties().food(FoodBuilderRegistry.ROASTEDPISTACHIOITEM)));
 
-	public static Item roastedpinenutitem;
+	public static RegistryObject<Item> roastedpinenutitem = REGISTRY.register("roastedpinenutitem", () -> new Item(properties().food(FoodBuilderRegistry.ROASTEDPINENUTITEM)));
 
 	private static Item.Properties properties() {
 		return new Item.Properties().tab(Pamhc2trees.ITEM_GROUP);
 	}
 
-	public static void registerBlockItems(RegistryEvent.Register<Item> event) {
+	public static void registerBlockItems() {
 		for (RegistryObject<Block> block : BlockRegistry.REGISTRY.getEntries())
-			event.getRegistry().register(new BlockItem(block.get(), properties()).setRegistryName(block.getId()));
+			REGISTRY.register(block.getId().getPath(), () -> new BlockItem(block.get(), properties()));
 	}
 
-	public static void registerAll(RegistryEvent.Register<Item> event) {
-		if (!event.getName().equals(ForgeRegistries.ITEMS.getRegistryName()))
-			return;
-
-		registerBlockItems(event);
-
-		//Temperate Fruit Items
-		avocadoitem = register("avocadoitem", new Item((new Item.Properties()).tab(Pamhc2trees.ITEM_GROUP).food(FoodBuilderRegistry.AVOCADOITEM)));
-		candlenutitem = register("candlenutitem", new Item((new Item.Properties()).tab(Pamhc2trees.ITEM_GROUP).food(FoodBuilderRegistry.CANDLENUTITEM)));
-		cherryitem = register("cherryitem", new Item((new Item.Properties()).tab(Pamhc2trees.ITEM_GROUP).food(FoodBuilderRegistry.CHERRYITEM)));
-		chestnutitem = register("chestnutitem", new Item((new Item.Properties()).tab(Pamhc2trees.ITEM_GROUP).food(FoodBuilderRegistry.CHESTNUTITEM)));
-		gooseberryitem = register("gooseberryitem", new Item((new Item.Properties()).tab(Pamhc2trees.ITEM_GROUP).food(FoodBuilderRegistry.GOOSEBERRYITEM)));
-		lemonitem = register("lemonitem", new Item((new Item.Properties()).tab(Pamhc2trees.ITEM_GROUP).food(FoodBuilderRegistry.LEMONITEM)));
-		nutmegitem = register("nutmegitem", new Item((new Item.Properties()).tab(Pamhc2trees.ITEM_GROUP)));
-		orangeitem = register("orangeitem", new Item((new Item.Properties()).tab(Pamhc2trees.ITEM_GROUP).food(FoodBuilderRegistry.ORANGEITEM)));
-		peachitem = register("peachitem", new Item((new Item.Properties()).tab(Pamhc2trees.ITEM_GROUP).food(FoodBuilderRegistry.PEACHITEM)));
-		pearitem = register("pearitem", new Item((new Item.Properties()).tab(Pamhc2trees.ITEM_GROUP).food(FoodBuilderRegistry.PEARITEM)));
-		plumitem = register("plumitem", new Item((new Item.Properties()).tab(Pamhc2trees.ITEM_GROUP).food(FoodBuilderRegistry.PLUMITEM)));
-		walnutitem = register("walnutitem", new Item((new Item.Properties()).tab(Pamhc2trees.ITEM_GROUP).food(FoodBuilderRegistry.WALNUTITEM)));
-		hazelnutitem = register("hazelnutitem", new Item((new Item.Properties()).tab(Pamhc2trees.ITEM_GROUP).food(FoodBuilderRegistry.HAZELNUTITEM)));
-		pawpawitem = register("pawpawitem", new Item((new Item.Properties()).tab(Pamhc2trees.ITEM_GROUP).food(FoodBuilderRegistry.PAWPAWITEM)));
-		soursopitem = register("soursopitem", new Item((new Item.Properties()).tab(Pamhc2trees.ITEM_GROUP).food(FoodBuilderRegistry.SOURSOPITEM)));
-		//Warm Fruit Items
-		almonditem = register("almonditem", new Item((new Item.Properties()).tab(Pamhc2trees.ITEM_GROUP).food(FoodBuilderRegistry.ALMONDITEM)));
-		apricotitem = register("apricotitem", new Item((new Item.Properties()).tab(Pamhc2trees.ITEM_GROUP).food(FoodBuilderRegistry.APRICOTITEM)));
-		bananaitem = register("bananaitem", new Item((new Item.Properties()).tab(Pamhc2trees.ITEM_GROUP).food(FoodBuilderRegistry.BANANAITEM)));
-		cashewitem = register("cashewitem", new Item((new Item.Properties()).tab(Pamhc2trees.ITEM_GROUP).food(FoodBuilderRegistry.CASHEWITEM)));
-		cinnamonitem = register("cinnamonitem", new Item((new Item.Properties()).tab(Pamhc2trees.ITEM_GROUP)));
-		coconutitem = register("coconutitem", new Item((new Item.Properties()).tab(Pamhc2trees.ITEM_GROUP).food(FoodBuilderRegistry.COCONUTITEM)));
-		dateitem = register("dateitem", new Item((new Item.Properties()).tab(Pamhc2trees.ITEM_GROUP).food(FoodBuilderRegistry.DATEITEM)));
-		dragonfruititem = register("dragonfruititem", new Item((new Item.Properties()).tab(Pamhc2trees.ITEM_GROUP).food(FoodBuilderRegistry.DRAGONFRUITITEM)));
-		durianitem = register("durianitem", new Item((new Item.Properties()).tab(Pamhc2trees.ITEM_GROUP).food(FoodBuilderRegistry.DURIANITEM)));
-		figitem = register("figitem", new Item((new Item.Properties()).tab(Pamhc2trees.ITEM_GROUP).food(FoodBuilderRegistry.FIGITEM)));
-		grapefruititem = register("grapefruititem", new Item((new Item.Properties()).tab(Pamhc2trees.ITEM_GROUP).food(FoodBuilderRegistry.GRAPEFRUITITEM)));
-		limeitem = register("limeitem", new Item((new Item.Properties()).tab(Pamhc2trees.ITEM_GROUP).food(FoodBuilderRegistry.LIMEITEM)));
-		mangoitem = register("mangoitem", new Item((new Item.Properties()).tab(Pamhc2trees.ITEM_GROUP).food(FoodBuilderRegistry.MANGOITEM)));
-		oliveitem = register("oliveitem", new Item((new Item.Properties()).tab(Pamhc2trees.ITEM_GROUP).food(FoodBuilderRegistry.OLIVEITEM)));
-		papayaitem = register("papayaitem", new Item((new Item.Properties()).tab(Pamhc2trees.ITEM_GROUP).food(FoodBuilderRegistry.PAPAYAITEM)));
-		pecanitem = register("pecanitem", new Item((new Item.Properties()).tab(Pamhc2trees.ITEM_GROUP).food(FoodBuilderRegistry.PECANITEM)));
-		peppercornitem = register("peppercornitem", new Item((new Item.Properties()).tab(Pamhc2trees.ITEM_GROUP)));
-		persimmonitem = register("persimmonitem", new Item((new Item.Properties()).tab(Pamhc2trees.ITEM_GROUP).food(FoodBuilderRegistry.PERSIMMONITEM)));
-		pistachioitem = register("pistachioitem", new Item((new Item.Properties()).tab(Pamhc2trees.ITEM_GROUP).food(FoodBuilderRegistry.PISTACHIOITEM)));
-		pomegranateitem = register("pomegranateitem", new Item((new Item.Properties()).tab(Pamhc2trees.ITEM_GROUP).food(FoodBuilderRegistry.POMEGRANATEITEM)));
-		starfruititem = register("starfruititem", new Item((new Item.Properties()).tab(Pamhc2trees.ITEM_GROUP).food(FoodBuilderRegistry.STARFRUITITEM)));
-		vanillabeanitem = register("vanillabeanitem", new Item((new Item.Properties()).tab(Pamhc2trees.ITEM_GROUP)));
-		breadfruititem = register("breadfruititem", new Item((new Item.Properties()).tab(Pamhc2trees.ITEM_GROUP).food(FoodBuilderRegistry.BREADFRUITITEM)));
-		guavaitem = register("guavaitem", new Item((new Item.Properties()).tab(Pamhc2trees.ITEM_GROUP).food(FoodBuilderRegistry.GUAVAITEM)));
-		jackfruititem = register("jackfruititem", new Item((new Item.Properties()).tab(Pamhc2trees.ITEM_GROUP).food(FoodBuilderRegistry.JACKFRUITITEM)));
-		lycheeitem = register("lycheeitem", new Item((new Item.Properties()).tab(Pamhc2trees.ITEM_GROUP).food(FoodBuilderRegistry.LYCHEEITEM)));
-		passionfruititem = register("passionfruititem", new Item((new Item.Properties()).tab(Pamhc2trees.ITEM_GROUP).food(FoodBuilderRegistry.PASSIONFRUITITEM)));
-		rambutanitem = register("rambutanitem", new Item((new Item.Properties()).tab(Pamhc2trees.ITEM_GROUP).food(FoodBuilderRegistry.RAMBUTANITEM)));
-		tamarinditem = register("tamarinditem", new Item((new Item.Properties()).tab(Pamhc2trees.ITEM_GROUP).food(FoodBuilderRegistry.TAMARINDITEM)));
-		//Cold Fruit Items
-		maplesyrupitem = register("maplesyrupitem", new Item((new Item.Properties()).tab(Pamhc2trees.ITEM_GROUP).food(FoodBuilderRegistry.MAPLESYRUPITEM)));
-		pinenutitem = register("pinenutitem", new Item((new Item.Properties()).tab(Pamhc2trees.ITEM_GROUP).food(FoodBuilderRegistry.PINENUTITEM)));
-
-		//Roasted Nuts
-		roastedchestnutitem = register("roastedchestnutitem", new Item((new Item.Properties()).tab(Pamhc2trees.ITEM_GROUP).food(FoodBuilderRegistry.ROASTEDCHESTNUTITEM)));
-		roastedhazelnutitem = register("roastedhazelnutitem", new Item((new Item.Properties()).tab(Pamhc2trees.ITEM_GROUP).food(FoodBuilderRegistry.ROASTEDHAZELNUTITEM)));
-		roastedwalnutitem = register("roastedwalnutitem", new Item((new Item.Properties()).tab(Pamhc2trees.ITEM_GROUP).food(FoodBuilderRegistry.ROASTEDWALNUTITEM)));
-
-		roastedalmonditem = register("roastedalmonditem", new Item((new Item.Properties()).tab(Pamhc2trees.ITEM_GROUP).food(FoodBuilderRegistry.ROASTEDALMONDITEM)));
-		roastedcashewitem = register("roastedcashewitem", new Item((new Item.Properties()).tab(Pamhc2trees.ITEM_GROUP).food(FoodBuilderRegistry.ROASTEDCASHEWITEM)));
-		roastedpecanitem = register("roastedpecanitem", new Item((new Item.Properties()).tab(Pamhc2trees.ITEM_GROUP).food(FoodBuilderRegistry.ROASTEDPECANITEM)));
-		roastedpistachioitem = register("roastedpistachioitem", new Item((new Item.Properties()).tab(Pamhc2trees.ITEM_GROUP).food(FoodBuilderRegistry.ROASTEDPISTACHIOITEM)));
-
-		roastedpinenutitem = register("roastedpinenutitem", new Item((new Item.Properties()).tab(Pamhc2trees.ITEM_GROUP).food(FoodBuilderRegistry.ROASTEDPINENUTITEM)));
-	}
-
-	private static <T extends Item> T register(String name, T item) {
-		ResourceLocation id = Pamhc2trees.getId(name);
-		item.setRegistryName(id);
-		ForgeRegistries.ITEMS.register(item);
-		return item;
+	public static Stream<Item> fruits() {
+		return REGISTRY.getEntries().stream()
+				.map(RegistryObject::get)
+				.filter(block -> block instanceof FruitItem);
 	}
 }

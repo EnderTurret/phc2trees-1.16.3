@@ -55,8 +55,8 @@ public class Pamhc2trees {
 		final IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();
 
 		BlockRegistry.REGISTRY.register(modBus);
+		ItemRegistry.REGISTRY.register(modBus);
 
-		modBus.addGenericListener(Item.class, ItemRegistry::registerAll);
 		modBus.addGenericListener(Feature.class, WorldGenRegistry::registerFeatures);
 
 		modBus.addListener(Pamhc2trees::commonSetup);
