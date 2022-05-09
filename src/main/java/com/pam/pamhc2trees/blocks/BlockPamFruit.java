@@ -127,7 +127,7 @@ public class BlockPamFruit extends Block implements BonemealableBlock {
 	@SuppressWarnings("deprecation")
 	@Override
 	public boolean canSurvive(BlockState state, LevelReader world, BlockPos pos) {
-		if (world.getBlockState(pos.above()).getBlock().is(BlockTags.LEAVES))
+		if (world.getBlockState(pos.above()).is(BlockTags.LEAVES))
 			return true;
 
 		return false;
