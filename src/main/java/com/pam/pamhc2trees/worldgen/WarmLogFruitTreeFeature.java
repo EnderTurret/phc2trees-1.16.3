@@ -7,6 +7,7 @@ import com.pam.pamhc2trees.config.ChanceConfig;
 import com.pam.pamhc2trees.config.DimensionConfig;
 import com.pam.pamhc2trees.config.EnableConfig;
 import com.pam.pamhc2trees.init.BlockRegistry;
+import com.pam.pamhc2trees.worldgen.config.TreeConfig;
 
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
@@ -21,36 +22,22 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 
-public class WarmLogFruitTreeFeature extends Feature<NoneFeatureConfiguration> {
-	public WarmLogFruitTreeFeature(Codec<NoneFeatureConfiguration> configFactory) {
-		super(configFactory);
+public class WarmLogFruitTreeFeature extends TreeFeature {
+
+	public WarmLogFruitTreeFeature() {
+		super();
 	}
 
 	@Override
-	public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> ctx) {
-		if (ctx.random().nextInt(ChanceConfig.warmfruittree_chance.get()) != 0
-				|| !DimensionConfig.allows(ctx.level().getLevel()))
-			return false;
-
-		if (isValidGround(ctx.level().getBlockState(ctx.origin().below()), ctx.level(), ctx.origin())
-				&& ctx.level().getBlockState(ctx.origin()).getMaterial().isReplaceable()) {
-			int type = ctx.random().nextInt(2) + 1;
-			generateTree(ctx.level(), ctx.origin(), ctx.random(), type);
-			return true;
-		}
-		return false;
+	protected int chance() {
+		return ChanceConfig.warmfruittree_chance.get();
 	}
 
-	private boolean isValidGround(BlockState state, BlockGetter worldIn, BlockPos pos) {
-		Block block = state.getBlock();
-		return block == Blocks.GRASS_BLOCK || block == Blocks.DIRT || block == Blocks.COARSE_DIRT
-				|| block == Blocks.PODZOL;
-	}
-
-	public static void generateTree(LevelAccessor world, BlockPos pos, Random random, int verify) {
+	@Override
+	public void generateTree(LevelAccessor world, BlockPos pos, Random random, TreeConfig config, boolean randomizeFruitAge) {
 		BlockState trunk = getTrunk();
 		BlockState leaves = getLeaves();
-		BlockState fruit = getFruit(verify, random);
+		BlockState fruit = getFruit(config, random, pos, randomizeFruitAge);
 
 		world.setBlock(pos.above(0), fruit, 3);
 		world.setBlock(pos.above(1), fruit, 3);
@@ -99,28 +86,15 @@ public class WarmLogFruitTreeFeature extends Feature<NoneFeatureConfiguration> {
 		//Layer 3
 		if (world.getBlockState(pos.above(6)).getMaterial().isReplaceable())
 			world.setBlock(pos.above(6), leaves, 3);
-
 	}
 
-	private static BlockState getLeaves() {
+	@Override
+	public BlockState getLeaves() {
 		return Blocks.JUNGLE_LEAVES.defaultBlockState().setValue(BlockStateProperties.DISTANCE, 1);
 	}
 
-	private static BlockState getTrunk() {
+	@Override
+	public BlockState getTrunk() {
 		return Blocks.JUNGLE_LOG.defaultBlockState();
-	}
-
-	private static BlockState getFruit(int verify, Random random) {
-		int i = random.nextInt(2);
-		switch (verify) {
-		case 1:
-			if (EnableConfig.cinnamon_worldgen != null)
-				return BlockRegistry.pamcinnamon.defaultBlockState().setValue(BlockStateProperties.AGE_7, i);
-		case 2:
-			if (EnableConfig.paperbark_worldgen != null)
-				return BlockRegistry.pampaperbark.defaultBlockState().setValue(BlockStateProperties.AGE_7, i);
-		default:
-			return BlockRegistry.pamalmond.defaultBlockState().setValue(BlockStateProperties.AGE_7, i);
-		}
 	}
 }

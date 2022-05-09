@@ -7,6 +7,7 @@ import com.pam.pamhc2trees.config.ChanceConfig;
 import com.pam.pamhc2trees.config.DimensionConfig;
 import com.pam.pamhc2trees.config.EnableConfig;
 import com.pam.pamhc2trees.init.BlockRegistry;
+import com.pam.pamhc2trees.worldgen.config.TreeConfig;
 
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
@@ -21,36 +22,22 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 
-public class TemperateFruitTreeFeature extends Feature<NoneFeatureConfiguration> {
-	public TemperateFruitTreeFeature(Codec<NoneFeatureConfiguration> configFactory) {
-		super(configFactory);
+public class TemperateFruitTreeFeature extends TreeFeature {
+
+	public TemperateFruitTreeFeature() {
+		super();
 	}
 
 	@Override
-	public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> ctx) {
-		if (ctx.random().nextInt(ChanceConfig.temperatefruittree_chance.get()) != 0
-				|| !DimensionConfig.allows(ctx.level().getLevel()))
-			return false;
-
-		if (isValidGround(ctx.level().getBlockState(ctx.origin().below()), ctx.level(), ctx.origin())
-				&& ctx.level().getBlockState(ctx.origin()).getMaterial().isReplaceable()) {
-			int type = ctx.random().nextInt(17) + 1;
-			generateTree(ctx.level(), ctx.origin(), ctx.random(), type);
-			return true;
-		}
-		return false;
+	protected int chance() {
+		return ChanceConfig.temperatefruittree_chance.get();
 	}
 
-	private boolean isValidGround(BlockState state, BlockGetter worldIn, BlockPos pos) {
-		Block block = state.getBlock();
-		return block == Blocks.GRASS_BLOCK || block == Blocks.DIRT || block == Blocks.COARSE_DIRT
-				|| block == Blocks.PODZOL;
-	}
-
-	public static void generateTree(LevelAccessor world, BlockPos pos, Random random, int verify) {
+	@Override
+	public void generateTree(LevelAccessor world, BlockPos pos, Random random, TreeConfig config, boolean randomizeFruitAge) {
 		BlockState trunk = getTrunk();
 		BlockState leaves = getLeaves();
-		BlockState fruit = getFruit(verify, random);
+		BlockState fruit = getFruit(config, random, pos, randomizeFruitAge);
 
 		world.setBlock(pos.above(0), trunk, 3);
 		for (int i = 1; i < 6; i++) {
@@ -222,73 +209,13 @@ public class TemperateFruitTreeFeature extends Feature<NoneFeatureConfiguration>
 
 	}
 
-	private static BlockState getLeaves()
-	{
+	@Override
+	public BlockState getLeaves() {
 		return Blocks.OAK_LEAVES.defaultBlockState().setValue(BlockStateProperties.DISTANCE, 1);
 	}
 
-	private static BlockState getTrunk()
-	{
+	@Override
+	public BlockState getTrunk() {
 		return Blocks.OAK_LOG.defaultBlockState();
-	}
-
-	private static BlockState getFruit(int verify, Random random)
-	{
-		int i = random.nextInt(2);
-		switch (verify) {
-		case 1:
-			if (EnableConfig.apple_worldgen != null)
-				return BlockRegistry.pamapple.defaultBlockState().setValue(BlockStateProperties.AGE_7, i);
-		case 2:
-			if (EnableConfig.avocado_worldgen != null)
-				return BlockRegistry.pamavocado.defaultBlockState().setValue(BlockStateProperties.AGE_7, i);
-		case 3:
-			if (EnableConfig.candlenut_worldgen != null)
-				return BlockRegistry.pamcandlenut.defaultBlockState().setValue(BlockStateProperties.AGE_7, i);
-		case 4:
-			if (EnableConfig.cherry_worldgen != null)
-				return BlockRegistry.pamcherry.defaultBlockState().setValue(BlockStateProperties.AGE_7, i);
-		case 5:
-			if (EnableConfig.chestnut_worldgen != null)
-				return BlockRegistry.pamchestnut.defaultBlockState().setValue(BlockStateProperties.AGE_7, i);
-		case 6:
-			if (EnableConfig.gooseberry_worldgen != null)
-				return BlockRegistry.pamgooseberry.defaultBlockState().setValue(BlockStateProperties.AGE_7, i);
-		case 7:
-			if (EnableConfig.lemon_worldgen != null)
-				return BlockRegistry.pamlemon.defaultBlockState().setValue(BlockStateProperties.AGE_7, i);
-		case 8:
-			if (EnableConfig.nutmeg_worldgen != null)
-				return BlockRegistry.pamnutmeg.defaultBlockState().setValue(BlockStateProperties.AGE_7, i);
-		case 9:
-			if (EnableConfig.orange_worldgen != null)
-				return BlockRegistry.pamorange.defaultBlockState().setValue(BlockStateProperties.AGE_7, i);
-		case 10:
-			if (EnableConfig.peach_worldgen != null)
-				return BlockRegistry.pampeach.defaultBlockState().setValue(BlockStateProperties.AGE_7, i);
-		case 11:
-			if (EnableConfig.pear_worldgen != null)
-				return BlockRegistry.pampear.defaultBlockState().setValue(BlockStateProperties.AGE_7, i);
-		case 12:
-			if (EnableConfig.plum_worldgen != null)
-				return BlockRegistry.pamplum.defaultBlockState().setValue(BlockStateProperties.AGE_7, i);
-		case 13:
-			if (EnableConfig.walnut_worldgen != null)
-				return BlockRegistry.pamwalnut.defaultBlockState().setValue(BlockStateProperties.AGE_7, i);
-		case 14:
-			if (EnableConfig.spiderweb_worldgen != null)
-				return BlockRegistry.pamspiderweb.defaultBlockState().setValue(BlockStateProperties.AGE_7, i);
-		case 15:
-			if (EnableConfig.hazelnut_worldgen != null)
-				return BlockRegistry.pamhazelnut.defaultBlockState().setValue(BlockStateProperties.AGE_7, i);
-		case 16:
-			if (EnableConfig.pawpaw_worldgen != null)
-				return BlockRegistry.pampawpaw.defaultBlockState().setValue(BlockStateProperties.AGE_7, i);
-		case 17:
-			if (EnableConfig.soursop_worldgen != null)
-				return BlockRegistry.pamsoursop.defaultBlockState().setValue(BlockStateProperties.AGE_7, i);
-		default:
-			return BlockRegistry.pamapple.defaultBlockState().setValue(BlockStateProperties.AGE_7, i);
-		}
 	}
 }

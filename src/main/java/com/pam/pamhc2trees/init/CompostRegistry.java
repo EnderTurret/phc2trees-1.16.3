@@ -3,8 +3,8 @@ package com.pam.pamhc2trees.init;
 import net.minecraft.world.level.block.ComposterBlock;
 
 public class CompostRegistry {
-	public static void register() {
 
+	public static void register() {
 		//Temperate Fruits
 		ComposterBlock.COMPOSTABLES.put(ItemRegistry.avocadoitem, 0.65F);
 		ComposterBlock.COMPOSTABLES.put(ItemRegistry.candlenutitem, 0.65F);
@@ -55,60 +55,6 @@ public class CompostRegistry {
 		ComposterBlock.COMPOSTABLES.put(ItemRegistry.maplesyrupitem, 0.65F);
 		ComposterBlock.COMPOSTABLES.put(ItemRegistry.pinenutitem, 0.65F);
 
-
-		//Temperate Saplings
-		ComposterBlock.COMPOSTABLES.put(BlockRegistry.apple_sapling, 0.3F);
-		ComposterBlock.COMPOSTABLES.put(BlockRegistry.avocado_sapling, 0.3F);
-		ComposterBlock.COMPOSTABLES.put(BlockRegistry.candlenut_sapling, 0.3F);
-		ComposterBlock.COMPOSTABLES.put(BlockRegistry.cherry_sapling, 0.3F);
-		ComposterBlock.COMPOSTABLES.put(BlockRegistry.chestnut_sapling, 0.3F);
-		ComposterBlock.COMPOSTABLES.put(BlockRegistry.gooseberry_sapling, 0.3F);
-		ComposterBlock.COMPOSTABLES.put(BlockRegistry.lemon_sapling, 0.3F);
-		ComposterBlock.COMPOSTABLES.put(BlockRegistry.nutmeg_sapling, 0.3F);
-		ComposterBlock.COMPOSTABLES.put(BlockRegistry.orange_sapling, 0.3F);
-		ComposterBlock.COMPOSTABLES.put(BlockRegistry.peach_sapling, 0.3F);
-		ComposterBlock.COMPOSTABLES.put(BlockRegistry.pear_sapling, 0.3F);
-		ComposterBlock.COMPOSTABLES.put(BlockRegistry.plum_sapling, 0.3F);
-		ComposterBlock.COMPOSTABLES.put(BlockRegistry.walnut_sapling, 0.3F);
-		ComposterBlock.COMPOSTABLES.put(BlockRegistry.spiderweb_sapling, 0.3F);
-		ComposterBlock.COMPOSTABLES.put(BlockRegistry.hazelnut_sapling, 0.3F);
-		ComposterBlock.COMPOSTABLES.put(BlockRegistry.pawpaw_sapling, 0.3F);
-		ComposterBlock.COMPOSTABLES.put(BlockRegistry.soursop_sapling, 0.3F);
-		//Warm Saplings
-		ComposterBlock.COMPOSTABLES.put(BlockRegistry.almond_sapling, 0.3F);
-		ComposterBlock.COMPOSTABLES.put(BlockRegistry.apricot_sapling, 0.3F);
-		ComposterBlock.COMPOSTABLES.put(BlockRegistry.banana_sapling, 0.3F);
-		ComposterBlock.COMPOSTABLES.put(BlockRegistry.cashew_sapling, 0.3F);
-		ComposterBlock.COMPOSTABLES.put(BlockRegistry.cinnamon_sapling, 0.3F);
-		ComposterBlock.COMPOSTABLES.put(BlockRegistry.coconut_sapling, 0.3F);
-		ComposterBlock.COMPOSTABLES.put(BlockRegistry.date_sapling, 0.3F);
-		ComposterBlock.COMPOSTABLES.put(BlockRegistry.dragonfruit_sapling, 0.3F);
-		ComposterBlock.COMPOSTABLES.put(BlockRegistry.durian_sapling, 0.3F);
-		ComposterBlock.COMPOSTABLES.put(BlockRegistry.fig_sapling, 0.3F);
-		ComposterBlock.COMPOSTABLES.put(BlockRegistry.grapefruit_sapling, 0.3F);
-		ComposterBlock.COMPOSTABLES.put(BlockRegistry.lime_sapling, 0.3F);
-		ComposterBlock.COMPOSTABLES.put(BlockRegistry.mango_sapling, 0.3F);
-		ComposterBlock.COMPOSTABLES.put(BlockRegistry.olive_sapling, 0.3F);
-		ComposterBlock.COMPOSTABLES.put(BlockRegistry.papaya_sapling, 0.3F);
-		ComposterBlock.COMPOSTABLES.put(BlockRegistry.paperbark_sapling, 0.3F);
-		ComposterBlock.COMPOSTABLES.put(BlockRegistry.pecan_sapling, 0.3F);
-		ComposterBlock.COMPOSTABLES.put(BlockRegistry.peppercorn_sapling, 0.3F);
-		ComposterBlock.COMPOSTABLES.put(BlockRegistry.persimmon_sapling, 0.3F);
-		ComposterBlock.COMPOSTABLES.put(BlockRegistry.pistachio_sapling, 0.3F);
-		ComposterBlock.COMPOSTABLES.put(BlockRegistry.pomegranate_sapling, 0.3F);
-		ComposterBlock.COMPOSTABLES.put(BlockRegistry.starfruit_sapling, 0.3F);
-		ComposterBlock.COMPOSTABLES.put(BlockRegistry.vanillabean_sapling, 0.3F);
-		ComposterBlock.COMPOSTABLES.put(BlockRegistry.breadfruit_sapling, 0.3F);
-		ComposterBlock.COMPOSTABLES.put(BlockRegistry.guava_sapling, 0.3F);
-		ComposterBlock.COMPOSTABLES.put(BlockRegistry.jackfruit_sapling, 0.3F);
-		ComposterBlock.COMPOSTABLES.put(BlockRegistry.lychee_sapling, 0.3F);
-		ComposterBlock.COMPOSTABLES.put(BlockRegistry.passionfruit_sapling, 0.3F);
-		ComposterBlock.COMPOSTABLES.put(BlockRegistry.rambutan_sapling, 0.3F);
-		ComposterBlock.COMPOSTABLES.put(BlockRegistry.tamarind_sapling, 0.3F);
-		//Cold Saplings
-		ComposterBlock.COMPOSTABLES.put(BlockRegistry.maple_sapling, 0.3F);
-		ComposterBlock.COMPOSTABLES.put(BlockRegistry.pinenut_sapling, 0.3F);
-
+		BlockRegistry.saplings().forEach(sapling -> ComposterBlock.COMPOSTABLES.put(sapling, 0.3F));
 	}
-
 }

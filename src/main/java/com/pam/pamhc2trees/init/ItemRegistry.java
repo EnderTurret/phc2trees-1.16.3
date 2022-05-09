@@ -4,117 +4,13 @@ import com.pam.pamhc2trees.Pamhc2trees;
 
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 
 public class ItemRegistry {
-
-	//Temperate Fruits
-	public static Item pamapple;
-	public static Item pamavocado;
-	public static Item pamcandlenut;
-	public static Item pamcherry;
-	public static Item pamchestnut;
-	public static Item pamgooseberry;
-	public static Item pamlemon;
-	public static Item pamnutmeg;
-	public static Item pamorange;
-	public static Item pampeach;
-	public static Item pampear;
-	public static Item pamplum;
-	public static Item pamwalnut;
-	public static Item pamspiderweb;
-	public static Item pamhazelnut;
-	public static Item pampawpaw;
-	public static Item pamsoursop;
-	//Warm Fruits
-	public static Item pamalmond;
-	public static Item pamapricot;
-	public static Item pambanana;
-	public static Item pamcashew;
-	public static Item pamcinnamon;
-	public static Item pamcoconut;
-	public static Item pamdate;
-	public static Item pamdragonfruit;
-	public static Item pamdurian;
-	public static Item pamfig;
-	public static Item pamgrapefruit;
-	public static Item pamlime;
-	public static Item pammango;
-	public static Item pamolive;
-	public static Item pampapaya;
-	public static Item pampaperbark;
-	public static Item pampecan;
-	public static Item pampeppercorn;
-	public static Item pampersimmon;
-	public static Item pampistachio;
-	public static Item pampomegranate;
-	public static Item pamstarfruit;
-	public static Item pamvanillabean;
-	public static Item pambreadfruit;
-	public static Item pamguava;
-	public static Item pamjackfruit;
-	public static Item pamlychee;
-	public static Item pampassionfruit;
-	public static Item pamrambutan;
-	public static Item pamtamarind;
-	//Cold Fruits
-	public static Item pammaple;
-	public static Item pampinenut;
-
-	//Temperate Saplings
-	public static Item apple_sapling;
-	public static Item avocado_sapling;
-	public static Item candlenut_sapling;
-	public static Item cherry_sapling;
-	public static Item chestnut_sapling;
-	public static Item gooseberry_sapling;
-	public static Item lemon_sapling;
-	public static Item nutmeg_sapling;
-	public static Item orange_sapling;
-	public static Item peach_sapling;
-	public static Item pear_sapling;
-	public static Item plum_sapling;
-	public static Item walnut_sapling;
-	public static Item spiderweb_sapling;
-	public static Item hazelnut_sapling;
-	public static Item pawpaw_sapling;
-	public static Item soursop_sapling;
-	//Warm Saplings
-	public static Item almond_sapling;
-	public static Item apricot_sapling;
-	public static Item banana_sapling;
-	public static Item cashew_sapling;
-	public static Item cinnamon_sapling;
-	public static Item coconut_sapling;
-	public static Item date_sapling;
-	public static Item dragonfruit_sapling;
-	public static Item durian_sapling;
-	public static Item fig_sapling;
-	public static Item grapefruit_sapling;
-	public static Item lime_sapling;
-	public static Item mango_sapling;
-	public static Item olive_sapling;
-	public static Item papaya_sapling;
-	public static Item paperbark_sapling;
-	public static Item pecan_sapling;
-	public static Item peppercorn_sapling;
-	public static Item persimmon_sapling;
-	public static Item pistachio_sapling;
-	public static Item pomegranate_sapling;
-	public static Item starfruit_sapling;
-	public static Item vanillabean_sapling;
-	public static Item breadfruit_sapling;
-	public static Item guava_sapling;
-	public static Item jackfruit_sapling;
-	public static Item lychee_sapling;
-	public static Item passionfruit_sapling;
-	public static Item rambutan_sapling;
-	public static Item tamarind_sapling;
-	//Cold Saplings
-	public static Item maple_sapling;
-	public static Item pinenut_sapling;
 
 	//Temperate Fruit Items
 	public static Item avocadoitem;
@@ -178,117 +74,20 @@ public class ItemRegistry {
 
 	public static Item roastedpinenutitem;
 
+	private static Item.Properties properties() {
+		return new Item.Properties().tab(Pamhc2trees.ITEM_GROUP);
+	}
 
+	public static void registerBlockItems(RegistryEvent.Register<Item> event) {
+		for (RegistryObject<Block> block : BlockRegistry.REGISTRY.getEntries())
+			event.getRegistry().register(new BlockItem(block.get(), properties()).setRegistryName(block.getId()));
+	}
 
 	public static void registerAll(RegistryEvent.Register<Item> event) {
 		if (!event.getName().equals(ForgeRegistries.ITEMS.getRegistryName()))
 			return;
 
-		//Temperate Fruits
-		pamapple = register("pamapple",new BlockItem(BlockRegistry.pamapple, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		pamavocado = register("pamavocado",new BlockItem(BlockRegistry.pamavocado, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		pamcandlenut = register("pamcandlenut",new BlockItem(BlockRegistry.pamcandlenut, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		pamcherry = register("pamcherry",new BlockItem(BlockRegistry.pamcherry, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		pamchestnut = register("pamchestnut",new BlockItem(BlockRegistry.pamchestnut, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		pamgooseberry = register("pamgooseberry",new BlockItem(BlockRegistry.pamgooseberry, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		pamlemon = register("pamlemon",new BlockItem(BlockRegistry.pamlemon, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		pamnutmeg = register("pamnutmeg",new BlockItem(BlockRegistry.pamnutmeg, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		pamorange = register("pamorange",new BlockItem(BlockRegistry.pamorange, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		pampeach = register("pampeach",new BlockItem(BlockRegistry.pampeach, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		pampear = register("pampear",new BlockItem(BlockRegistry.pampear, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		pamplum = register("pamplum",new BlockItem(BlockRegistry.pamplum, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		pamwalnut = register("pamwalnut",new BlockItem(BlockRegistry.pamwalnut, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		pamspiderweb = register("pamspiderweb",new BlockItem(BlockRegistry.pamspiderweb, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		pamhazelnut = register("pamhazelnut",new BlockItem(BlockRegistry.pamhazelnut, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		pampawpaw = register("pampawpaw",new BlockItem(BlockRegistry.pampawpaw, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		pamsoursop = register("pamsoursop",new BlockItem(BlockRegistry.pamsoursop, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		//Warm Fruits
-		pamalmond = register("pamalmond",new BlockItem(BlockRegistry.pamalmond, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		pamapricot = register("pamapricot",new BlockItem(BlockRegistry.pamapricot, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		pambanana = register("pambanana",new BlockItem(BlockRegistry.pambanana, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		pamcashew = register("pamcashew",new BlockItem(BlockRegistry.pamcashew, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		pamcinnamon = register("pamcinnamon",new BlockItem(BlockRegistry.pamcinnamon, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		pamcoconut = register("pamcoconut",new BlockItem(BlockRegistry.pamcoconut, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		pamdate = register("pamdate",new BlockItem(BlockRegistry.pamdate, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		pamdragonfruit = register("pamdragonfruit",new BlockItem(BlockRegistry.pamdragonfruit, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		pamdurian = register("pamdurian",new BlockItem(BlockRegistry.pamdurian, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		pamfig = register("pamfig",new BlockItem(BlockRegistry.pamfig, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		pamgrapefruit = register("pamgrapefruit",new BlockItem(BlockRegistry.pamgrapefruit, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		pamlime = register("pamlime",new BlockItem(BlockRegistry.pamlime, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		pammango = register("pammango",new BlockItem(BlockRegistry.pammango, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		pamolive = register("pamolive",new BlockItem(BlockRegistry.pamolive, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		pampapaya = register("pampapaya",new BlockItem(BlockRegistry.pampapaya, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		pampaperbark = register("pampaperbark",new BlockItem(BlockRegistry.pampaperbark, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		pampecan = register("pampecan",new BlockItem(BlockRegistry.pampecan, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		pampeppercorn = register("pampeppercorn",new BlockItem(BlockRegistry.pampeppercorn, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		pampersimmon = register("pampersimmon",new BlockItem(BlockRegistry.pampersimmon, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		pampistachio = register("pampistachio",new BlockItem(BlockRegistry.pampistachio, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		pampomegranate = register("pampomegranate",new BlockItem(BlockRegistry.pampomegranate, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		pamstarfruit = register("pamstarfruit",new BlockItem(BlockRegistry.pamstarfruit, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		pamvanillabean = register("pamvanillabean",new BlockItem(BlockRegistry.pamvanillabean, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		pambreadfruit = register("pambreadfruit",new BlockItem(BlockRegistry.pambreadfruit, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		pamguava = register("pamguava",new BlockItem(BlockRegistry.pamguava, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		pamjackfruit = register("pamjackfruit",new BlockItem(BlockRegistry.pamjackfruit, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		pamlychee = register("pamlychee",new BlockItem(BlockRegistry.pamlychee, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		pampassionfruit = register("pampassionfruit",new BlockItem(BlockRegistry.pampassionfruit, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		pamrambutan = register("pamrambutan",new BlockItem(BlockRegistry.pamrambutan, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		pamtamarind = register("pamtamarind",new BlockItem(BlockRegistry.pamtamarind, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		//Cold Fruits
-		pammaple = register("pammaple",new BlockItem(BlockRegistry.pammaple, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		pampinenut = register("pampinenut",new BlockItem(BlockRegistry.pampinenut, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-
-		//Temperate Saplings
-		apple_sapling = register("apple_sapling", new BlockItem(BlockRegistry.apple_sapling, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		avocado_sapling = register("avocado_sapling", new BlockItem(BlockRegistry.avocado_sapling, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		candlenut_sapling = register("candlenut_sapling", new BlockItem(BlockRegistry.candlenut_sapling, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		cherry_sapling = register("cherry_sapling", new BlockItem(BlockRegistry.cherry_sapling, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		chestnut_sapling = register("chestnut_sapling", new BlockItem(BlockRegistry.chestnut_sapling, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		gooseberry_sapling = register("gooseberry_sapling", new BlockItem(BlockRegistry.gooseberry_sapling, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		lemon_sapling = register("lemon_sapling", new BlockItem(BlockRegistry.lemon_sapling, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		nutmeg_sapling = register("nutmeg_sapling", new BlockItem(BlockRegistry.nutmeg_sapling, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		orange_sapling = register("orange_sapling", new BlockItem(BlockRegistry.orange_sapling, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		peach_sapling = register("peach_sapling", new BlockItem(BlockRegistry.peach_sapling, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		pear_sapling = register("pear_sapling", new BlockItem(BlockRegistry.pear_sapling, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		plum_sapling = register("plum_sapling", new BlockItem(BlockRegistry.plum_sapling, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		walnut_sapling = register("walnut_sapling", new BlockItem(BlockRegistry.walnut_sapling, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		spiderweb_sapling = register("spiderweb_sapling", new BlockItem(BlockRegistry.spiderweb_sapling, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		hazelnut_sapling = register("hazelnut_sapling", new BlockItem(BlockRegistry.hazelnut_sapling, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		pawpaw_sapling = register("pawpaw_sapling", new BlockItem(BlockRegistry.pawpaw_sapling, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		soursop_sapling = register("soursop_sapling", new BlockItem(BlockRegistry.soursop_sapling, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		//Warm Saplings
-		almond_sapling = register("almond_sapling", new BlockItem(BlockRegistry.almond_sapling, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		apricot_sapling = register("apricot_sapling", new BlockItem(BlockRegistry.apricot_sapling, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		banana_sapling = register("banana_sapling", new BlockItem(BlockRegistry.banana_sapling, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		cashew_sapling = register("cashew_sapling", new BlockItem(BlockRegistry.cashew_sapling, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		cinnamon_sapling = register("cinnamon_sapling", new BlockItem(BlockRegistry.cinnamon_sapling, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		coconut_sapling = register("coconut_sapling", new BlockItem(BlockRegistry.coconut_sapling, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		date_sapling = register("date_sapling", new BlockItem(BlockRegistry.date_sapling, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		dragonfruit_sapling = register("dragonfruit_sapling", new BlockItem(BlockRegistry.dragonfruit_sapling, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		durian_sapling = register("durian_sapling", new BlockItem(BlockRegistry.durian_sapling, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		fig_sapling = register("fig_sapling", new BlockItem(BlockRegistry.fig_sapling, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		grapefruit_sapling = register("grapefruit_sapling", new BlockItem(BlockRegistry.grapefruit_sapling, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		lime_sapling = register("lime_sapling", new BlockItem(BlockRegistry.lime_sapling, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		mango_sapling = register("mango_sapling", new BlockItem(BlockRegistry.mango_sapling, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		olive_sapling = register("olive_sapling", new BlockItem(BlockRegistry.olive_sapling, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		papaya_sapling = register("papaya_sapling", new BlockItem(BlockRegistry.papaya_sapling, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		paperbark_sapling = register("paperbark_sapling", new BlockItem(BlockRegistry.paperbark_sapling, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		pecan_sapling = register("pecan_sapling", new BlockItem(BlockRegistry.pecan_sapling, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		peppercorn_sapling = register("peppercorn_sapling", new BlockItem(BlockRegistry.peppercorn_sapling, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		persimmon_sapling = register("persimmon_sapling", new BlockItem(BlockRegistry.persimmon_sapling, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		pistachio_sapling = register("pistachio_sapling", new BlockItem(BlockRegistry.pistachio_sapling, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		pomegranate_sapling = register("pomegranate_sapling", new BlockItem(BlockRegistry.pomegranate_sapling, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		starfruit_sapling = register("starfruit_sapling", new BlockItem(BlockRegistry.starfruit_sapling, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		vanillabean_sapling = register("vanillabean_sapling", new BlockItem(BlockRegistry.vanillabean_sapling, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		breadfruit_sapling = register("breadfruit_sapling", new BlockItem(BlockRegistry.breadfruit_sapling, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		guava_sapling = register("guava_sapling", new BlockItem(BlockRegistry.guava_sapling, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		jackfruit_sapling = register("jackfruit_sapling", new BlockItem(BlockRegistry.jackfruit_sapling, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		lychee_sapling = register("lychee_sapling", new BlockItem(BlockRegistry.lychee_sapling, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		passionfruit_sapling = register("passionfruit_sapling", new BlockItem(BlockRegistry.passionfruit_sapling, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		rambutan_sapling = register("rambutan_sapling", new BlockItem(BlockRegistry.rambutan_sapling, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		tamarind_sapling = register("tamarind_sapling", new BlockItem(BlockRegistry.tamarind_sapling, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		//Cold Saplings
-		maple_sapling = register("maple_sapling", new BlockItem(BlockRegistry.maple_sapling, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
-		pinenut_sapling = register("pinenut_sapling", new BlockItem(BlockRegistry.pinenut_sapling, new Item.Properties().tab(Pamhc2trees.ITEM_GROUP)));
+		registerBlockItems(event);
 
 		//Temperate Fruit Items
 		avocadoitem = register("avocadoitem", new Item((new Item.Properties()).tab(Pamhc2trees.ITEM_GROUP).food(FoodBuilderRegistry.AVOCADOITEM)));

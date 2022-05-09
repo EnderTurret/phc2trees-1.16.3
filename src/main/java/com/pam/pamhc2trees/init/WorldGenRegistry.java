@@ -12,11 +12,14 @@ import com.pam.pamhc2trees.worldgen.ColdLogFruitTreeFeature;
 import com.pam.pamhc2trees.worldgen.TemperateFruitTreeFeature;
 import com.pam.pamhc2trees.worldgen.WarmFruitTreeFeature;
 import com.pam.pamhc2trees.worldgen.WarmLogFruitTreeFeature;
+import com.pam.pamhc2trees.worldgen.config.TreeConfig;
 
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.IForgeRegistry;
@@ -27,86 +30,86 @@ public class WorldGenRegistry {
 	private static final List<FeatureHolder<?, ?>> HOLDERS = new ArrayList<>();
 
 	//Temperate Fruits
-	public static final FeatureHolder<TemperateFruitTreeFeature, NoneFeatureConfiguration> APPLE = temperate("apple_worldgen");
-	public static final FeatureHolder<TemperateFruitTreeFeature, NoneFeatureConfiguration> AVOCADO = temperate("avocado_worldgen");
-	public static final FeatureHolder<TemperateFruitTreeFeature, NoneFeatureConfiguration> CANDLENUT = temperate("candlenut_worldgen");
-	public static final FeatureHolder<TemperateFruitTreeFeature, NoneFeatureConfiguration> CHERRY = temperate("cherry_worldgen");
-	public static final FeatureHolder<TemperateFruitTreeFeature, NoneFeatureConfiguration> CHESTNUT = temperate("chestnut_worldgen");
-	public static final FeatureHolder<TemperateFruitTreeFeature, NoneFeatureConfiguration> GOOSEBERRY = temperate("gooseberry_worldgen");
-	public static final FeatureHolder<TemperateFruitTreeFeature, NoneFeatureConfiguration> LEMON = temperate("lemon_worldgen");
-	public static final FeatureHolder<TemperateFruitTreeFeature, NoneFeatureConfiguration> NUTMEG = temperate("nutmeg_worldgen");
-	public static final FeatureHolder<TemperateFruitTreeFeature, NoneFeatureConfiguration> ORANGE = temperate("orange_worldgen");
-	public static final FeatureHolder<TemperateFruitTreeFeature, NoneFeatureConfiguration> PEACH = temperate("peach_worldgen");
-	public static final FeatureHolder<TemperateFruitTreeFeature, NoneFeatureConfiguration> PEAR = temperate("pear_worldgen");
-	public static final FeatureHolder<TemperateFruitTreeFeature, NoneFeatureConfiguration> PLUM = temperate("plum_worldgen");
-	public static final FeatureHolder<TemperateFruitTreeFeature, NoneFeatureConfiguration> WALNUT = temperate("walnut_worldgen");
-	public static final FeatureHolder<TemperateFruitTreeFeature, NoneFeatureConfiguration> SPIDERWEB = temperate("spiderweb_worldgen");
-	public static final FeatureHolder<TemperateFruitTreeFeature, NoneFeatureConfiguration> HAZELNUT = temperate("hazelnut_worldgen");
-	public static final FeatureHolder<TemperateFruitTreeFeature, NoneFeatureConfiguration> PAWPAW = temperate("pawpaw_worldgen");
-	public static final FeatureHolder<TemperateFruitTreeFeature, NoneFeatureConfiguration> SOURSOP = temperate("soursop_worldgen");
+	public static final FeatureHolder<TemperateFruitTreeFeature, TreeConfig> APPLE = temperate("apple_worldgen", BlockRegistry.pamapple);
+	public static final FeatureHolder<TemperateFruitTreeFeature, TreeConfig> AVOCADO = temperate("avocado_worldgen", BlockRegistry.pamavocado);
+	public static final FeatureHolder<TemperateFruitTreeFeature, TreeConfig> CANDLENUT = temperate("candlenut_worldgen", BlockRegistry.pamcandlenut);
+	public static final FeatureHolder<TemperateFruitTreeFeature, TreeConfig> CHERRY = temperate("cherry_worldgen", BlockRegistry.pamcherry);
+	public static final FeatureHolder<TemperateFruitTreeFeature, TreeConfig> CHESTNUT = temperate("chestnut_worldgen", BlockRegistry.pamchestnut);
+	public static final FeatureHolder<TemperateFruitTreeFeature, TreeConfig> GOOSEBERRY = temperate("gooseberry_worldgen", BlockRegistry.pamgooseberry);
+	public static final FeatureHolder<TemperateFruitTreeFeature, TreeConfig> LEMON = temperate("lemon_worldgen", BlockRegistry.pamlemon);
+	public static final FeatureHolder<TemperateFruitTreeFeature, TreeConfig> NUTMEG = temperate("nutmeg_worldgen", BlockRegistry.pamnutmeg);
+	public static final FeatureHolder<TemperateFruitTreeFeature, TreeConfig> ORANGE = temperate("orange_worldgen", BlockRegistry.pamorange);
+	public static final FeatureHolder<TemperateFruitTreeFeature, TreeConfig> PEACH = temperate("peach_worldgen", BlockRegistry.pampeach);
+	public static final FeatureHolder<TemperateFruitTreeFeature, TreeConfig> PEAR = temperate("pear_worldgen", BlockRegistry.pampear);
+	public static final FeatureHolder<TemperateFruitTreeFeature, TreeConfig> PLUM = temperate("plum_worldgen", BlockRegistry.pamplum);
+	public static final FeatureHolder<TemperateFruitTreeFeature, TreeConfig> WALNUT = temperate("walnut_worldgen", BlockRegistry.pamwalnut);
+	public static final FeatureHolder<TemperateFruitTreeFeature, TreeConfig> SPIDERWEB = temperate("spiderweb_worldgen", BlockRegistry.pamspiderweb);
+	public static final FeatureHolder<TemperateFruitTreeFeature, TreeConfig> HAZELNUT = temperate("hazelnut_worldgen", BlockRegistry.pamhazelnut);
+	public static final FeatureHolder<TemperateFruitTreeFeature, TreeConfig> PAWPAW = temperate("pawpaw_worldgen", BlockRegistry.pampawpaw);
+	public static final FeatureHolder<TemperateFruitTreeFeature, TreeConfig> SOURSOP = temperate("soursop_worldgen", BlockRegistry.pamsoursop);
 	//Warm Fruits
-	public static final FeatureHolder<WarmFruitTreeFeature, NoneFeatureConfiguration> ALMOND = warm("almond_worldgen");
-	public static final FeatureHolder<WarmFruitTreeFeature, NoneFeatureConfiguration> APRICOT = warm("apricot_worldgen");
-	public static final FeatureHolder<WarmFruitTreeFeature, NoneFeatureConfiguration> BANANA = warm("banana_worldgen");
-	public static final FeatureHolder<WarmFruitTreeFeature, NoneFeatureConfiguration> CASHEW = warm("cashew_worldgen");
-	public static final FeatureHolder<WarmLogFruitTreeFeature, NoneFeatureConfiguration> CINNAMON = warmLog("cinnamon_worldgen");
-	public static final FeatureHolder<WarmFruitTreeFeature, NoneFeatureConfiguration> COCONUT = warm("coconut_worldgen");
-	public static final FeatureHolder<WarmFruitTreeFeature, NoneFeatureConfiguration> DATE = warm("date_worldgen");
-	public static final FeatureHolder<WarmFruitTreeFeature, NoneFeatureConfiguration> DRAGONFRUIT = warm("dragonfruit_worldgen");
-	public static final FeatureHolder<WarmFruitTreeFeature, NoneFeatureConfiguration> DURIAN = warm("durian_worldgen");
-	public static final FeatureHolder<WarmFruitTreeFeature, NoneFeatureConfiguration> FIG = warm("fig_worldgen");
-	public static final FeatureHolder<WarmFruitTreeFeature, NoneFeatureConfiguration> GRAPEFRUIT = warm("grapefruit_worldgen");
-	public static final FeatureHolder<WarmFruitTreeFeature, NoneFeatureConfiguration> LIME = warm("lime_worldgen");
-	public static final FeatureHolder<WarmFruitTreeFeature, NoneFeatureConfiguration> MANGO = warm("mango_worldgen");
-	public static final FeatureHolder<WarmFruitTreeFeature, NoneFeatureConfiguration> OLIVE = warm("olive_worldgen");
-	public static final FeatureHolder<WarmFruitTreeFeature, NoneFeatureConfiguration> PAPAYA = warm("papaya_worldgen");
-	public static final FeatureHolder<WarmLogFruitTreeFeature, NoneFeatureConfiguration> PAPERBARK = warmLog("paperbark_worldgen");
-	public static final FeatureHolder<WarmFruitTreeFeature, NoneFeatureConfiguration> PECAN = warm("pecan_worldgen");
-	public static final FeatureHolder<WarmFruitTreeFeature, NoneFeatureConfiguration> PEPPERCORN = warm("peppercorn_worldgen");
-	public static final FeatureHolder<WarmFruitTreeFeature, NoneFeatureConfiguration> PERSIMMON = warm("persimmon_worldgen");
-	public static final FeatureHolder<WarmFruitTreeFeature, NoneFeatureConfiguration> PISTACHIO = warm("pistachio_worldgen");
-	public static final FeatureHolder<WarmFruitTreeFeature, NoneFeatureConfiguration> POMEGRANATE = warm("pomegranate_worldgen");
-	public static final FeatureHolder<WarmFruitTreeFeature, NoneFeatureConfiguration> STARFRUIT = warm("starfruit_worldgen");
-	public static final FeatureHolder<WarmFruitTreeFeature, NoneFeatureConfiguration> VANILLABEAN = warm("vanillabean_worldgen");
-	public static final FeatureHolder<WarmFruitTreeFeature, NoneFeatureConfiguration> BREADFRUIT = warm("breadfruit_worldgen");
-	public static final FeatureHolder<WarmFruitTreeFeature, NoneFeatureConfiguration> GUAVA = warm("guava_worldgen");
-	public static final FeatureHolder<WarmFruitTreeFeature, NoneFeatureConfiguration> JACKFRUIT = warm("jackfruit_worldgen");
-	public static final FeatureHolder<WarmFruitTreeFeature, NoneFeatureConfiguration> LYCHEE = warm("lychee_worldgen");
-	public static final FeatureHolder<WarmFruitTreeFeature, NoneFeatureConfiguration> PASSIONFRUIT = warm("passionfruit_worldgen");
-	public static final FeatureHolder<WarmFruitTreeFeature, NoneFeatureConfiguration> RAMBUTAN = warm("rambutan_worldgen");
-	public static final FeatureHolder<WarmFruitTreeFeature, NoneFeatureConfiguration> TAMARIND = warm("tamarind_worldgen");
+	public static final FeatureHolder<WarmFruitTreeFeature, TreeConfig> ALMOND = warm("almond_worldgen", BlockRegistry.pamalmond);
+	public static final FeatureHolder<WarmFruitTreeFeature, TreeConfig> APRICOT = warm("apricot_worldgen", BlockRegistry.pamapricot);
+	public static final FeatureHolder<WarmFruitTreeFeature, TreeConfig> BANANA = warm("banana_worldgen", BlockRegistry.pambanana);
+	public static final FeatureHolder<WarmFruitTreeFeature, TreeConfig> CASHEW = warm("cashew_worldgen", BlockRegistry.pamcashew);
+	public static final FeatureHolder<WarmLogFruitTreeFeature, TreeConfig> CINNAMON = warmLog("cinnamon_worldgen", BlockRegistry.pamcinnamon);
+	public static final FeatureHolder<WarmFruitTreeFeature, TreeConfig> COCONUT = warm("coconut_worldgen", BlockRegistry.pamcoconut);
+	public static final FeatureHolder<WarmFruitTreeFeature, TreeConfig> DATE = warm("date_worldgen", BlockRegistry.pamdate);
+	public static final FeatureHolder<WarmFruitTreeFeature, TreeConfig> DRAGONFRUIT = warm("dragonfruit_worldgen", BlockRegistry.pamdragonfruit);
+	public static final FeatureHolder<WarmFruitTreeFeature, TreeConfig> DURIAN = warm("durian_worldgen", BlockRegistry.pamdurian);
+	public static final FeatureHolder<WarmFruitTreeFeature, TreeConfig> FIG = warm("fig_worldgen", BlockRegistry.pamfig);
+	public static final FeatureHolder<WarmFruitTreeFeature, TreeConfig> GRAPEFRUIT = warm("grapefruit_worldgen", BlockRegistry.pamgrapefruit);
+	public static final FeatureHolder<WarmFruitTreeFeature, TreeConfig> LIME = warm("lime_worldgen", BlockRegistry.pamlime);
+	public static final FeatureHolder<WarmFruitTreeFeature, TreeConfig> MANGO = warm("mango_worldgen", BlockRegistry.pammango);
+	public static final FeatureHolder<WarmFruitTreeFeature, TreeConfig> OLIVE = warm("olive_worldgen", BlockRegistry.pamolive);
+	public static final FeatureHolder<WarmFruitTreeFeature, TreeConfig> PAPAYA = warm("papaya_worldgen", BlockRegistry.pampapaya);
+	public static final FeatureHolder<WarmLogFruitTreeFeature, TreeConfig> PAPERBARK = warmLog("paperbark_worldgen", BlockRegistry.pampaperbark);
+	public static final FeatureHolder<WarmFruitTreeFeature, TreeConfig> PECAN = warm("pecan_worldgen", BlockRegistry.pampecan);
+	public static final FeatureHolder<WarmFruitTreeFeature, TreeConfig> PEPPERCORN = warm("peppercorn_worldgen", BlockRegistry.pampeppercorn);
+	public static final FeatureHolder<WarmFruitTreeFeature, TreeConfig> PERSIMMON = warm("persimmon_worldgen", BlockRegistry.pampersimmon);
+	public static final FeatureHolder<WarmFruitTreeFeature, TreeConfig> PISTACHIO = warm("pistachio_worldgen", BlockRegistry.pampistachio);
+	public static final FeatureHolder<WarmFruitTreeFeature, TreeConfig> POMEGRANATE = warm("pomegranate_worldgen", BlockRegistry.pampomegranate);
+	public static final FeatureHolder<WarmFruitTreeFeature, TreeConfig> STARFRUIT = warm("starfruit_worldgen", BlockRegistry.pamstarfruit);
+	public static final FeatureHolder<WarmFruitTreeFeature, TreeConfig> VANILLABEAN = warm("vanillabean_worldgen", BlockRegistry.pamvanillabean);
+	public static final FeatureHolder<WarmFruitTreeFeature, TreeConfig> BREADFRUIT = warm("breadfruit_worldgen", BlockRegistry.pambreadfruit);
+	public static final FeatureHolder<WarmFruitTreeFeature, TreeConfig> GUAVA = warm("guava_worldgen", BlockRegistry.pamguava);
+	public static final FeatureHolder<WarmFruitTreeFeature, TreeConfig> JACKFRUIT = warm("jackfruit_worldgen", BlockRegistry.pamjackfruit);
+	public static final FeatureHolder<WarmFruitTreeFeature, TreeConfig> LYCHEE = warm("lychee_worldgen", BlockRegistry.pamlychee);
+	public static final FeatureHolder<WarmFruitTreeFeature, TreeConfig> PASSIONFRUIT = warm("passionfruit_worldgen", BlockRegistry.pampassionfruit);
+	public static final FeatureHolder<WarmFruitTreeFeature, TreeConfig> RAMBUTAN = warm("rambutan_worldgen", BlockRegistry.pamrambutan);
+	public static final FeatureHolder<WarmFruitTreeFeature, TreeConfig> TAMARIND = warm("tamarind_worldgen", BlockRegistry.pamtamarind);
 	//Cold Fruits
-	public static final FeatureHolder<ColdLogFruitTreeFeature, NoneFeatureConfiguration> MAPLE = coldLog("maple_worldgen");
-	public static final FeatureHolder<ColdFruitTreeFeature, NoneFeatureConfiguration> PINENUT = cold("pinenut_worldgen");
+	public static final FeatureHolder<ColdLogFruitTreeFeature, TreeConfig> MAPLE = coldLog("maple_worldgen", BlockRegistry.pammaple);
+	public static final FeatureHolder<ColdFruitTreeFeature, TreeConfig> PINENUT = cold("pinenut_worldgen", BlockRegistry.pampinenut);
 
-	private static FeatureHolder<TemperateFruitTreeFeature, NoneFeatureConfiguration> temperate(String key) {
+	private static FeatureHolder<TemperateFruitTreeFeature, TreeConfig> temperate(String key, Supplier<Block> fruit) {
 		return holder(key,
-				() -> new TemperateFruitTreeFeature(NoneFeatureConfiguration.CODEC),
-				() -> NoneFeatureConfiguration.INSTANCE);
+				() -> new TemperateFruitTreeFeature(),
+				() -> new TreeConfig(BlockStateProvider.simple(fruit.get().defaultBlockState())));
 	}
 
-	private static FeatureHolder<WarmFruitTreeFeature, NoneFeatureConfiguration> warm(String key) {
+	private static FeatureHolder<WarmFruitTreeFeature, TreeConfig> warm(String key, Supplier<Block> fruit) {
 		return holder(key,
-				() -> new WarmFruitTreeFeature(NoneFeatureConfiguration.CODEC),
-				() -> NoneFeatureConfiguration.INSTANCE);
+				() -> new WarmFruitTreeFeature(),
+				() -> new TreeConfig(BlockStateProvider.simple(fruit.get().defaultBlockState())));
 	}
 
-	private static FeatureHolder<WarmLogFruitTreeFeature, NoneFeatureConfiguration> warmLog(String key) {
+	private static FeatureHolder<WarmLogFruitTreeFeature, TreeConfig> warmLog(String key, Supplier<Block> fruit) {
 		return holder(key,
-				() -> new WarmLogFruitTreeFeature(NoneFeatureConfiguration.CODEC),
-				() -> NoneFeatureConfiguration.INSTANCE);
+				() -> new WarmLogFruitTreeFeature(),
+				() -> new TreeConfig(BlockStateProvider.simple(fruit.get().defaultBlockState())));
 	}
 
-	private static FeatureHolder<ColdFruitTreeFeature, NoneFeatureConfiguration> cold(String key) {
+	private static FeatureHolder<ColdFruitTreeFeature, TreeConfig> cold(String key, Supplier<Block> fruit) {
 		return holder(key,
-				() -> new ColdFruitTreeFeature(NoneFeatureConfiguration.CODEC),
-				() -> NoneFeatureConfiguration.INSTANCE);
+				() -> new ColdFruitTreeFeature(),
+				() -> new TreeConfig(BlockStateProvider.simple(fruit.get().defaultBlockState())));
 	}
 
-	private static FeatureHolder<ColdLogFruitTreeFeature, NoneFeatureConfiguration> coldLog(String key) {
+	private static FeatureHolder<ColdLogFruitTreeFeature, TreeConfig> coldLog(String key, Supplier<Block> fruit) {
 		return holder(key,
-				() -> new ColdLogFruitTreeFeature(NoneFeatureConfiguration.CODEC),
-				() -> NoneFeatureConfiguration.INSTANCE);
+				() -> new ColdLogFruitTreeFeature(),
+				() -> new TreeConfig(BlockStateProvider.simple(fruit.get().defaultBlockState())));
 	}
 
 	private static <T extends Feature<C>, C extends FeatureConfiguration> FeatureHolder<T, C> holder(String key, Supplier<T> feature, Supplier<C> config) {

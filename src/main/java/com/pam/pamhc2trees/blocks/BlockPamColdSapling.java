@@ -2,7 +2,10 @@ package com.pam.pamhc2trees.blocks;
 
 import java.util.Random;
 
-import com.pam.pamhc2trees.worldgen.sapling.ColdFruitTreeFeatureSapling;
+import com.pam.pamhc2trees.util.FeatureHolder;
+import com.pam.pamhc2trees.worldgen.ColdFruitTreeFeature;
+import com.pam.pamhc2trees.worldgen.TreeFeature;
+import com.pam.pamhc2trees.worldgen.config.TreeConfig;
 
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
@@ -20,14 +23,15 @@ import net.minecraft.world.level.Level;
 import net.minecraft.server.level.ServerLevel;
 
 public class BlockPamColdSapling extends BushBlock implements BonemealableBlock {
+
 	public static final IntegerProperty STAGE = BlockStateProperties.STAGE;
 	protected static final VoxelShape SHAPE = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 12.0D, 14.0D);
-	private int verify;
+	private final FeatureHolder<ColdFruitTreeFeature, TreeConfig> feature;
 
-	public BlockPamColdSapling(Block.Properties properties, int verify) {
+	public BlockPamColdSapling(Block.Properties properties, FeatureHolder<ColdFruitTreeFeature, TreeConfig> feature) {
 		super(properties);
-		this.verify = verify;
-		this.registerDefaultState(this.stateDefinition.any().setValue(STAGE, Integer.valueOf(0)));
+		this.feature = feature;
+		this.registerDefaultState(this.stateDefinition.any().setValue(STAGE, 0));
 	}
 
 	@SuppressWarnings("deprecation")
@@ -54,9 +58,8 @@ public class BlockPamColdSapling extends BushBlock implements BonemealableBlock 
 		} else {
 			if (!net.minecraftforge.event.ForgeEventFactory.saplingGrowTree(worldIn, rand, pos))
 				return;
-			ColdFruitTreeFeatureSapling.generateTree(worldIn, pos, rand, verify);
+			feature.feature().generateTree(worldIn, pos, rand, feature.configuredFeature().config(), false);
 		}
-
 	}
 
 	@Override

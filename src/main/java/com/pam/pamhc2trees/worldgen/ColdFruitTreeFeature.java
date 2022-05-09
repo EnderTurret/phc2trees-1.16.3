@@ -6,6 +6,7 @@ import com.mojang.serialization.Codec;
 import com.pam.pamhc2trees.config.ChanceConfig;
 import com.pam.pamhc2trees.config.DimensionConfig;
 import com.pam.pamhc2trees.init.BlockRegistry;
+import com.pam.pamhc2trees.worldgen.config.TreeConfig;
 
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
@@ -20,36 +21,22 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 
-public class ColdFruitTreeFeature extends Feature<NoneFeatureConfiguration> {
-	public ColdFruitTreeFeature(Codec<NoneFeatureConfiguration> configFactory) {
-		super(configFactory);
+public class ColdFruitTreeFeature extends TreeFeature {
+
+	public ColdFruitTreeFeature() {
+		super();
 	}
 
 	@Override
-	public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> ctx) {
-		if (ctx.random().nextInt(ChanceConfig.coldfruittree_chance.get()) != 0
-				|| !DimensionConfig.allows(ctx.level().getLevel()))
-			return false;
-
-		if (isValidGround(ctx.level().getBlockState(ctx.origin().below()), ctx.level(), ctx.origin())
-				&& ctx.level().getBlockState(ctx.origin()).getMaterial().isReplaceable()) {
-			int type = 1;
-			generateTree(ctx.level(), ctx.origin(), ctx.random(), type);
-			return true;
-		}
-		return false;
+	protected int chance() {
+		return ChanceConfig.coldfruittree_chance.get();
 	}
 
-	private boolean isValidGround(BlockState state, BlockGetter worldIn, BlockPos pos) {
-		Block block = state.getBlock();
-		return block == Blocks.GRASS_BLOCK || block == Blocks.DIRT || block == Blocks.COARSE_DIRT
-				|| block == Blocks.PODZOL;
-	}
-
-	public static void generateTree(LevelAccessor world, BlockPos pos, Random random, int verify) {
+	@Override
+	public void generateTree(LevelAccessor world, BlockPos pos, Random random, TreeConfig config, boolean randomizeFruitAge) {
 		BlockState trunk = getTrunk();
 		BlockState leaves = getLeaves();
-		BlockState fruit = getFruit(verify, random);
+		BlockState fruit = getFruit(config, random, pos, randomizeFruitAge);
 
 		world.setBlock(pos.above(0), trunk, 3);
 		world.setBlock(pos.above(1), trunk, 3);
@@ -233,16 +220,13 @@ public class ColdFruitTreeFeature extends Feature<NoneFeatureConfiguration> {
 
 	}
 
-	private static BlockState getLeaves() {
+	@Override
+	public BlockState getLeaves() {
 		return Blocks.SPRUCE_LEAVES.defaultBlockState().setValue(BlockStateProperties.DISTANCE, 1);
 	}
 
-	private static BlockState getTrunk() {
+	@Override
+	public BlockState getTrunk() {
 		return Blocks.SPRUCE_LOG.defaultBlockState();
-	}
-
-	private static BlockState getFruit(int verify, Random random) {
-		int i = random.nextInt(2);
-		return BlockRegistry.pampinenut.defaultBlockState().setValue(BlockStateProperties.AGE_7, i);
 	}
 }
