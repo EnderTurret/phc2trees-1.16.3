@@ -12,6 +12,6 @@ public final class ClientProxy implements Proxy {
 	}
 
 	private static void clientSetup(FMLClientSetupEvent event) {
-		ModRenderers.registerBlocks();
+		ModRenderers.registerBlockLayers();
 	}
 }

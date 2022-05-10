@@ -5,7 +5,7 @@ import net.minecraft.client.renderer.ItemBlockRenderTypes;
 
 public class ModRenderers {
 
-	public static void registerBlocks() {
+	public static void registerBlockLayers() {
 		BlockRegistry.fruits().forEach(fruit -> ItemBlockRenderTypes.setRenderLayer(fruit, RenderType.cutout()));
 		BlockRegistry.saplings().forEach(sapling -> ItemBlockRenderTypes.setRenderLayer(sapling, RenderType.cutout()));
 	}
