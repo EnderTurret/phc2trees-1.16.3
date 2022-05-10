@@ -54,6 +54,7 @@ public class Pamhc2trees {
 
 		BlockRegistry.REGISTRY.register(modBus);
 		ItemRegistry.REGISTRY.register(modBus);
+		ItemRegistry.registerBlockItems();
 
 		modBus.addGenericListener(Feature.class, WorldGenRegistry::registerFeatures);
 
