@@ -58,7 +58,7 @@ public abstract class AbstractFruitBlock extends Block implements BonemealableBl
 	public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
 		if (isMaxAge(state)) {
 			if (!level.isClientSide) {
-				List<ItemStack> drops = Block.getDrops(state, (ServerLevel) level, pos, level.getBlockEntity(pos));
+				List<ItemStack> drops = Block.getDrops(state, (ServerLevel) level, pos, level.getBlockEntity(pos), player, ItemStack.EMPTY);
 
 				for (ItemStack stack : drops) {
 					level.addFreshEntity(new ItemEntity(level, pos.getX(), pos.getY(), pos.getZ(), stack));
