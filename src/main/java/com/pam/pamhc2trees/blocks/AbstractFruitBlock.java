@@ -46,7 +46,7 @@ public abstract class AbstractFruitBlock extends Block implements BonemealableBl
 	}
 
 	public BlockState withAge(int age) {
-		return this.defaultBlockState().setValue(AGE, Integer.valueOf(age));
+		return this.defaultBlockState().setValue(AGE, age);
 	}
 
 	public boolean isMaxAge(BlockState state) {
@@ -60,9 +60,8 @@ public abstract class AbstractFruitBlock extends Block implements BonemealableBl
 			if (!level.isClientSide) {
 				List<ItemStack> drops = Block.getDrops(state, (ServerLevel) level, pos, level.getBlockEntity(pos), player, ItemStack.EMPTY);
 
-				for (ItemStack stack : drops) {
-					level.addFreshEntity(new ItemEntity(level, pos.getX(), pos.getY(), pos.getZ(), stack));
-				}
+				for (ItemStack stack : drops)
+					level.addFreshEntity(new ItemEntity(level, pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5, stack));
 			}
 
 			player.causeFoodExhaustion(.05F);
