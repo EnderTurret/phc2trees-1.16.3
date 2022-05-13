@@ -4,6 +4,7 @@ import java.util.Random;
 
 import com.pam.pamhc2trees.config.ChanceConfig;
 import com.pam.pamhc2trees.config.DimensionConfig;
+import com.pam.pamhc2trees.init.BlockRegistry;
 import com.pam.pamhc2trees.worldgen.config.TreeConfig;
 
 import net.minecraft.core.BlockPos;
@@ -28,11 +29,14 @@ public abstract class TreeFeature extends Feature<TreeConfig> {
 				|| !DimensionConfig.allows(ctx.level().getLevel()))
 			return false;
 
-		if (isValidGround(ctx.level().getBlockState(ctx.origin().below()), ctx.level(), ctx.origin())
-				&& ctx.level().getBlockState(ctx.origin()).getMaterial().isReplaceable()) {
-			generateTree(ctx.level(), ctx.origin(), ctx.random(), ctx.config(), true);
+		BlockPos pos = ctx.origin();
+
+		if (ctx.level().getBlockState(pos).getMaterial().isReplaceable()) {
+			//Pamhc2trees.LOGGER.debug("[" + getClass().getSimpleName() + "] Placing at " + pos);
+			generateTree(ctx.level(), pos, ctx.random(), ctx.config(), true);
 			return true;
 		}
+
 		return false;
 	}
 

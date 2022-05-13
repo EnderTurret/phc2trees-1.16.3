@@ -14,12 +14,15 @@ import com.pam.pamhc2trees.worldgen.WarmFruitTreeFeature;
 import com.pam.pamhc2trees.worldgen.WarmLogFruitTreeFeature;
 import com.pam.pamhc2trees.worldgen.config.TreeConfig;
 
+import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
+import net.minecraft.world.level.levelgen.placement.BiomeFilter;
+import net.minecraft.world.level.levelgen.placement.InSquarePlacement;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.IForgeRegistry;
@@ -115,7 +118,8 @@ public class WorldGenRegistry {
 	private static <T extends Feature<C>, C extends FeatureConfiguration> FeatureHolder<T, C> holder(String key, Supplier<T> feature, Supplier<C> config) {
 		final FeatureHolder<T, C> holder = new FeatureHolder<>(Pamhc2trees.getId(key),
 				feature, config,
-				() -> List.of());
+				() -> List.of(InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome(),
+						PlacementUtils.filteredByBlockSurvival(BlockRegistry.almond_sapling.get())));
 		HOLDERS.add(holder);
 		return holder;
 	}
