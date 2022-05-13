@@ -2,8 +2,8 @@ package com.pam.pamhc2trees;
 
 import javax.annotation.Nonnull;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.pam.pamhc2trees.config.Config;
 import com.pam.pamhc2trees.events.EventSetup;
@@ -35,9 +35,9 @@ import net.minecraftforge.fml.loading.FMLPaths;
 public class Pamhc2trees {
 
 	public static final String MOD_ID = "pamhc2trees";
-	public static final Logger LOGGER = LogManager.getLogger();
+	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
-	public static final CreativeModeTab ITEM_GROUP = new CreativeModeTab("pamhc2trees") {
+	public static final CreativeModeTab ITEM_GROUP = new CreativeModeTab(MOD_ID) {
 		@Override
 		public ItemStack makeIcon() {
 			return new ItemStack(BlockRegistry.apple_sapling.get());
