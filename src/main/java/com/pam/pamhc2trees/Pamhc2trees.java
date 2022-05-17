@@ -47,8 +47,8 @@ public class Pamhc2trees {
 	public Pamhc2trees() {
 		DistExecutor.safeRunForDist(() -> ClientProxy::new, () -> ServerProxy::new);
 
-		ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, Config.CONFIG, "pamhc2trees.toml");
-		Config.loadConfig(Config.CONFIG, FMLPaths.CONFIGDIR.get().resolve("pamhc2trees.toml"));
+		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.CONFIG, "pamhc2trees.toml");
+		//Config.loadConfig(Config.CONFIG, FMLPaths.CONFIGDIR.get().resolve("pamhc2trees.toml"));
 
 		final IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();
 

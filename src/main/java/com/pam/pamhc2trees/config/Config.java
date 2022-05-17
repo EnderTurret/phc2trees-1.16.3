@@ -29,10 +29,10 @@ public class Config {
 		CONFIG = BUILDER.build();
 	}
 
-	public static void loadConfig(ForgeConfigSpec config, Path path) {
+	/*public static void loadConfig(ForgeConfigSpec config, Path path) {
 		CommentedFileConfig file = CommentedFileConfig.builder(path).sync().autosave().writingMode(WritingMode.REPLACE)
 				.build();
 		file.load();
 		config.setConfig(file);
-	}
+	}*/
 }
