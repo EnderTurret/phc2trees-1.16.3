@@ -67,8 +67,10 @@ public class FeatureHolder<T extends Feature<C>, C extends FeatureConfiguration>
 	public void registerFeature() {
 		if (feature != null) throw new IllegalStateException("Feature already registered!");
 		feature = featureSup.get();
-		feature.setRegistryName(key);
-		ForgeRegistries.FEATURES.register(feature);
+		if (feature.getRegistryName() == null) {
+			feature.setRegistryName(key);
+			ForgeRegistries.FEATURES.register(feature);
+		}
 		featureSup = null;
 	}
 
