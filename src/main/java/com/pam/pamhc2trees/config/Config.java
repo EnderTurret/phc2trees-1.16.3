@@ -10,23 +10,24 @@ import net.minecraftforge.fml.common.Mod;
 
 public class Config {
 
-	public static final ForgeConfigSpec.Builder BUILDER = new ForgeConfigSpec.Builder();
 	public static final ForgeConfigSpec CONFIG;
 
 	static {
-		BUILDER.push("Tweak World Generation Rates");
-		ChanceConfig.init(BUILDER);
-		BUILDER.pop();
+		ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder();
 
-		BUILDER.push("Enable/Disable Garden World Generation");
-		EnableConfig.init(BUILDER);
-		BUILDER.pop();
+		builder.push("Tweak World Generation Rates");
+		ChanceConfig.init(builder);
+		builder.pop();
 
-		BUILDER.push("Dimensions Settings");
-		DimensionConfig.init(BUILDER);
-		BUILDER.pop();
+		builder.push("Enable/Disable Garden World Generation");
+		EnableConfig.init(builder);
+		builder.pop();
 
-		CONFIG = BUILDER.build();
+		builder.push("Dimensions Settings");
+		DimensionConfig.init(builder);
+		builder.pop();
+
+		CONFIG = builder.build();
 	}
 
 	/*public static void loadConfig(ForgeConfigSpec config, Path path) {
