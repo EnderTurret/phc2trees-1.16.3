@@ -2,9 +2,7 @@ package com.pam.pamhc2trees.worldgen;
 
 import java.util.Random;
 
-import com.pam.pamhc2trees.config.ChanceConfig;
 import com.pam.pamhc2trees.config.DimensionConfig;
-import com.pam.pamhc2trees.init.BlockRegistry;
 import com.pam.pamhc2trees.worldgen.config.TreeConfig;
 
 import net.minecraft.core.BlockPos;

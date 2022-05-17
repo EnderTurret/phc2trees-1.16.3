@@ -2,25 +2,14 @@ package com.pam.pamhc2trees.worldgen;
 
 import java.util.Random;
 
-import com.mojang.serialization.Codec;
 import com.pam.pamhc2trees.config.ChanceConfig;
-import com.pam.pamhc2trees.config.DimensionConfig;
-import com.pam.pamhc2trees.config.EnableConfig;
-import com.pam.pamhc2trees.init.BlockRegistry;
 import com.pam.pamhc2trees.worldgen.config.TreeConfig;
 
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.chunk.ChunkGenerator;
-import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 
 public class WarmLogFruitTreeFeature extends TreeFeature {
 

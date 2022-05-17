@@ -8,8 +8,6 @@ import com.pam.pamhc2trees.items.FruitItem;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;

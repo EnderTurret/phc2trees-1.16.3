@@ -15,11 +15,10 @@ import com.pam.pamhc2trees.proxy.ClientProxy;
 import com.pam.pamhc2trees.proxy.ServerProxy;
 import com.pam.pamhc2trees.worldgen.FeaturePlacement;
 
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -29,9 +28,8 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.fml.loading.FMLPaths;
 
-@Mod("pamhc2trees")
+@Mod(Pamhc2trees.MOD_ID)
 public class Pamhc2trees {
 
 	public static final String MOD_ID = "pamhc2trees";

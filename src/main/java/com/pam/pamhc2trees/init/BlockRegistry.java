@@ -3,8 +3,8 @@ package com.pam.pamhc2trees.init;
 import java.util.stream.Stream;
 
 import com.pam.pamhc2trees.Pamhc2trees;
-import com.pam.pamhc2trees.blocks.FruitSaplingBlock;
 import com.pam.pamhc2trees.blocks.FruitBlock;
+import com.pam.pamhc2trees.blocks.FruitSaplingBlock;
 import com.pam.pamhc2trees.blocks.LogFruitBlock;
 
 import net.minecraft.world.level.block.Block;

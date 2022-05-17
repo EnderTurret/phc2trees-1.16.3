@@ -3,8 +3,6 @@ package com.pam.pamhc2trees.util;
 import java.util.List;
 import java.util.function.Supplier;
 
-import com.pam.pamhc2trees.Pamhc2trees;
-
 import net.minecraft.core.Holder;
 import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.resources.ResourceLocation;

@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.function.Supplier;
 
 import com.pam.pamhc2trees.Pamhc2trees;
-import com.pam.pamhc2trees.config.EnableConfig;
 import com.pam.pamhc2trees.util.FeatureHolder;
 import com.pam.pamhc2trees.worldgen.ColdFruitTreeFeature;
 import com.pam.pamhc2trees.worldgen.ColdLogFruitTreeFeature;
@@ -15,18 +14,13 @@ import com.pam.pamhc2trees.worldgen.WarmLogFruitTreeFeature;
 import com.pam.pamhc2trees.worldgen.config.TreeConfig;
 
 import net.minecraft.data.worldgen.placement.PlacementUtils;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.placement.BiomeFilter;
 import net.minecraft.world.level.levelgen.placement.InSquarePlacement;
 import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.IForgeRegistry;
-import net.minecraftforge.registries.IForgeRegistryEntry;
 
 public class WorldGenRegistry {
 
