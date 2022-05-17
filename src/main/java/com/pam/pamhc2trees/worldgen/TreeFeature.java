@@ -52,7 +52,7 @@ public abstract class TreeFeature extends Feature<TreeConfig> {
 	public abstract BlockState getTrunk();
 
 	public BlockState getFruit(TreeConfig config, Random rand, BlockPos pos, boolean randomizeAge) {
-		final BlockState state = config.fruit().getState(rand, pos);
+		BlockState state = config.fruit().getState(rand, pos);
 		return state.setValue(BlockStateProperties.AGE_7, randomizeAge ? rand.nextInt(2) : 0);
 	}
 }

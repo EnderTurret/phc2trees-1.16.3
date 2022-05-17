@@ -110,7 +110,7 @@ public class WorldGenRegistry {
 	}
 
 	private static <T extends Feature<C>, C extends FeatureConfiguration> FeatureHolder<T, C> holder(String key, Supplier<T> feature, Supplier<C> config) {
-		final FeatureHolder<T, C> holder = new FeatureHolder<>(Pamhc2trees.getId(key),
+		FeatureHolder<T, C> holder = new FeatureHolder<>(Pamhc2trees.getId(key),
 				feature, config,
 				() -> List.of(InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome(),
 						PlacementUtils.filteredByBlockSurvival(BlockRegistry.almond_sapling.get())));

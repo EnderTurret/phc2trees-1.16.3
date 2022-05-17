@@ -48,7 +48,7 @@ public class Pamhc2trees {
 		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.CONFIG, "pamhc2trees.toml");
 		//Config.loadConfig(Config.CONFIG, FMLPaths.CONFIGDIR.get().resolve("pamhc2trees.toml"));
 
-		final IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();
+		IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();
 
 		BlockRegistry.REGISTRY.register(modBus);
 		ItemRegistry.REGISTRY.register(modBus);
